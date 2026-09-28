@@ -1,0 +1,11 @@
+loaded heart_4x_otf_v2_fp32.safetensors (fp32, head 64) in 0.02 s
+loaded heart_4x_otf_gan_fp32.safetensors (fp32, head 64) in 0.02 s
+loaded heart_4x_pretrain_fp32.safetensors (fp32, head 64) in 0.02 s
+loaded heart_2x_fp32.safetensors (fp32, head 64) in 0.09 s
+gate: device CPU, lane fp32, head pad 64, MLX_ENABLE_TF32=unset
+── e2e vs torch (CPU fp32) and the author's ONNX (ORT CPU) ──
+  PASS fidelity 128² vs torch max|Δ| 2.205e-06  mean|Δ| 3.307e-07  |ref|max 0.7964  rel 2.77e-06  cos 1.00000000  n≠ 749885  PSNR vs torch 127.5 dB · vs ONNX 90.2 dB (torch-vs-ONNX 90.2 dB) · 8.7 s
+  PASS sharp 128² vs torch max|Δ| 3.278e-06  mean|Δ| 4.264e-07  |ref|max 0.9294  rel 3.53e-06  cos 1.00000000  n≠ 757731  PSNR vs torch 125.3 dB · vs ONNX 84.9 dB (torch-vs-ONNX 84.9 dB) · 7.8 s
+  PASS clean 128² vs torch max|Δ| 4.888e-06  mean|Δ| 5.854e-07  |ref|max 1.823  rel 2.68e-06  cos 1.00000012  n≠ 768641  PSNR vs torch 122.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 10.4 s
+  PASS clean2x 128² vs torch max|Δ| 3.934e-06  mean|Δ| 4.879e-07  |ref|max 1.637  rel 2.40e-06  cos 1.00000000  n≠ 191502  PSNR vs torch 124.0 dB · vs ONNX 95.8 dB (torch-vs-ONNX 95.8 dB) · 10.7 s
+gate summary: 4 passed, 0 failed

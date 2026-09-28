@@ -1,0 +1,8 @@
+PASS heart_4x_otf_v2_fp32.safetensors scale 4: 748 tensors, 16677399 params, missing 0, unused 0, dtypes ["float32": 748]
+PASS heart_4x_otf_v2_fp16.safetensors scale 4: 748 tensors, 16677399 params, missing 0, unused 0, dtypes ["float16": 528, "float32": 220]
+PASS heart_4x_otf_gan_fp32.safetensors scale 4: 748 tensors, 16677399 params, missing 0, unused 0, dtypes ["float32": 748]
+PASS heart_4x_otf_gan_fp16.safetensors scale 4: 748 tensors, 16677399 params, missing 0, unused 0, dtypes ["float16": 528, "float32": 220]
+PASS heart_4x_pretrain_fp32.safetensors scale 4: 748 tensors, 16677399 params, missing 0, unused 0, dtypes ["float32": 748]
+PASS heart_4x_pretrain_fp16.safetensors scale 4: 748 tensors, 16677399 params, missing 0, unused 0, dtypes ["float16": 528, "float32": 220]
+PASS heart_2x_fp32.safetensors scale 2: 746 tensors, 16529687 params, missing 0, unused 0, dtypes ["float32": 746]
+PASS heart_2x_fp16.safetensors scale 2: 746 tensors, 16529687 params, missing 0, unused 0, dtypes ["float16": 526, "float32": 220]

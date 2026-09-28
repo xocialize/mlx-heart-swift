@@ -1,0 +1,19 @@
+.build/
+.swiftpm/
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+DerivedData/
+.DS_Store
+# oracle inputs / outputs (reproducible: make_shim.sh, hf download, convert_weights.py, dump_goldens.py)
+oracle/shim/
+oracle/pydeps/
+oracle/mlxdeps/
+oracle/upstream/
+oracle/weights/
+oracle/goldens/
+oracle/hub-verify/
+*.safetensors
+!Tests/**/Resources/*.safetensors
+# eyeball outputs (reproducible with `heart-smoke run|engine|tiles`); the logs stay tracked
+oracle/reports/**/*.png

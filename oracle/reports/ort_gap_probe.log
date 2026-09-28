@@ -1,0 +1,3 @@
+128²: torch-CPU vs ORT-CPU PSNR 91.2 dB (max|d| 1.54e-04), N_iln = 2,949,120
+256²: torch-CPU vs ORT-CPU PSNR 72.5 dB (max|d| 1.64e-03), N_iln = 11,796,480
+384²: torch-CPU vs ORT-CPU PSNR 61.4 dB (max|d| 5.52e-03), N_iln = 26,542,080

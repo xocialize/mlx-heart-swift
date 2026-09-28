@@ -1,0 +1,188 @@
+loaded heart_4x_otf_v2_fp32.safetensors (fp32, head 64) in 0.03 s
+gate: device CPU, lane fp32, head pad 64, MLX_ENABLE_TF32=unset
+── tables (tolerance 0 / 1 ulp) ──
+  PASS rib_coords max|Δ| 5.960e-08  mean|Δ| 2.705e-09  |ref|max 1  rel 5.96e-08  cos 1.00000000  n≠ 2272 ≤ 1 ulp (torch float32 sin/cos are 1-ulp, not correctly rounded)
+  PASS g0b0.q_pos max|Δ| 4.768e-07  mean|Δ| 7.032e-09  |ref|max 2.779  rel 1.72e-07  cos 1.00000000  n≠ 10634 tol 2e-06
+  PASS g0b0.k_pos max|Δ| 2.384e-07  mean|Δ| 6.615e-09  |ref|max 2.397  rel 9.95e-08  cos 0.99999994  n≠ 12228 tol 2e-06
+  PASS g0b2.q_pos max|Δ| 4.768e-07  mean|Δ| 1.380e-08  |ref|max 3.343  rel 1.43e-07  cos 1.00000012  n≠ 13838 tol 2e-06
+  PASS g0b2.k_pos max|Δ| 4.768e-07  mean|Δ| 1.468e-08  |ref|max 3.657  rel 1.30e-07  cos 1.00000000  n≠ 13179 tol 2e-06
+  PASS g0b4.q_pos max|Δ| 2.384e-07  mean|Δ| 7.151e-09  |ref|max 1.989  rel 1.20e-07  cos 1.00000012  n≠ 12769 tol 2e-06
+  PASS g0b4.k_pos max|Δ| 2.384e-07  mean|Δ| 6.800e-09  |ref|max 1.965  rel 1.21e-07  cos 1.00000000  n≠ 13611 tol 2e-06
+  PASS g1b0.q_pos max|Δ| 2.384e-07  mean|Δ| 7.385e-09  |ref|max 1.688  rel 1.41e-07  cos 1.00000000  n≠ 12728 tol 2e-06
+  PASS g1b0.k_pos max|Δ| 2.384e-07  mean|Δ| 7.421e-09  |ref|max 1.866  rel 1.28e-07  cos 0.99999988  n≠ 12826 tol 2e-06
+  PASS g1b2.q_pos max|Δ| 2.384e-07  mean|Δ| 9.269e-09  |ref|max 2.456  rel 9.71e-08  cos 1.00000012  n≠ 12723 tol 2e-06
+  PASS g1b2.k_pos max|Δ| 2.384e-07  mean|Δ| 9.385e-09  |ref|max 2.033  rel 1.17e-07  cos 0.99999994  n≠ 13061 tol 2e-06
+  PASS g1b4.q_pos max|Δ| 2.384e-07  mean|Δ| 9.865e-09  |ref|max 1.973  rel 1.21e-07  cos 1.00000000  n≠ 14812 tol 2e-06
+  PASS g1b4.k_pos max|Δ| 2.384e-07  mean|Δ| 9.738e-09  |ref|max 2.089  rel 1.14e-07  cos 0.99999988  n≠ 15358 tol 2e-06
+  PASS g2b0.q_pos max|Δ| 2.384e-07  mean|Δ| 8.327e-09  |ref|max 1.744  rel 1.37e-07  cos 1.00000000  n≠ 13905 tol 2e-06
+  PASS g2b0.k_pos max|Δ| 2.384e-07  mean|Δ| 7.895e-09  |ref|max 3.008  rel 7.93e-08  cos 1.00000012  n≠ 15216 tol 2e-06
+  PASS g2b2.q_pos max|Δ| 2.384e-07  mean|Δ| 1.095e-08  |ref|max 2.124  rel 1.12e-07  cos 0.99999994  n≠ 14829 tol 2e-06
+  PASS g2b2.k_pos max|Δ| 2.384e-07  mean|Δ| 1.111e-08  |ref|max 2.387  rel 9.99e-08  cos 1.00000000  n≠ 14359 tol 2e-06
+  PASS g2b4.q_pos max|Δ| 3.576e-07  mean|Δ| 1.313e-08  |ref|max 2.334  rel 1.53e-07  cos 1.00000012  n≠ 16874 tol 2e-06
+  PASS g2b4.k_pos max|Δ| 3.576e-07  mean|Δ| 1.371e-08  |ref|max 2.855  rel 1.25e-07  cos 1.00000000  n≠ 17036 tol 2e-06
+  PASS g3b0.q_pos max|Δ| 2.384e-07  mean|Δ| 1.174e-08  |ref|max 2.723  rel 8.76e-08  cos 1.00000000  n≠ 15245 tol 2e-06
+  PASS g3b0.k_pos max|Δ| 2.980e-07  mean|Δ| 1.249e-08  |ref|max 3.849  rel 7.74e-08  cos 0.99999982  n≠ 15830 tol 2e-06
+  PASS g3b2.q_pos max|Δ| 2.384e-07  mean|Δ| 1.167e-08  |ref|max 2.502  rel 9.53e-08  cos 0.99999994  n≠ 12728 tol 2e-06
+  PASS g3b2.k_pos max|Δ| 4.768e-07  mean|Δ| 1.280e-08  |ref|max 2.836  rel 1.68e-07  cos 1.00000000  n≠ 12782 tol 2e-06
+  PASS g3b4.q_pos max|Δ| 2.384e-07  mean|Δ| 1.191e-08  |ref|max 2.178  rel 1.09e-07  cos 1.00000012  n≠ 15343 tol 2e-06
+  PASS g3b4.k_pos max|Δ| 2.384e-07  mean|Δ| 1.212e-08  |ref|max 1.854  rel 1.29e-07  cos 1.00000012  n≠ 16095 tol 2e-06
+  PASS g4b0.q_pos max|Δ| 3.576e-07  mean|Δ| 1.170e-08  |ref|max 2.299  rel 1.56e-07  cos 1.00000012  n≠ 15465 tol 2e-06
+  PASS g4b0.k_pos max|Δ| 4.768e-07  mean|Δ| 1.176e-08  |ref|max 2.548  rel 1.87e-07  cos 1.00000000  n≠ 15563 tol 2e-06
+  PASS g4b2.q_pos max|Δ| 2.533e-07  mean|Δ| 1.202e-08  |ref|max 2.792  rel 9.07e-08  cos 1.00000000  n≠ 13498 tol 2e-06
+  PASS g4b2.k_pos max|Δ| 4.768e-07  mean|Δ| 1.284e-08  |ref|max 3.495  rel 1.36e-07  cos 1.00000012  n≠ 13612 tol 2e-06
+  PASS g4b4.q_pos max|Δ| 2.384e-07  mean|Δ| 1.333e-08  |ref|max 2.835  rel 8.41e-08  cos 1.00000000  n≠ 13946 tol 2e-06
+  PASS g4b4.k_pos max|Δ| 4.768e-07  mean|Δ| 1.386e-08  |ref|max 3.405  rel 1.40e-07  cos 1.00000012  n≠ 14658 tol 2e-06
+  PASS g5b0.q_pos max|Δ| 2.384e-07  mean|Δ| 6.289e-09  |ref|max 1.762  rel 1.35e-07  cos 1.00000012  n≠ 12983 tol 2e-06
+  PASS g5b0.k_pos max|Δ| 2.384e-07  mean|Δ| 6.450e-09  |ref|max 2.186  rel 1.09e-07  cos 0.99999994  n≠ 13906 tol 2e-06
+  PASS g5b2.q_pos max|Δ| 2.384e-07  mean|Δ| 7.364e-09  |ref|max 1.98  rel 1.20e-07  cos 1.00000000  n≠ 11429 tol 2e-06
+  PASS g5b2.k_pos max|Δ| 2.384e-07  mean|Δ| 7.890e-09  |ref|max 2.886  rel 8.26e-08  cos 1.00000000  n≠ 11522 tol 2e-06
+  PASS g5b4.q_pos max|Δ| 2.384e-07  mean|Δ| 8.157e-09  |ref|max 1.936  rel 1.23e-07  cos 0.99999994  n≠ 11456 tol 2e-06
+  PASS g5b4.k_pos max|Δ| 3.576e-07  mean|Δ| 8.829e-09  |ref|max 3.072  rel 1.16e-07  cos 1.00000000  n≠ 12345 tol 2e-06
+── taps 64x64 ──
+  PASS padded max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 1  rel 0.00e+00  cos 1.00000012  n≠ 0 tol 0 (exact)
+  PASS conv_first max|Δ| 3.576e-07  mean|Δ| 1.921e-08  |ref|max 1.482  rel 2.41e-07  cos 1.00000012  n≠ 594983 tol 2e-06
+  PASS patch_embed max|Δ| 3.576e-07  mean|Δ| 1.161e-08  |ref|max 1.437  rel 2.49e-07  cos 1.00000000  n≠ 551060 tol 2e-06
+  PASS g0b0.norm1.x max|Δ| 1.431e-06  mean|Δ| 4.771e-08  |ref|max 4.817  rel 2.97e-07  cos 1.00000012  n≠ 568398 tol 1e-05
+  PASS g0b0.norm1.std max|Δ| 7.451e-09  mean|Δ| 7.451e-09  |ref|max 0.1208  rel 6.17e-08  cos 1.00000000  n≠ 1 tol 1e-05
+  PASS g0b0.cab_pre_ca max|Δ| 5.722e-05  mean|Δ| 4.038e-06  |ref|max 73.31  rel 7.81e-07  cos 0.99999994  n≠ 704104 tol 1e-05
+  PASS g0b0.cab max|Δ| 5.722e-05  mean|Δ| 2.996e-06  |ref|max 73.31  rel 7.81e-07  cos 0.99999994  n≠ 709935 tol 1e-05
+  PASS g0b0.attn max|Δ| 3.040e-06  mean|Δ| 2.159e-07  |ref|max 4.246  rel 7.16e-07  cos 1.00000012  n≠ 702799 tol 1e-05
+  PASS g0b0.norm2.x max|Δ| 1.907e-06  mean|Δ| 1.002e-07  |ref|max 5.004  rel 3.81e-07  cos 1.00000012  n≠ 650041 tol 1e-05
+  PASS g0b0.norm2.std max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.1147  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05
+  PASS g0b0.mlp max|Δ| 3.576e-06  mean|Δ| 1.957e-07  |ref|max 6.204  rel 5.76e-07  cos 0.99999988  n≠ 707267 tol 1e-05
+  PASS g0b0.out(piecewise) max|Δ| 5.364e-07  mean|Δ| 3.580e-08  |ref|max 0.7922  rel 6.77e-07  cos 1.00000012  n≠ 687394 tol 1e-05
+  PASS g0b0.out(module) max|Δ| 5.364e-07  mean|Δ| 3.580e-08  |ref|max 0.7922  rel 6.77e-07  cos 1.00000012  n≠ 687394 tol 1e-05
+  PASS g0b1.out max|Δ| 4.619e-07  mean|Δ| 3.963e-08  |ref|max 0.5992  rel 7.71e-07  cos 1.00000000  n≠ 698955 tol 1e-05
+  PASS g0b2.shiftpad max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 3.198  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 0 (exact)
+  PASS g0b2.shiftpad(ported in) max|Δ| 2.146e-06  mean|Δ| 2.104e-07  |ref|max 3.198  rel 6.71e-07  cos 1.00000012  n≠ 1552959 tol 1e-05
+  PASS g0b2.attn(shifted) max|Δ| 2.980e-06  mean|Δ| 3.497e-07  |ref|max 3.37  rel 8.84e-07  cos 1.00000000  n≠ 714929 tol 1e-05
+  PASS g0b2.out max|Δ| 3.353e-07  mean|Δ| 4.003e-08  |ref|max 0.6043  rel 5.55e-07  cos 1.00000012  n≠ 708889 tol 1e-05
+  PASS g0.out (RHAG 0) max|Δ| 3.338e-06  mean|Δ| 1.368e-07  |ref|max 2.427  rel 1.38e-06  cos 1.00000012  n≠ 712454 tol 1e-05
+  PASS g5b4.attn (chained) max|Δ| 3.025e-06  mean|Δ| 3.233e-07  |ref|max 1.639  rel 1.85e-06  cos 1.00000000  n≠ 721070 tol 5e-05
+  PASS features (chained) max|Δ| 5.752e-06  mean|Δ| 3.021e-08  |ref|max 0.6391  rel 9.00e-06  cos 1.00000000  n≠ 720170 tol 5e-05
+  PASS conv_after_body max|Δ| 2.906e-06  mean|Δ| 1.563e-07  |ref|max 0.7997  rel 3.63e-06  cos 0.99999994  n≠ 724672 tol 5e-05
+  PASS after_body_residual max|Δ| 2.876e-06  mean|Δ| 1.578e-07  |ref|max 1.44  rel 2.00e-06  cos 0.99999988  n≠ 717815 tol 5e-05
+  PASS before_upsample max|Δ| 6.966e-06  mean|Δ| 2.362e-07  |ref|max 2.979  rel 2.34e-06  cos 0.99999994  n≠ 258174 tol 5e-05
+  PASS upsample max|Δ| 1.974e-05  mean|Δ| 2.461e-07  |ref|max 3.729  rel 5.29e-06  cos 0.99999994  n≠ 4167413 tol 5e-05
+  PASS conv_last max|Δ| 2.205e-06  mean|Δ| 3.279e-07  |ref|max 0.7304  rel 3.02e-06  cos 1.00000012  n≠ 187241 tol 5e-05
+  PASS out (module forward) max|Δ| 2.205e-06  mean|Δ| 3.279e-07  |ref|max 0.7304  rel 3.02e-0  taps 64x64 in 8.0 s
+  taps 96x96 in 14.1 s
+6  cos 1.00000012  n≠ 187241 tol 2e-04  PSNR 127.6 dB
+── taps 96x96 ──
+  PASS padded max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.9999  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 0 (exact)
+  PASS conv_first max|Δ| 4.768e-07  mean|Δ| 1.941e-08  |ref|max 1.507  rel 3.16e-07  cos 1.00000000  n≠ 1339037 tol 2e-06
+  PASS patch_embed max|Δ| 4.768e-07  mean|Δ| 1.175e-08  |ref|max 1.304  rel 3.66e-07  cos 1.00000000  n≠ 1241055 tol 2e-06
+  PASS g0b0.norm1.x max|Δ| 1.431e-06  mean|Δ| 4.165e-08  |ref|max 4.876  rel 2.93e-07  cos 0.99999988  n≠ 1145141 tol 1e-05
+  PASS g0b0.norm1.std max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.1216  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05
+  PASS g0b0.cab_pre_ca max|Δ| 5.722e-05  mean|Δ| 4.011e-06  |ref|max 74.86  rel 7.64e-07  cos 0.99999988  n≠ 1584302 tol 1e-05
+  PASS g0b0.cab max|Δ| 5.722e-05  mean|Δ| 2.971e-06  |ref|max 74.86  rel 7.64e-07  cos 1.00000000  n≠ 1590924 tol 1e-05
+  PASS g0b0.attn max|Δ| 3.934e-06  mean|Δ| 2.073e-07  |ref|max 3.96  rel 9.93e-07  cos 1.00000000  n≠ 1578880 tol 1e-05
+  PASS g0b0.norm2.x max|Δ| 2.146e-06  mean|Δ| 1.015e-07  |ref|max 5.263  rel 4.08e-07  cos 1.00000000  n≠ 1488598 tol 1e-05
+  PASS g0b0.norm2.std max|Δ| 7.451e-09  mean|Δ| 7.451e-09  |ref|max 0.115  rel 6.48e-08  cos 1.00000000  n≠ 1 tol 1e-05
+  PASS g0b0.mlp max|Δ| 3.338e-06  mean|Δ| 1.835e-07  |ref|max 7.216  rel 4.63e-07  cos 0.99999988  n≠ 1589091 tol 1e-05
+  PASS g0b0.out(piecewise) max|Δ| 4.768e-07  mean|Δ| 3.436e-08  |ref|max 0.7714  rel 6.18e-07  cos 1.00000000  n≠ 1540817 tol 1e-05
+  PASS g0b0.out(module) max|Δ| 4.768e-07  mean|Δ| 3.436e-08  |ref|max 0.7714  rel 6.18e-07  cos 1.00000000  n≠ 1540817 tol 1e-05
+  PASS g0b1.out max|Δ| 4.172e-07  mean|Δ| 3.871e-08  |ref|max 0.5912  rel 7.06e-07  cos 1.00000012  n≠ 1569682 tol 1e-05
+  PASS g0b2.shiftpad max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 3.266  rel 0.00e+00  cos 0.99999994  n≠ 0 tol 0 (exact)
+  PASS g0b2.shiftpad(ported in) max|Δ| 2.086e-06  mean|Δ| 2.025e-07  |ref|max 3.266  rel 6.39e-07  cos 0.99999994  n≠ 2769084 tol 1e-05
+  PASS g0b2.attn(shifted) max|Δ| 3.718e-06  mean|Δ| 3.240e-07  |ref|max 3.371  rel 1.10e-06  cos 1.00000000  n≠ 1603465 tol 1e-05
+  PASS g0b2.out max|Δ| 3.725e-07  mean|Δ| 4.004e-08  |ref|max 0.6272  rel 5.94e-07  cos 1.00000000  n≠ 1594446 tol 1e-05
+  PASS g0.out (RHAG 0) max|Δ| 3.695e-06  mean|Δ| 1.369e-07  |ref|max 2.616  rel 1.41e-06  cos 1.00000000  n≠ 1602997 tol 1e-05
+  PASS g5b4.attn (chained) max|Δ| 2.824e-06  mean|Δ| 3.236e-07  |ref|max 1.642  rel 1.72e-06  cos 1.00000012  n≠ 1623118 tol 5e-05
+  PASS features (chained) max|Δ| 2.131e-06  mean|Δ| 3.104e-08  |ref|max 0.6818  rel 3.13e-06  cos 0.99999988  n≠ 1620842 tol 5e-05
+  PASS conv_after_body max|Δ| 1.937e-06  mean|Δ| 1.611e-07  |ref|max 0.8527  rel 2.27e-06  cos 0.99999994  n≠ 1630847 tol 5e-05
+  PASS after_body_residual max|Δ| 1.937e-06  mean|Δ| 1.627e-07  |ref|max 1.358  rel 1.43e-06  cos 1.00000012  n≠ 1615653 tol 5e-05
+  PASS before_upsample max|Δ| 9.775e-06  mean|Δ| 2.493e-07  |ref|max 3.134  rel 3.12e-06  cos 1.00000000  n≠ 580517 tol 5e-05
+  PASS upsample max|Δ| 8.941e-06  mean|Δ| 2.600e-07  |ref|max 3.868  rel 2.31e-06  cos 0.99999988  n≠ 9372797 tol 5e-05
+  PASS conv_last max|Δ| 2.325e-06  mean|Δ| 3.306e-07  |ref|max 0.7616  rel 3.05e-06  cos 0.99999994  n≠ 421568 tol 5e-05
+  PASS out (module forward) max|Δ| 2.325e-06  mean|Δ| 3.306e-07  |ref|max 0.7616  rel 3.05e-06  cos 0.99999994  n≠ 421568 tol 2e-04  PSNR 127.5 dB
+── taps 100x140 ──
+  PASS padded max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 1  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 0 (exact)
+  PASS conv_first max|Δ| 4.172e-07  mean|Δ| 1.950e-08  |ref|max 1.507  rel 2.77e-07  cos 1.00000000  n≠ 2982136 tol 2e-06
+  PASS patch_embed max|Δ| 3.576e-07  mean|Δ| 1.180e-08  |ref|max 1.239  rel 2.89e-07  cos 1.00000000  n≠ 2765895 tol 2e-06
+  PASS g0b0.norm1.x max|Δ| 1.669e-06  mean|Δ| 4.194e-08  |ref|max 4.894  rel 3.41e-07  cos 1.00000000  n≠ 2443490 t  taps 100x140 in 13.8 s
+ol 1e-05
+  PASS g0b0.norm1.std max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.1212  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05
+  PASS g0b0.cab_pre_ca max|Δ| 6.104e-05  mean|Δ| 4.010e-06  |ref|max 75.83  rel 8.05e-07  cos 1.00000000  n≠ 3519242 tol 1e-05
+  PASS g0b0.cab max|Δ| 6.104e-05  mean|Δ| 2.987e-06  |ref|max 75.83  rel 8.05e-07  cos 1.00000012  n≠ 3545803 tol 1e-05
+  PASS g0b0.attn max|Δ| 4.172e-06  mean|Δ| 2.092e-07  |ref|max 4.462  rel 9.35e-07  cos 1.00000000  n≠ 3507575 tol 1e-05
+  PASS g0b0.norm2.x max|Δ| 2.146e-06  mean|Δ| 9.993e-08  |ref|max 5.186  rel 4.14e-07  cos 1.00000000  n≠ 3258385 tol 1e-05
+  PASS g0b0.norm2.std max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.115  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05
+  PASS g0b0.mlp max|Δ| 3.576e-06  mean|Δ| 1.920e-07  |ref|max 6.855  rel 5.22e-07  cos 1.00000000  n≠ 3535033 tol 1e-05
+  PASS g0b0.out(piecewise) max|Δ| 5.066e-07  mean|Δ| 3.570e-08  |ref|max 0.8264  rel 6.13e-07  cos 0.99999988  n≠ 3433485 tol 1e-05
+  PASS g0b0.out(module) max|Δ| 5.066e-07  mean|Δ| 3.570e-08  |ref|max 0.8264  rel 6.13e-07  cos 0.99999988  n≠ 3433485 tol 1e-05
+  PASS g0b1.out max|Δ| 4.321e-07  mean|Δ| 3.968e-08  |ref|max 0.5707  rel 7.57e-07  cos 1.00000000  n≠ 3493248 tol 1e-05
+  PASS g0b2.shiftpad max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 3.41  rel 0.00e+00  cos 0.99999994  n≠ 0 tol 0 (exact)
+  PASS g0b2.shiftpad(ported in) max|Δ| 2.146e-06  mean|Δ| 2.062e-07  |ref|max 3.41  rel 6.29e-07  cos 0.99999994  n≠ 5199766 tol 1e-05
+  PASS g0b2.attn(shifted) max|Δ| 4.768e-06  mean|Δ| 3.316e-07  |ref|max 3.72  rel 1.28e-06  cos 1.00000000  n≠ 3566896 tol 1e-05
+  PASS g0b2.out max|Δ| 3.874e-07  mean|Δ| 4.009e-08  |ref|max 0.6116  rel 6.33e-07  cos 1.00000000  n≠ 3544474 tol 1e-05
+  PASS g0.out (RHAG 0) max|Δ| 4.172e-06  mean|Δ| 1.377e-07  |ref|max 2.599  rel 1.61e-06  cos 1.00000000  n≠ 3563372 tol 1e-05
+  PASS g5b4.attn (chained) max|Δ| 2.787e-06  mean|Δ| 3.306e-07  |ref|max 1.659  rel 1.68e-06  cos 1.00000000  n≠ 3607381 tol 5e-05
+  PASS features (chained) max|Δ| 2.412e-06  mean|Δ| 3.023e-08  |ref|max 0.7117  rel 3.39e-06  cos 0.99999988  n≠ 3602560 tol 5e-05
+  PASS conv_after_body max|Δ| 1.729e-06  mean|Δ| 1.566e-07  |ref|max 0.8536  rel 2.03e-06  cos 1.00000000  n≠ 3624238 tol 5e-05
+  PASS after_body_residual max|Δ| 1.669e-06  mean|Δ| 1.582e-07  |ref|max 1.389  rel 1.20e-06  cos 0.99999988  n≠ 3590190 tol 5e-05
+  PASS before_upsample max|Δ| 7.868e-06  mean|Δ| 2.326e-07  |ref|max 2.995  rel 2.63e-06  cos 1.00000000  n≠ 1290697 tol 5e-05
+  PASS upsample max|Δ| 1.019e-05  mean|Δ| 2.463e-07  |ref|max 3.8  rel 2.68e-06  cos 1.00000012  n≠ 20836347 tol 5e-05
+  PASS conv_last max|Δ| 2.265e-06  mean|Δ| 3.332e-07  |ref|max 0.766  rel 2.96e-06  cos 1.00000000  n≠ 936264 tol 5e-05
+  PASS out (module forward) max|Δ| 2.265e-06  mean|Δ| 3.346e-07  |ref|max 0.766  rel 2.96e-06  cos 1.00000000  n≠ 640016 tol 2e-04  PSNR 127.4 dB
+── taps 20x20 ──
+  PASS padded max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.9998  rel 0.00e+00  cos 1.00000012  n≠ 0 tol 0 (exact)
+  PASS conv_first max|Δ| 3.576e-07  mean|Δ| 1.893e-08  |ref|max 1.36  rel 2.63e-07  cos 1.00000012  n≠ 148483 tol 2e-06
+  PASS patch_embed max|Δ| 2.980e-07  mean|Δ| 1.146e-08  |ref|max 1.354  rel 2.20e-07  cos 1.00000000  n≠ 137431 tol 2e-06
+  PASS g0b0.norm1.x max|Δ| 9.537e-07  mean|Δ| 4.474e-08  |ref|max 4.388  rel 2.17e-07  cos 0.99999988  n≠ 132875 tol 1e-05
+  PASS g0b0.norm1.std max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.1203  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05
+  PASS g0b0.cab_pre_ca max|Δ| 4.959e-05  mean|Δ| 4.055e-06  |ref|max 64.06  rel 7.74e-07  cos 0.99999988  n≠ 175660 tol 1e-05
+  PASS g0b0.cab max|Δ| 4.578e-05  mean|Δ| 3.000e-06  |ref|max 64.06  rel 7.15e-07  cos 1.00000000  n≠ 177025 tol 1e-05
+  PASS g0b0.attn max|Δ| 2.921e-06  mean|Δ| 2.095e-07  |ref|max 4.197  rel 6.96e-07  cos 0.99999994  n≠ 175304 tol 1e-05
+  PASS g0b0.norm2.x max|Δ| 1.669e-06  mean|Δ| 1.037e-07  |ref|max   taps 20x20 in 0.9 s
+4.914  rel 3.40e-07  cos 1.00000000  n≠ 166413 tol 1e-05
+  PASS g0b0.norm2.std max|Δ| 7.451e-09  mean|Δ| 7.451e-09  |ref|max 0.1128  rel 6.61e-08  cos 1.00000000  n≠ 1 tol 1e-05
+  PASS g0b0.mlp max|Δ| 3.576e-06  mean|Δ| 1.850e-07  |ref|max 5.364  rel 6.67e-07  cos 0.99999988  n≠ 176452 tol 1e-05
+  PASS g0b0.out(piecewise) max|Δ| 4.172e-07  mean|Δ| 3.413e-08  |ref|max 0.7592  rel 5.50e-07  cos 1.00000012  n≠ 171647 tol 1e-05
+  PASS g0b0.out(module) max|Δ| 4.172e-07  mean|Δ| 3.413e-08  |ref|max 0.7592  rel 5.50e-07  cos 1.00000012  n≠ 171647 tol 1e-05
+  PASS g0b1.out max|Δ| 4.023e-07  mean|Δ| 3.694e-08  |ref|max 0.5053  rel 7.96e-07  cos 1.00000000  n≠ 174259 tol 1e-05
+  PASS g0b2.shiftpad max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 3.409  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 0 (exact)
+  PASS g0b2.shiftpad(ported in) max|Δ| 2.384e-06  mean|Δ| 1.981e-07  |ref|max 3.409  rel 6.99e-07  cos 1.00000000  n≠ 692470 tol 1e-05
+  PASS g0b2.attn(shifted) max|Δ| 3.159e-06  mean|Δ| 3.186e-07  |ref|max 3.498  rel 9.03e-07  cos 1.00000000  n≠ 178020 tol 1e-05
+  PASS g0b2.out max|Δ| 3.204e-07  mean|Δ| 3.832e-08  |ref|max 0.5375  rel 5.96e-07  cos 0.99999988  n≠ 177332 tol 1e-05
+  PASS g0.out (RHAG 0) max|Δ| 2.503e-06  mean|Δ| 1.327e-07  |ref|max 2.376  rel 1.05e-06  cos 1.00000000  n≠ 178106 tol 1e-05
+  PASS g5b4.attn (chained) max|Δ| 3.040e-06  mean|Δ| 3.421e-07  |ref|max 1.852  rel 1.64e-06  cos 1.00000000  n≠ 180518 tol 5e-05
+  PASS features (chained) max|Δ| 1.378e-06  mean|Δ| 2.930e-08  |ref|max 0.6039  rel 2.28e-06  cos 1.00000000  n≠ 180034 tol 5e-05
+  PASS conv_after_body max|Δ| 1.311e-06  mean|Δ| 1.508e-07  |ref|max 0.8293  rel 1.58e-06  cos 1.00000000  n≠ 181118 tol 5e-05
+  PASS after_body_residual max|Δ| 1.431e-06  mean|Δ| 1.525e-07  |ref|max 1.263  rel 1.13e-06  cos 1.00000000  n≠ 179256 tol 5e-05
+  PASS before_upsample max|Δ| 6.676e-06  mean|Δ| 2.401e-07  |ref|max 2.73  rel 2.45e-06  cos 1.00000000  n≠ 64474 tol 5e-05
+  PASS upsample max|Δ| 7.153e-06  mean|Δ| 2.521e-07  |ref|max 3.549  rel 2.02e-06  cos 1.00000000  n≠ 1041417 tol 5e-05
+  PASS conv_last max|Δ| 1.967e-06  mean|Δ| 3.341e-07  |ref|max 0.7142  rel 2.75e-06  cos 1.00000012  n≠ 46822 tol 5e-05
+  PASS out (module forward) max|Δ| 1.967e-06  mean|Δ| 3.392e-07  |ref|max 0.7142  rel 2.75e-06  cos 1.00000012  n≠ 18275 tol 2e-04  PSNR 127.3 dB
+── taps 12x12 ──
+  PASS padded max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.9977  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 0 (exact)
+  PASS conv_first max|Δ| 2.384e-07  mean|Δ| 1.689e-08  |ref|max 1.616  rel 1.48e-07  cos 1.00000000  n≠ 154926 tol 2e-06
+  PASS patch_embed max|Δ| 2.384e-07  mean|Δ| 1.042e-08  |ref|max 1.003  rel 2.38e-07  cos 1.00000012  n≠ 146303 tol 2e-06
+  PASS g0b0.norm1.x max|Δ| 1.431e-06  mean|Δ| 5.555e-08  |ref|max 6.841  rel 2.09e-07  cos 1.00000000  n≠ 154412 tol 1e-05
+  PASS g0b0.norm1.std max|Δ| 7.451e-09  mean|Δ| 7.451e-09  |ref|max 0.09378  rel 7.95e-08  cos 1.00000000  n≠ 1 tol 1e-05
+  PASS g0b0.cab_pre_ca max|Δ| 8.392e-05  mean|Δ| 5.362e-06  |ref|max 86.68  rel 9.68e-07  cos 0.99999982  n≠ 175357 tol 1e-05
+  PASS g0b0.cab max|Δ| 8.392e-05  mean|Δ| 4.391e-06  |ref|max 86.68  rel 9.68e-07  cos 1.00000000  n≠ 178521 tol 1e-05
+  PASS g0b0.attn max|Δ| 8.911e-06  mean|Δ| 4.068e-07  |ref|max 4.414  rel 2.02e-06  cos 1.00000000  n≠ 179542 tol 1e-05
+  PASS g0b0.norm2.x max|Δ| 6.437e-06  mean|Δ| 1.873e-07  |ref|max 7.624  rel 8.44e-07  cos 1.00000012  n≠ 170866 tol 1e-05
+  PASS g0b0.norm2.std max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.08548  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05
+  PASS g0b0.mlp max|Δ| 9.775e-06  mean|Δ| 2.171e-07  |ref|max 8.256  rel 1.18e-06  cos 0.99999988  n≠ 177196 tol 1e-05
+  PASS g0b0.out(piecewise) max|Δ| 1.192e-06  mean|Δ| 4.292e-08  |ref|max 0.5881  rel 2.03e-06  cos 0.99999994  n≠ 176802 tol 1e-05
+  PASS g0b0.out(module) max|Δ| 1.192e-06  mean|Δ| 4.292e-08  |ref|max 0.5881  rel 2.03e-06  cos 0.99999994  n≠ 176802 tol 1e-05
+  PASS g0b1.out   taps 12x12 in 0.9 s
+loaded heart_4x_otf_v2_fp32.safetensors (fp32, head 40) in 0.01 s
+max|Δ| 7.171e-07  mean|Δ| 3.979e-08  |ref|max 0.4821  rel 1.49e-06  cos 1.00000000  n≠ 178071 tol 1e-05
+  PASS g0b2.shiftpad max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 4.434  rel 0.00e+00  cos 1.00000012  n≠ 0 tol 0 (exact)
+  PASS g0b2.shiftpad(ported in) max|Δ| 7.272e-06  mean|Δ| 3.442e-07  |ref|max 4.434  rel 1.64e-06  cos 1.00000000  n≠ 710062 tol 1e-05
+  PASS g0b2.attn(shifted) max|Δ| 7.629e-06  mean|Δ| 5.070e-07  |ref|max 3.962  rel 1.93e-06  cos 1.00000024  n≠ 179520 tol 1e-05
+  PASS g0b2.out max|Δ| 5.476e-07  mean|Δ| 3.707e-08  |ref|max 0.4466  rel 1.23e-06  cos 1.00000000  n≠ 179795 tol 1e-05
+  PASS g0.out (RHAG 0) max|Δ| 2.146e-06  mean|Δ| 1.206e-07  |ref|max 1.737  rel 1.24e-06  cos 1.00000000  n≠ 179600 tol 1e-05
+  PASS g5b4.attn (chained) max|Δ| 1.299e-05  mean|Δ| 4.895e-07  |ref|max 3.317  rel 3.92e-06  cos 0.99999982  n≠ 180756 tol 5e-05
+  PASS features (chained) max|Δ| 7.808e-06  mean|Δ| 4.355e-08  |ref|max 1.814  rel 4.31e-06  cos 0.99999982  n≠ 181994 tol 5e-05
+  PASS conv_after_body max|Δ| 3.666e-06  mean|Δ| 2.169e-07  |ref|max 1.267  rel 2.89e-06  cos 1.00000000  n≠ 181856 tol 5e-05
+  PASS after_body_residual max|Δ| 3.695e-06  mean|Δ| 2.180e-07  |ref|max 1.595  rel 2.32e-06  cos 1.00000012  n≠ 180535 tol 5e-05
+  PASS before_upsample max|Δ| 1.958e-05  mean|Δ| 3.525e-07  |ref|max 6.61  rel 2.96e-06  cos 0.99999982  n≠ 64519 tol 5e-05
+  PASS upsample max|Δ| 2.712e-05  mean|Δ| 4.268e-07  |ref|max 7.013  rel 3.87e-06  cos 1.00000000  n≠ 1040829 tol 5e-05
+  PASS conv_last max|Δ| 3.129e-06  mean|Δ| 3.756e-07  |ref|max 1.111  rel 2.82e-06  cos 0.99999988  n≠ 47168 tol 5e-05
+  PASS out (module forward) max|Δ| 3.129e-06  mean|Δ| 4.629e-07  |ref|max 1.111  rel 2.82e-06  cos 1.00000000  n≠ 6695 tol 2e-04  PSNR 124.5 dB
+  PASS headpad 64 vs 40 (e2e 64²) max|Δ| 0.000e+00  mean|Δ| 0.000e+00  |ref|max 0.7304  rel 0.00e+00  cos 1.00000000  n≠ 0 tol 1e-05  PSNR inf dB — zero columns, identical math
+gate summary: 173 passed, 0 failed

@@ -1,0 +1,566 @@
+Fetching https://github.com/xocialize/mlx-realesrgan-swift from cache
+Fetching https://github.com/ml-explore/mlx-swift from cache
+Fetching https://github.com/xocialize/mlx-engine-swift from cache
+Fetched https://github.com/xocialize/mlx-realesrgan-swift from cache (0.72s)
+Fetched https://github.com/ml-explore/mlx-swift from cache (0.72s)
+Fetched https://github.com/xocialize/mlx-engine-swift from cache (0.88s)
+Computing version for https://github.com/xocialize/mlx-realesrgan-swift
+Computed https://github.com/xocialize/mlx-realesrgan-swift at 0.7.0 (1.29s)
+Fetching https://github.com/xocialize/mlx-profiling.git from cache
+Fetched https://github.com/xocialize/mlx-profiling.git from cache (0.46s)
+Computing version for https://github.com/xocialize/mlx-engine-swift
+Computed https://github.com/xocialize/mlx-engine-swift at 0.63.0 (0.88s)
+Fetching https://github.com/xocialize/DesignScaffold from cache
+Fetched https://github.com/xocialize/DesignScaffold from cache (0.56s)
+Computing version for https://github.com/xocialize/mlx-profiling.git
+Computed https://github.com/xocialize/mlx-profiling.git at 0.1.0 (0.99s)
+Computing version for https://github.com/ml-explore/mlx-swift
+Computed https://github.com/ml-explore/mlx-swift at 0.32.2 (0.43s)
+Fetching https://github.com/apple/swift-numerics from cache
+Fetched https://github.com/apple/swift-numerics from cache (1.01s)
+Computing version for https://github.com/apple/swift-numerics
+Computed https://github.com/apple/swift-numerics at 1.1.1 (1.35s)
+Computing version for https://github.com/xocialize/DesignScaffold
+Computed https://github.com/xocialize/DesignScaffold at 0.25.0 (0.40s)
+Creating working copy for https://github.com/xocialize/mlx-engine-swift
+Working copy of https://github.com/xocialize/mlx-engine-swift resolved at 0.63.0
+Creating working copy for https://github.com/xocialize/mlx-profiling.git
+Working copy of https://github.com/xocialize/mlx-profiling.git resolved at 0.1.0
+Creating working copy for https://github.com/xocialize/DesignScaffold
+Working copy of https://github.com/xocialize/DesignScaffold resolved at 0.25.0
+Creating working copy for https://github.com/xocialize/mlx-realesrgan-swift
+Working copy of https://github.com/xocialize/mlx-realesrgan-swift resolved at 0.7.0
+Creating working copy for https://github.com/ml-explore/mlx-swift
+Working copy of https://github.com/ml-explore/mlx-swift resolved at 0.32.2
+Creating working copy for https://github.com/apple/swift-numerics
+Working copy of https://github.com/apple/swift-numerics resolved at 1.1.1
+Building for production...
+[Computing dependencies]
+[Pre-planning 1 / 539]
+[Planning deferred tasks]
+[127 / 420] mlx-realesrgan-swift_RealESRGANMLX
+[127 / 420] mlx-swift_Cmlx
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/dot.metal:3:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/dot.h:5:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/dot.metal:3:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/dot.h:5:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/random.metal:3:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/random.metal:3:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/rope.metal:5:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/rope.metal:5:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/searchsorted.metal:6:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/searchsorted.metal:6:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/searchsorted.metal:7:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/sort.h:43:8: warning: constexpr if is a C++17 extension [-Wc++17-extensions]
+    if constexpr (metal::is_floating_point_v<T>) {
+       ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/sort.h:49:15: warning: constexpr if is a C++17 extension [-Wc++17-extensions]
+    } else if constexpr (metal::is_same_v<T, complex64_t>) {
+              ^
+9 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/rms_norm.metal:6:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/rms_norm.metal:6:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/layer_norm.metal:6:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/layer_norm.metal:6:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/conv.metal:8:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/conv.metal:8:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/arg_reduce.metal:5:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/arg_reduce.metal:5:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/scaled_dot_product_attention.metal:4:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/scaled_dot_product_attention.metal:4:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+7 warnings generated.
+[127 / 420]
+[146 / 422] MLXToolKit
+[146 / 422] RealModule
+[149 / 426] _NumericsShims
+[150 / 426]
+[152 / 426] Cmlx
+[154 / 492] RealModule
+[155 / 492]
+[164 / 492]
+[169 / 492]
+[175 / 492]
+[178 / 492]
+[181 / 492] Cmlx
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/steel_attention.metal:4:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../utils.h:9:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../complex.h:157:54: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex32_t) == 2 * sizeof(half));
+                                                     ^
+                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../complex.h:158:55: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex64_t) == 2 * sizeof(float));
+                                                      ^
+                                                      , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../complex.h:159:70: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+static_assert(sizeof(complex_t<bfloat16_t>) == 2 * sizeof(bfloat16_t));
+                                                                     ^
+                                                                     , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../complex.h:299:78: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+    (complex_t<half>{1.0h, 2.0h} * complex_t<half>{3.0h, 4.0h}).real == -5.0h);
+                                                                             ^
+                                                                             , ""
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../complex.h:303:35: warning: 'static_assert' with no message is a C++17 extension [-Wc++17-extensions]
+        .real == bfloat16_t(-5.0f));
+                                  ^
+                                  , ""
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/steel_attention.metal:4:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../utils.h:80:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> max = complex_t<T>(
+  ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../utils.h:83:3: warning: inline variables are a C++17 extension [-Wc++17-extensions]
+  inline static constexpr constant complex_t<T> min = complex_t<T>(
+  ^
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/steel_attention.metal:6:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/kernels/steel_attention.h:3:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/attn.h:6:
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/../../steel/attn/mma.h:11:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/../../steel/utils/integral_constant.h:105:6: warning: constexpr if is a C++17 extension [-Wc++17-extensions]
+  if constexpr (start < stop) {
+     ^
+In file included from /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/steel_attention.metal:6:
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/kernels/steel_attention.h:361:16: warning: constexpr if is a C++17 extension [-Wc++17-extensions]
+            if constexpr (is_bool) {
+               ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/kernels/steel_attention.h:431:14: warning: constexpr if is a C++17 extension [-Wc++17-extensions]
+          if constexpr (BD >= 128) {
+             ^
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/mlx-generated/metal/steel/attn/kernels/../../../steel/attn/kernels/steel_attention.h:441:14: warning: constexpr if is a C++17 extension [-Wc++17-extensions]
+          if constexpr (BD >= 128) {
+             ^
+11 warnings generated.
+[184 / 492]
+[186 / 492]
+[190 / 492] Cmlx
+[191 / 492] Cmlx
+[193 / 492] Cmlx
+[193 / 492]
+[195 / 492]
+[197 / 492]
+[198 / 492] Cmlx
+[199 / 492] Cmlx
+[202 / 492] Cmlx
+[205 / 492] Cmlx
+[207 / 492] Cmlx
+[209 / 492]
+[212 / 492] Cmlx
+[213 / 492] Cmlx
+[217 / 492] Cmlx
+[219 / 492] Cmlx
+[222 / 492]
+[223 / 492]
+[224 / 492]
+[225 / 492] Cmlx
+[227 / 492]
+[230 / 492] Cmlx
+[232 / 492] Cmlx
+[235 / 492] Cmlx
+[237 / 492]
+[239 / 492]
+[240 / 492] Cmlx
+[243 / 492] Cmlx
+[246 / 492] Cmlx
+[247 / 492] Cmlx
+[249 / 492] Cmlx
+[250 / 492] Cmlx
+[252 / 492] Cmlx
+[253 / 492] Cmlx
+[255 / 492] Cmlx
+[256 / 492] Cmlx
+[257 / 492] Cmlx
+[259 / 492] Cmlx
+[260 / 492] Cmlx
+[262 / 492] Cmlx
+[263 / 492] Cmlx
+[264 / 492] Cmlx
+[266 / 492] Cmlx
+[268 / 492] Cmlx
+[269 / 492] Cmlx
+[271 / 492] Cmlx
+[272 / 492] Cmlx
+[275 / 492] Cmlx
+[276 / 492] Cmlx
+[278 / 492] Cmlx
+[280 / 492] Cmlx
+[282 / 492] Cmlx
+[284 / 492] Cmlx
+[285 / 492] Cmlx
+[286 / 492] Cmlx
+[287 / 492] Cmlx
+[289 / 492] Cmlx
+[293 / 492] Cmlx
+[300 / 492] Cmlx
+[305 / 492] Cmlx
+[309 / 492] Cmlx
+[310 / 492] Cmlx
+[312 / 492] Cmlx
+[313 / 492] Cmlx
+[314 / 492] Cmlx
+[316 / 492] Cmlx
+[318 / 492] Cmlx
+[320 / 492] Cmlx
+[322 / 492] Cmlx
+[324 / 492] Cmlx
+[327 / 492] Cmlx
+[329 / 492] Cmlx
+[331 / 492] Cmlx
+[333 / 492] Cmlx
+[336 / 492] Cmlx
+[337 / 492] Cmlx
+[338 / 492] Cmlx
+[339 / 492] Cmlx
+[342 / 492] Cmlx
+[343 / 492] Cmlx
+[345 / 492] Cmlx
+[346 / 492] Cmlx
+[349 / 492] Cmlx
+[350 / 492] Cmlx
+[351 / 492] Cmlx
+[352 / 492] Cmlx
+[353 / 492] Cmlx
+[354 / 492] Cmlx
+[356 / 492] Cmlx
+[357 / 492] Cmlx
+[359 / 492] Cmlx
+[363 / 492] Cmlx
+[364 / 492] Cmlx
+[365 / 492] Cmlx
+[366 / 492] Cmlx
+[369 / 492]
+[370 / 492]
+[374 / 492]
+[377 / 492]
+[380 / 492]
+[383 / 492]
+[385 / 492] MLXToolKit-product
+[388 / 492]
+[391 / 494]
+[395 / 495] Cmlx
+[395 / 495] MLXHubMetadata
+[397 / 496]
+[400 / 496]
+[401 / 496]
+[403 / 496]
+[404 / 496]
+[406 / 496]
+[409 / 496]
+[409 / 496] ComplexModule
+[415 / 496]
+[416 / 497]
+[418 / 497]
+[421 / 498]
+[428 / 499] Numerics
+[428 / 499] Cmlx
+[429 / 499] Cmlx
+[429 / 499]
+[431 / 499] Cmlx
+[431 / 499] MLX
+[436 / 508]
+[438 / 508]
+[440 / 508]
+[441 / 508] MLXHubMetadata
+[447 / 508] Cmlx
+[447 / 508] MLX
+[456 / 512] Cmlx
+[456 / 512] MLXServeCore
+[470 / 555]
+[476 / 555]
+[478 / 555]
+[484 / 555]
+[485 / 555]
+[486 / 555]
+[488 / 555]
+[491 / 555]
+[492 / 555]
+[494 / 555]
+[495 / 555]
+[497 / 555]
+[501 / 555]
+[502 / 555]
+[503 / 555]
+[504 / 555]
+[506 / 555]
+[507 / 555]
+[508 / 555] MLXProfiling
+[513 / 555] MLXNN
+[519 / 556] RealESRGANMLX
+[523 / 563]
+[525 / 563]
+[526 / 563]
+[527 / 563] RealESRGANMLX
+[533 / 564] MLXServeCore
+[538 / 564] HEARTMLX
+error: SwiftCompile normal arm64 failed with a nonzero exit code. Command line:     cd /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP
+    
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/HEARTMLX/HEART.swift:394:15: [1;31merror: [1;39mreference to member 'ellipsis' cannot be resolved without a contextual type[0;0m
+[0;36m392 |[0;0m         let vc = concatenated([v, broadcast(f.vExtra, to: [nWin, numHeads, n, extra])], axis: -1)
+[0;36m393 |[0;0m         let o = MLXFast.scaledDotProductAttention(queries: qc, keys: kc, values: vc, scale: 1.0, mask: nil)
+[0;36m394 |[0;0m             [.ellipsis, 0 ..< headDim]                          // (Bwin, heads, N, c)
+    [0;36m|[0;0m               `- [1;31merror: [1;39mreference to member 'ellipsis' cannot be resolved without a contextual type[0;0m
+[0;36m395 |[0;0m 
+[0;36m396 |[0;0m         // "(b h w) (wh ww) heads c -> b (heads c) (h wh) (w ww)"
+
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/HEARTMLX/HEART_Playback.swift:132:21: [1;31merror: [1;39mreference to property 'onProgress' in closure requires explicit use of 'self' to make capture semantics explicit[0;0m
+[0;36m129 |[0;0m         do {
+[0;36m130 |[0;0m             return try tileProcessor.processAdaptive(buffer, wholeFrameMaxPixels: wholeFrameMaxPixels) { tile in
+[0;36m131 |[0;0m                 let y = try model.forward(tile, checkpoint: checkpoint) { g, gTotal in
+    [0;36m|[0;0m                                                                         `- [1;39mnote: [1;39mcapture 'self' explicitly to enable implicit 'self' in this closure[0;0m
+[0;36m132 |[0;0m                     onProgress?(tilesDone, tilesTotal, g, gTotal)
+    [0;36m|[0;0m                     |- [1;31merror: [1;39mreference to property 'onProgress' in closure requires explicit use of 'self' to make capture semantics explicit[0;0m
+    [0;36m|[0;0m                     `- [1;39mnote: [1;39mreference 'self.' explicitly[0;0m
+[0;36m133 |[0;0m                 }
+[0;36m134 |[0;0m                 MLX.eval(y)
+Failed frontend command:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/HEARTMLX/HEART.swift /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/HEARTMLX/HEART_Playback.swift /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/HEARTMLX/Ops.swift -supplementary-output-file-map /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/supplementaryOutputs-8 -target arm64-apple-macos26.0 -disable-cross-import-overlay-search -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEARTMLX-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -I /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Products/Release -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Products/Release/PackageFrameworks -F /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Products/Release -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -module-cache-path /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/SwiftExplicitPrecompiledModules -color-diagnostics -Xcc -fcolor-diagnostics -g -debug-info-format\=dwarf -dwarf-version\=5 -swift-version 6 -O -D SWIFT_PACKAGE -D SWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE -D Xcode -serialize-debugging-options -enable-experimental-feature DebugDescriptionMacro -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP -file-compilation-dir /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP -Xcc -fmodule-map-file\=/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/swift-numerics/Sources/_NumericsShims/include/module.modulemap -Xcc -fmodule-map-file\=/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/include/module.modulemap -Xcc -ivfsstatcache -Xcc /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/SDKStatCaches.noindex/macosx27.0-26A425-80c5bbf1d171475443272936d42f90a37231f6df4def33e022ae2eb8f782df1a.sdkstatcache -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -Xcc -I/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/swift-numerics/Sources/_NumericsShims/include -Xcc -I/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/checkouts/mlx-swift/Source/Cmlx/include -Xcc -I/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Products/Release/include -Xcc -I/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/DerivedSources-normal/arm64 -Xcc -I/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/DerivedSources/arm64 -Xcc -I/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/DerivedSources -Xcc -DSWIFT_PACKAGE -no-auto-bridging-header-chaining -module-name HEARTMLX -package-name mlx_heart_swift -const-gather-protocols-file /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEARTMLX_const_extract_protocols.json -disable-clang-spi -clang-target arm64-apple-macos27.0 -target-sdk-version 27.0 -target-sdk-name macosx27.0 -in-process-plugin-server-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -enable-default-cmo -parse-as-library -num-threads 18 -o /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEART.o -o /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEART_Playback.o -o /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/Ops.o -debug-module-path /Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/.build/out/Intermediates.noindex/mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEARTMLX.swiftmodule -index-unit-output-path /mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEART.o -index-unit-output-path /mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/HEART_Playback.o -index-unit-output-path /mlx-heart-swift.build/Release/HEARTMLX-t.build/Objects-normal/arm64/Ops.o
+error: Build failed
+EXIT 1

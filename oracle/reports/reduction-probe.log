@@ -1,0 +1,13 @@
+mlx 0.32.2, torch 2.13.0
+N =    184,320 (32² (20×20/12×12 padded)): torch-CPU mean rel 2.4e-08 std rel 6.7e-09
+    mlx cpu: plain mean rel 8.2e-07 std rel 6.3e-07 | two-stage (4096) mean rel 1.3e-08 std rel 5.2e-08
+    mlx gpu: plain mean rel 1.2e-07 std rel 6.7e-09 | two-stage (4096) mean rel 1.3e-08 std rel 2.0e-08
+N =    737,280 (64²): torch-CPU mean rel 1.3e-07 std rel 1.2e-08
+    mlx cpu: plain mean rel 1.9e-06 std rel 4.7e-06 | two-stage (4096) mean rel 5.4e-08 std rel 1.4e-08
+    mlx gpu: plain mean rel 6.8e-08 std rel 1.2e-08 | two-stage (4096) mean rel 1.6e-08 std rel 1.8e-08
+N =  3,686,400 (128×160 (100×140 padded)): torch-CPU mean rel 5.9e-08 std rel 1.9e-08
+    mlx cpu: plain mean rel 1.5e-06 std rel 5.8e-05 | two-stage (4096) mean rel 1.4e-07 std rel 1.2e-08
+    mlx gpu: plain mean rel 4.1e-08 std rel 7.0e-08 | two-stage (4096) mean rel 2.4e-08 std rel 3.9e-08
+N = 47,185,920 (512²): torch-CPU mean rel 1.0e-08 std rel 2.4e-10
+    mlx cpu: plain mean rel 2.7e-06 std rel 2.1e-03 | two-stage (4096) mean rel 1.1e-07 std rel 4.8e-08
+    mlx gpu: plain mean rel 1.0e-08 std rel 2.4e-10 | two-stage (4096) mean rel 3.0e-08 std rel 1.6e-08

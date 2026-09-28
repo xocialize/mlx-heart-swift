@@ -1,0 +1,25 @@
+mlx-heart-swift
+Copyright 2026 Xocialize
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This package is a Swift/MLX port of HEART — Hybrid Efficient Attention with Rank-factorized bias
+Transformer — by Philip Hofmann (Phips), https://huggingface.co/Phips/HEART, Apache-2.0
+(code and pretrained weights; revision 868878ce4c253a8061300f923b620fdc6edf090a). The released
+checkpoints re-hosted at mlx-community/HEART-fp16 and mlx-community/HEART-fp32 are per-tensor
+exact conversions of the upstream files (see oracle/convert_weights.py); they were trained by the
+author only on Phips/lucid-cc0-v2-hc-512 (CC0).
+
+The port's Sources/HEARTMLX/HEART.swift is an isomorphic derivative of:
+  • heart_arch.py — Philip Hofmann, Apache-2.0 (Phips/HEART);
+  • traiNNer-redux traiNNer/archs/hat_iln_arch.py and the iLN class of traiNNer/archs/arch_util.py —
+    the-database and contributors, Apache-2.0, https://github.com/the-database/traiNNer-redux
+    (revision 686293190aca3e432a42b6155dbc94ea51c4bf9f);
+which in turn build on:
+  • HAT — Chen et al., "Activating More Pixels in Image Super-Resolution Transformer", XPixelGroup,
+    Apache-2.0, https://github.com/XPixelGroup/HAT (arXiv 2205.04437);
+  • HAT-iLN — the i-LN normalisation (arXiv 2504.06629);
+  • SST's RIB — Rank-factorized Implicit Neural Bias for window attention (arXiv 2603.06738).
+
+Tiling infrastructure (MLXTileProcessor, PlaybackTier) is consumed from xocialize/mlx-realesrgan-swift
+(Apache-2.0). MLX and MLX-Swift are © Apple Inc., MIT.

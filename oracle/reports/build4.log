@@ -1,0 +1,29 @@
+Building for production...
+[Computing dependencies]
+[Using on-disk description]
+[1 / 35]
+[6 / 35] MLXToolKit
+[8 / 36] RealModule
+[15 / 41] ComplexModule
+[22 / 46] Numerics
+[27 / 49] MLX
+[28 / 50] MLXToolKit
+[34 / 54] MLXHubMetadata
+[35 / 55] MLXHubMetadata
+[40 / 57] MLX
+[51 / 69] MLXFast
+[55 / 73] MLXFast
+[60 / 75] MLXProfiling
+[65 / 77] MLXNN
+[73 / 83] RealESRGANMLX
+[74 / 84] RealESRGANMLX
+[81 / 89] HEARTMLX
+[82 / 90] MLXServeCore
+[88 / 93] HEARTMLX
+[95 / 99] MLXHEART
+[97 / 100] MLXHEART
+[103 / 106] heart-smoke-product
+[104 / 107] heart-smoke-product
+[106 / 107] heart-smoke-product
+[107 / 107] heart-smoke-product
+Build complete! (52.37 sec)
