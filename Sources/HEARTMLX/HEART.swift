@@ -167,11 +167,19 @@ public final class ChannelAttention: Module, UnaryLayer, @unchecked Sendable {
 
     public func callAsFunction(_ x: MLXArray) -> MLXArray {
         let c1 = attention[1] as! Conv2d, c3 = attention[3] as! Conv2d
-        // AdaptiveAvgPool2d(1) = the mean over H and W — two-stage over the spatial axis (see `chunkedSum`).
+        // AdaptiveAvgPool2d(1) = the mean over H and W — two-stage over the spatial axis (see `chunkedSum`) and in
+        // float32 whatever the activation dtype: the conv branch reaches |70| and a 64² tile has 4096 positions,
+        // so an fp16 accumulation overflows (> 65504 → inf → NaN through the sigmoid). torch accumulates half
+        // inputs in float for this op; the port holds every reduction at fp32 (PORTING-SPEC H3).
+        // The squeeze/excite head (two 1×1 convs on one 180-vector + a sigmoid) runs in fp32 as well — it is
+        // negligible work, and in fp16 it read 0.69 relative on the CPU stream (fp16 accumulation, cancellation
+        // into a steep sigmoid). Only the gate multiply is in the activation dtype.
         let (b, h, w, c) = (x.dim(0), x.dim(1), x.dim(2), x.dim(3))
-        let pooled = chunkedMean(lastAxisOf: x.reshaped([b, h * w, c]).transposed(0, 2, 1)).reshaped([b, 1, 1, c])
-        let y = sigmoid(c3(relu(c1(pooled))))
-        return x * y
+        let pooled = chunkedMean(lastAxisOf: x.asType(.float32).reshaped([b, h * w, c]).transposed(0, 2, 1))
+            .reshaped([b, 1, 1, c])
+        let hidden = relu(conv2d(pooled, c1.weight.asType(.float32)) + c1.bias!.asType(.float32))
+        let logits = conv2d(hidden, c3.weight.asType(.float32)) + c3.bias!.asType(.float32)
+        return x * sigmoid(logits).asType(x.dtype)
     }
 }
 

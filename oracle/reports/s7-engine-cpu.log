@@ -1,0 +1,4 @@
+[Prewarm] heart-upscale: paged 2 file(s) / 0.0 GB into cache in 0.0s
+OK engine fidelity fp16 ×4 → 512x512 png | reg 0.00 s run 9.81 s | MLX peak 1070 MB floor 61 MB
+[Prewarm] heart-upscale: paged 2 file(s) / 0.0 GB into cache in 0.0s
+OK engine fidelity fp16 ×2 → 256x256 rawBGRA8 | reg 0.00 s run 9.70 s | MLX peak 1329 MB floor 61 MB

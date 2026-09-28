@@ -35,8 +35,9 @@ stills tier). The four released checkpoints, per-tensor exact conversions of the
 | `config.json` | — | — | — | architecture, variants, source sha256s, the fp16 dtype rule |
 
 Lanes: `mlx-community/HEART-fp16` is the shipping lane (conv / linear tensors fp16; the i-LN and affine weight/bias and
-the RIB implicit-net parameters stay fp32 — 220 of 748 tensors — and the port runs the i-LN statistics, the RIB
-position tables and the softmax in fp32); `mlx-community/HEART-fp32` is the parity / reference lane. Each variant is a
+the RIB implicit-net parameters stay fp32 — 220 of 748 tensors — and the port runs every reduction in fp32: the i-LN
+statistics, the RIB position tables, the softmax, the global average pool and its squeeze/excite head);
+`mlx-community/HEART-fp32` is the parity / reference lane. Each variant is a
 separate file so a package pulls only the checkpoint it uses.
 
 ## Parity

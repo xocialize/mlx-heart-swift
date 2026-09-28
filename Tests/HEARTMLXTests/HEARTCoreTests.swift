@@ -211,6 +211,21 @@ final class HEARTCoreTests: XCTestCase {
 
     // MARK: the shape-safe traps
 
+    /// The channel-attention pool reduces in fp32: a half-precision tile whose spatial sum exceeds 65504 must not
+    /// overflow (the first fp16 run went NaN here — an fp16 accumulation of 4096 × |70|).
+    func testChannelAttentionPoolDoesNotOverflowInHalf() {
+        withCPU {
+            let ca = ChannelAttention(numFeat: 180, squeezeFactor: 30)
+            let x = (MLXArray.ones([1, 64, 64, 180]) * Float(70)).asType(.float16)   // a Float scalar operand promotes fp16 → fp32
+            let y = ca(x); eval(y)
+            XCTAssertEqual(y.dtype, .float16)
+            XCTAssertEqual(sum(logicalNot(isFinite(y))).item(Int32.self), 0, "NaN/inf in the half-precision channel attention")
+            // the pooled mean of a constant tile is the constant, so the gate equals sigmoid(conv(conv(70))) ∈ [0, 1]
+            let gate = y.asType(.float32)[0, 0, 0, 0].item(Float.self) / 70
+            XCTAssertTrue(gate >= 0 && gate <= 1, "gate \(gate)")
+        }
+    }
+
     /// Reading the 3·dim projection as `(heads, 3, c)` gives the same shapes and a different answer.
     func testQKVOrderProbeDiscriminates() {
         withCPU {

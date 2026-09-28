@@ -73,6 +73,8 @@ func compare(_ name: String, _ got: MLXArray, _ ref: MLXArray) -> Delta {
         log("  \(name): shape \(g.shape) vs golden \(r.shape)")
         return Delta(name: name, maxAbs: .infinity, meanAbs: .infinity, refMax: 0, cosine: 0, shapeOK: false, nDiff: -1)
     }
+    let nonFinite = sum(logicalNot(isFinite(g))).item(Int32.self)
+    if nonFinite > 0 { log("  \(name): \(nonFinite) non-finite values in the port's output") }
     let d = abs(g - r)
     let num = sum(g * r).item(Float.self)
     let den = (sqrt(sum(g * g)) * sqrt(sum(r * r))).item(Float.self)
@@ -85,6 +87,7 @@ func compare(_ name: String, _ got: MLXArray, _ ref: MLXArray) -> Delta {
 /// `heart_parity.py`, so the numbers are comparable with its 86.6–91.2 dB torch-vs-ONNX figures.
 func psnr(_ got: MLXArray, _ ref: MLXArray) -> Float {
     let mse = mean(square(got.asType(.float32) - ref.asType(.float32))).item(Float.self)
+    if mse.isNaN { return .nan }                       // a NaN output is a failure, never "infinite PSNR"
     return mse > 0 ? 10 * log10f(1.0 / mse) : .infinity
 }
 
@@ -121,7 +124,10 @@ func loadRGB(_ path: String) throws -> MLXArray {
 }
 
 func savePNG(_ x: MLXArray, to path: String) throws {
-    let y = clip(x[0].asType(.float32), min: 0, max: 1) * 255 + 0.5
+    let f32 = x[0].asType(.float32)
+    let bad = sum(logicalNot(isFinite(f32))).item(Int32.self)
+    if bad > 0 { log("WARN: \(bad) non-finite output values (written as 0) — a silent-failure signature") }
+    let y = clip(MLX.where(isFinite(f32), f32, MLXArray(Float(0))), min: 0, max: 1) * 255 + 0.5
     let h = y.dim(0), w = y.dim(1)
     let v = y.asArray(Float.self)
     var buf = [UInt8](repeating: 255, count: w * h * 4)
@@ -208,7 +214,7 @@ struct GateResult {
     var passed: [String] = []
     var failed: [String] = []
     mutating func check(_ d: Delta, rel tol: Float, note: String = "") {
-        let ok = d.shapeOK && d.relMax <= tol && d.maxAbs.isFinite
+        let ok = d.shapeOK && d.relMax <= tol && d.maxAbs.isFinite && !d.maxAbs.isNaN
         print("  \(ok ? "PASS" : "FAIL") \(d) tol \(String(format: "%.0e", tol))\(note)")
         if ok { passed.append(d.name) } else { failed.append(d.name) }
     }
@@ -230,8 +236,11 @@ func gateTaps(model m: HEART, goldens g: [String: MLXArray], size: String, r: in
     let PRIM: Float = 2e-6, DEEP: Float = 1e-5, CHAIN: Float = 5e-5, E2E: Float = 2e-4
     print("── taps \(size) ──")
     let input = g["in"]!
-    let x = checkImageSize(input, window: m.config.windowSize)
-    r.checkExact(compare("padded", x, g["padded"]!))
+    let padded = checkImageSize(input, window: m.config.windowSize)
+    r.checkExact(compare("padded", padded, g["padded"]!))
+    // mirror `forward()`: the padded input runs in the weights' dtype (an fp32 input against fp16 weights would
+    // silently promote every activation to fp32 and hide the half-precision behaviour)
+    let x = padded.asType(m.computeDtype)
     let (f, t) = m.stem(x)
     r.check(compare("conv_first", f, g["conv_first"]!), rel: PRIM)
     r.check(compare("patch_embed", t, g["patch_embed"]!), rel: PRIM)
@@ -329,7 +338,7 @@ func runGate(_ args: [String]) throws {
     try withDevice(gpu: gpu) {
         if only.contains("taps") {
             let m = try makeModel(weightsDir: weightsDir, variant: .fidelity, precision: lane, headPad: headPad)
-            let files = ["64x64", "96x96", "100x140", "20x20", "12x12"]
+            let files = opt(args, "--taps").map { $0.split(separator: ",").map(String.init) } ?? ["64x64", "96x96", "100x140", "20x20", "12x12"]
             var first = true
             for size in files {
                 let path = "\(goldensDir)/taps_heart_4x_otf_v2_\(size).safetensors"
@@ -363,7 +372,7 @@ func runGate(_ args: [String]) throws {
                     let dt = now() - t0
                     let dTorch = compare("\(v.rawValue) \(side)² vs torch", out, g["out"]!)
                     let pT = psnr(out, g["out"]!), pO = psnr(out, g["onnx"]!), pTO = psnr(g["out"]!, g["onnx"]!)
-                    let ok = pT >= 90
+                    let ok = pT >= 90 && !pT.isNaN && dTorch.maxAbs.isFinite
                     print(String(format: "  %@ %@  PSNR vs torch %.1f dB · vs ONNX %.1f dB (torch-vs-ONNX %.1f dB) · %.1f s",
                                  ok ? "PASS" : "FAIL", dTorch.description, pT, pO, pTO, dt))
                     if ok { r.passed.append(dTorch.name) } else { r.failed.append(dTorch.name) }

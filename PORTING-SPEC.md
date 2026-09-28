@@ -77,7 +77,7 @@ lane is the strict one; `--gpu` reports the Metal gap (TF32 GEMMs on M5 — set 
 | H2 / S2 e2e 128² | every variant vs torch ≥ 90 dB; vs the author's ONNX | **PASSED 2026-09-28** — vs torch: `.fidelity` **127.5 dB**, `.sharp` 125.3, `.clean` 122.5, `.clean2x` 124.0; vs ONNX: 90.2 / 84.9 / **7.8** / 95.8 dB = exactly torch's own agreement with those files (`oracle/reports/s2-e2e-128.log`; lesson 2 on the two ONNX caveats) |
 | H2 / S2 e2e 512² | same at 512² (→ 2048² / 1024² out) | **PASSED 2026-09-28** — vs torch: `.fidelity` **127.4 dB**, `.sharp` 125.7, `.clean` 122.4, `.clean2x` 124.0 (worst sub-pixel rel 6.0e-6); vs ONNX 54.5 / 48.9 / 7.9 / 59.8 dB — again identical to torch-vs-ONNX at this size (lesson 2b); 66–100 s per forward on the CPU stream (`oracle/reports/s2-e2e-512.log`) |
 | S2b GPU eyeball | `run` per variant on Metal, TF32 off and on, on a real image | pending — GPU window |
-| H3 dtype | fp16 (i-LN statistics, RIB tables, softmax fp32) vs the fp32 lane on the 27 bench cells + wall time; residual stream fp16 vs fp32 | pending — GPU window |
+| H3 dtype | fp16 (i-LN statistics, RIB tables, softmax, global pooling and the squeeze/excite head in fp32) vs the fp32 lane on the 27 bench cells + wall time; residual stream fp16 vs fp32 | **CPU early read 2026-09-28** (`--fp16` e2e at 128² vs the torch fp32 oracle, `oracle/reports/h3-fp16{,r}-cpu-128.log`): residual stream fp16 → `.fidelity` **72.4 dB**, `.sharp` 68.2; residual stream fp32 → **80.7** / 72.1 dB. Both are far above the fleet's fp16 bar (VOSR2 shipped at 49.3 dB, FFTformer at 50.1); the GPU study decides fp16-vs-fp16r on wall time and memory (the CPU fp16 conv seems to accumulate in fp16, so GPU numbers should read higher). Two fp16 fixes came out of this lane — lesson 5. GPU run pending |
 | H4 perf | idle-GPU bracket, arms interleaved (fp32/fp16 × head 64/40), 256² and 512²; bar 540–590 ms/Mpx at head 64; RealPLKSR anchor 111 ms/Mpx | pending — GPU window |
 | H5 tiling + memory + ×2 | whole-frame vs tiled 256/384/512 (overlap 32/64) on the 27 cells: SSIMULACRA2 change ≤ 0.1, dB tiled-vs-whole, peak memory; whole-frame memory at 960×540 and 1920×1080; `heart_2x` vs `.fidelity` ×4 + downsample | pending — GPU window |
 | H6 package | C0–C14 + MAT-1..5 + CAN-1..3 + split footprint at five sizes + `BudgetAware` | offline suites written; `swift test` pending; footprints PROVISIONAL |
@@ -104,6 +104,15 @@ lane is the strict one; `--gpu` reports the Metal gap (TF32 GEMMs on M5 — set 
    ORT's ReduceMean is likely the same class of failure (lesson 2b).
 4. **`[0..., 0..., 0..., 0 ..< d]` on its own line after a call is parsed as an array literal**, not a subscript — keep
    MLX slices on the call's line or bind the call first.
+5. **A half-precision lane needs EVERY reduction in fp32, not just the normalisations — the first fp16 forward was 56 %
+   NaN.** The CAB conv branch reaches |70| and a 64² tile has 4096 positions, so the channel attention's global average
+   pool overflowed fp16 (65504) → inf → NaN through the sigmoid; torch's `AdaptiveAvgPool2d` accumulates half inputs in
+   float, so upstream never sees it. With the pool in fp32 the squeeze/excite head itself then read **0.69 relative** on
+   the CPU stream (an fp16 1×1 conv over 180 pooled means, cancelling into a steep sigmoid) — it is negligible work, so it
+   runs in fp32 too (`ChannelAttention`), after which the fp16 lane reads 72–81 dB e2e. Two gate lessons rode along: the
+   e2e PSNR helper returned +∞ on a NaN MSE (`mse > 0` is false for NaN) and PASSED — count non-finite values explicitly;
+   and a piecewise tap chain that feeds an fp32 input to fp16 weights silently promotes every activation to fp32 and
+   hides the half-precision behaviour — mirror the forward's input cast.
 
 ## Hazards carried in
 

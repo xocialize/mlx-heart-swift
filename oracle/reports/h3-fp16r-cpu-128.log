@@ -1,0 +1,2 @@
+  FAIL fidelity 128² vs torch max|Δ| 5.276e-04  mean|Δ| 7.744e-05  |ref|max 0.7964  rel 6.62e-04  cos 1.00000036  n≠ 786298  PSNR vs torch 80.7 dB · vs ONNX 80.5 dB (torch-vs-ONNX 90.2 dB) · 4.
+  FAIL sharp 128² vs torch max|Δ| 2.198e-03  mean|Δ| 1.941e-04  |ref|max 0.9294  rel 2.37e-03  cos 0.99999994  n≠ 786369  PSNR vs torch 72.1 dB · vs ONNX 70.9 dB (torch-vs-ONNX 84.9 dB) · 4.1 s
