@@ -1,0 +1,732 @@
+  mlx-community/HEART-fp16: heart_4x_otf_v2_fp16.safetensors        33.7 MB
+  mlx-community/HEART-fp16: heart_4x_otf_gan_fp16.safetensors       33.7 MB
+  mlx-community/HEART-fp16: heart_4x_pretrain_fp16.safetensors      33.7 MB
+  mlx-community/HEART-fp16: heart_2x_fp16.safetensors               33.4 MB
+  mlx-community/HEART-fp16: config.json                              0.0 MB
+uploading mlx-community/HEART-fp16 heart_4x_otf_v2_fp16.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...x_otf_v2_fp16.safetensors:   2%|▏         |  525kB / 33.7MB            [A[A
+
+  ...x_otf_v2_fp16.safetensors:   2%|▏         |  525kB / 33.7MB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  525kB / 33.7MB, 51.9kB/s  
+New Data Upload               :   2%|▏         |  525kB / 33.7MB, 51.9kB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:   2%|▏         |  525kB / 33.7MB            [A[A
+
+  ...x_otf_v2_fp16.safetensors:   2%|▏         |  525kB / 33.7MB            [A[A
+
+  ...x_otf_v2_fp16.safetensors:   3%|▎         | 1.05MB / 33.7MB            [A[AProcessing Files (0 / 1)      :   3%|▎         | 1.05MB / 33.7MB,  102kB/s  
+New Data Upload               :   3%|▎         | 1.05MB / 33.7MB,  102kB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:   9%|▉         | 3.15MB / 33.7MB            [A[AProcessing Files (0 / 1)      :   9%|▉         | 3.15MB / 33.7MB,  306kB/s  
+New Data Upload               :   9%|▉         | 3.15MB / 33.7MB,  306kB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  16%|█▌        | 5.25MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  16%|█▌        | 5.25MB / 33.7MB,  507kB/s  
+New Data Upload               :  16%|█▌        | 5.25MB / 33.7MB,  507kB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  25%|██▍       | 8.41MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  25%|██▍       | 8.41MB / 33.7MB,  808kB/s  
+New Data Upload               :  25%|██▍       | 8.41MB / 33.7MB,  808kB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  36%|███▌      | 12.1MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  36%|███▌      | 12.1MB / 33.7MB, 1.15MB/s  
+New Data Upload               :  36%|███▌      | 12.1MB / 33.7MB, 1.15MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  45%|████▌     | 15.2MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  45%|████▌     | 15.2MB / 33.7MB, 1.45MB/s  
+New Data Upload               :  45%|████▌     | 15.2MB / 33.7MB, 1.45MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  61%|██████    | 20.5MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  61%|██████    | 20.5MB / 33.7MB, 1.94MB/s  
+New Data Upload               :  61%|██████    | 20.5MB / 33.7MB, 1.94MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  76%|███████▋  | 25.7MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  76%|███████▋  | 25.7MB / 33.7MB, 2.42MB/s  
+New Data Upload               :  76%|███████▋  | 25.7MB / 33.7MB, 2.42MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors:  92%|█████████▏| 31.0MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  92%|█████████▏| 31.0MB / 33.7MB, 2.90MB/s  
+New Data Upload               :  92%|█████████▏| 31.0MB / 33.7MB, 2.90MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 33.7MB / 33.7MB, 3.13MB/s  
+New Data Upload               : 100%|█████████▉| 33.7MB / 33.7MB, 3.13MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 33.7MB / 33.7MB, 3.00MB/s  
+New Data Upload               : 100%|██████████| 33.7MB / 33.7MB, 3.00MB/s  [A
+
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 33.7MB / 33.7MB, 2.88MB/s  
+New Data Upload               : 100%|██████████| 33.7MB / 33.7MB, 2.88MB/s  
+Validating                    : ██████████| 100%            
+  ...x_otf_v2_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            
+uploading mlx-community/HEART-fp16 heart_4x_otf_gan_fp16.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ..._otf_gan_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[AProcessing Files (0 / 1)      :   0%|          | 23.7kB / 33.7MB,   ???B/s  
+
+  ..._otf_gan_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors:   2%|▏         |  549kB / 33.7MB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  549kB / 33.7MB, 54.3kB/s  
+New Data Upload               :   2%|▏         |  525kB / 33.6MB, 52.0kB/s  [A
+
+  ..._otf_gan_fp16.safetensors:   2%|▏         |  549kB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors:   2%|▏         |  549kB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors:   2%|▏         |  549kB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors:   5%|▍         | 1.60MB / 33.7MB            [A[AProcessing Files (0 / 1)      :   5%|▍         | 1.60MB / 33.7MB,  155kB/s  
+New Data Upload               :   5%|▍         | 1.58MB / 33.6MB,  153kB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  13%|█▎        | 4.22MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  13%|█▎        | 4.22MB / 33.7MB,  409kB/s  
+New Data Upload               :  12%|█▏        | 4.20MB / 33.6MB,  407kB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  14%|█▍        | 4.75MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  14%|█▍        | 4.75MB / 33.7MB,  456kB/s  
+New Data Upload               :  14%|█▍        | 4.73MB / 33.6MB,  454kB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  23%|██▎       | 7.90MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  23%|██▎       | 7.90MB / 33.7MB,  757kB/s  
+New Data Upload               :  23%|██▎       | 7.88MB / 33.6MB,  755kB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  31%|███▏      | 10.5MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  31%|███▏      | 10.5MB / 33.7MB, 1.00MB/s  
+New Data Upload               :  31%|███       | 10.5MB / 33.6MB, 1.00MB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  45%|████▌     | 15.3MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  45%|████▌     | 15.3MB / 33.7MB, 1.45MB/s  
+New Data Upload               :  45%|████▌     | 15.2MB / 33.6MB, 1.45MB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  61%|██████    | 20.5MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  61%|██████    | 20.5MB / 33.7MB, 1.94MB/s  
+New Data Upload               :  61%|██████    | 20.5MB / 33.6MB, 1.94MB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  77%|███████▋  | 25.8MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  77%|███████▋  | 25.8MB / 33.7MB, 2.42MB/s  
+New Data Upload               :  76%|███████▋  | 25.7MB / 33.6MB, 2.42MB/s  [A
+
+  ..._otf_gan_fp16.safetensors:  87%|████████▋ | 29.4MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  87%|████████▋ | 29.4MB / 33.7MB, 2.75MB/s  
+New Data Upload               :  87%|████████▋ | 29.4MB / 33.6MB, 2.75MB/s  [A
+
+  ..._otf_gan_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 33.7MB / 33.7MB, 3.13MB/s  
+New Data Upload               : 100%|█████████▉| 33.6MB / 33.6MB, 3.12MB/s  [A
+
+  ..._otf_gan_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ..._otf_gan_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 33.7MB / 33.7MB, 2.98MB/s  
+New Data Upload               : 100%|██████████| 33.6MB / 33.6MB, 2.98MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ..._otf_gan_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ..._otf_gan_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 33.7MB / 33.7MB, 2.94MB/s  
+New Data Upload               : 100%|██████████| 33.6MB / 33.6MB, 2.93MB/s  
+Validating                    : ██████████| 100%            
+  ..._otf_gan_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            
+uploading mlx-community/HEART-fp16 heart_4x_pretrain_fp16.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...pretrain_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[AProcessing Files (0 / 1)      :   0%|          | 23.7kB / 33.7MB,   ???B/s  
+
+  ...pretrain_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors:   0%|          | 23.7kB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors:   2%|▏         |  549kB / 33.7MB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  549kB / 33.7MB, 54.1kB/s  
+New Data Upload               :   2%|▏         |  525kB / 33.6MB, 51.8kB/s  [A
+
+  ...pretrain_fp16.safetensors:   2%|▏         |  549kB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors:   3%|▎         | 1.07MB / 33.7MB            [A[AProcessing Files (0 / 1)      :   3%|▎         | 1.07MB / 33.7MB,  105kB/s  
+New Data Upload               :   3%|▎         | 1.05MB / 33.6MB,  102kB/s  [A
+
+  ...pretrain_fp16.safetensors:   3%|▎         | 1.07MB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors:   8%|▊         | 2.65MB / 33.7MB            [A[AProcessing Files (0 / 1)      :   8%|▊         | 2.65MB / 33.7MB,  256kB/s  
+New Data Upload               :   8%|▊         | 2.63MB / 33.6MB,  254kB/s  [A
+
+  ...pretrain_fp16.safetensors:  19%|█▉        | 6.32MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  19%|█▉        | 6.32MB / 33.7MB,  611kB/s  
+New Data Upload               :  19%|█▊        | 6.30MB / 33.6MB,  609kB/s  [A
+
+  ...pretrain_fp16.safetensors:  20%|██        | 6.85MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  20%|██        | 6.85MB / 33.7MB,  656kB/s  
+New Data Upload               :  20%|██        | 6.83MB / 33.6MB,  653kB/s  [A
+
+  ...pretrain_fp16.safetensors:  28%|██▊       | 9.47MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  28%|██▊       | 9.47MB / 33.7MB,  903kB/s  
+New Data Upload               :  28%|██▊       | 9.45MB / 33.6MB,  901kB/s  [A
+
+  ...pretrain_fp16.safetensors:  44%|████▍     | 14.7MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  44%|████▍     | 14.7MB / 33.7MB, 1.40MB/s  
+New Data Upload               :  44%|████▎     | 14.7MB / 33.6MB, 1.40MB/s  [A
+
+  ...pretrain_fp16.safetensors:  59%|█████▉    | 20.0MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  59%|█████▉    | 20.0MB / 33.7MB, 1.89MB/s  
+New Data Upload               :  59%|█████▉    | 20.0MB / 33.6MB, 1.89MB/s  [A
+
+  ...pretrain_fp16.safetensors:  73%|███████▎  | 24.7MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  73%|███████▎  | 24.7MB / 33.7MB, 2.33MB/s  
+New Data Upload               :  73%|███████▎  | 24.7MB / 33.6MB, 2.32MB/s  [A
+
+  ...pretrain_fp16.safetensors:  80%|███████▉  | 26.8MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  80%|███████▉  | 26.8MB / 33.7MB, 2.50MB/s  
+New Data Upload               :  80%|███████▉  | 26.8MB / 33.6MB, 2.50MB/s  [A
+
+  ...pretrain_fp16.safetensors:  94%|█████████▎| 31.5MB / 33.7MB            [A[AProcessing Files (0 / 1)      :  94%|█████████▎| 31.5MB / 33.7MB, 2.93MB/s  
+New Data Upload               :  94%|█████████▎| 31.5MB / 33.6MB, 2.93MB/s  [A
+
+  ...pretrain_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 33.7MB / 33.7MB, 3.10MB/s  
+New Data Upload               : 100%|█████████▉| 33.6MB / 33.6MB, 3.10MB/s  [A
+
+  ...pretrain_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors: 100%|█████████▉| 33.7MB / 33.7MB            [A[A
+
+  ...pretrain_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 33.7MB / 33.7MB, 2.95MB/s  
+New Data Upload               : 100%|██████████| 33.6MB / 33.6MB, 2.95MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...pretrain_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...pretrain_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 33.7MB / 33.7MB, 2.92MB/s  
+New Data Upload               : 100%|██████████| 33.6MB / 33.6MB, 2.92MB/s  
+Validating                    : ██████████| 100%            
+  ...pretrain_fp16.safetensors: 100%|██████████| 33.7MB / 33.7MB            
+uploading mlx-community/HEART-fp16 heart_2x_fp16.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...heart_2x_fp16.safetensors:   2%|▏         |  525kB / 33.4MB            [A[A
+
+  ...heart_2x_fp16.safetensors:   2%|▏         |  525kB / 33.4MB            [A[AProcessing Files (0 / 1)      :   2%|▏         |  525kB / 33.4MB, 51.7kB/s  
+New Data Upload               :   2%|▏         |  525kB / 33.4MB, 51.7kB/s  [A
+
+  ...heart_2x_fp16.safetensors:   2%|▏         |  525kB / 33.4MB            [A[A
+
+  ...heart_2x_fp16.safetensors:   3%|▎         | 1.05MB / 33.4MB            [A[AProcessing Files (0 / 1)      :   3%|▎         | 1.05MB / 33.4MB,  102kB/s  
+New Data Upload               :   3%|▎         | 1.05MB / 33.4MB,  102kB/s  [A
+
+  ...heart_2x_fp16.safetensors:  11%|█         | 3.68MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  11%|█         | 3.68MB / 33.4MB,  357kB/s  
+New Data Upload               :  11%|█         | 3.68MB / 33.4MB,  357kB/s  [A
+
+  ...heart_2x_fp16.safetensors:  11%|█         | 3.68MB / 33.4MB            [A[A
+
+  ...heart_2x_fp16.safetensors:  24%|██▎       | 7.88MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  24%|██▎       | 7.88MB / 33.4MB,  758kB/s  
+New Data Upload               :  24%|██▎       | 7.88MB / 33.4MB,  758kB/s  [A
+
+  ...heart_2x_fp16.safetensors:  33%|███▎      | 11.0MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  33%|███▎      | 11.0MB / 33.4MB, 1.06MB/s  
+New Data Upload               :  33%|███▎      | 11.0MB / 33.4MB, 1.06MB/s  [A
+
+  ...heart_2x_fp16.safetensors:  46%|████▌     | 15.2MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  46%|████▌     | 15.2MB / 33.4MB, 1.45MB/s  
+New Data Upload               :  46%|████▌     | 15.2MB / 33.4MB, 1.45MB/s  [A
+
+  ...heart_2x_fp16.safetensors:  61%|██████▏   | 20.5MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  61%|██████▏   | 20.5MB / 33.4MB, 1.94MB/s  
+New Data Upload               :  61%|██████▏   | 20.5MB / 33.4MB, 1.94MB/s  [A
+
+  ...heart_2x_fp16.safetensors:  68%|██████▊   | 22.6MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  68%|██████▊   | 22.6MB / 33.4MB, 2.12MB/s  
+New Data Upload               :  68%|██████▊   | 22.6MB / 33.4MB, 2.12MB/s  [A
+
+  ...heart_2x_fp16.safetensors:  80%|████████  | 26.8MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  80%|████████  | 26.8MB / 33.4MB, 2.50MB/s  
+New Data Upload               :  80%|████████  | 26.8MB / 33.4MB, 2.50MB/s  [A
+
+  ...heart_2x_fp16.safetensors:  96%|█████████▌| 32.0MB / 33.4MB            [A[AProcessing Files (0 / 1)      :  96%|█████████▌| 32.0MB / 33.4MB, 2.98MB/s  
+New Data Upload               :  96%|█████████▌| 32.0MB / 33.4MB, 2.98MB/s  [A
+
+  ...heart_2x_fp16.safetensors: 100%|█████████▉| 33.4MB / 33.4MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 33.4MB / 33.4MB, 3.08MB/s  
+New Data Upload               : 100%|█████████▉| 33.4MB / 33.4MB, 3.08MB/s  [A
+
+  ...heart_2x_fp16.safetensors: 100%|█████████▉| 33.4MB / 33.4MB            [A[A
+
+  ...heart_2x_fp16.safetensors: 100%|█████████▉| 33.4MB / 33.4MB            [A[A
+
+  ...heart_2x_fp16.safetensors: 100%|█████████▉| 33.4MB / 33.4MB            [A[A
+
+  ...heart_2x_fp16.safetensors: 100%|██████████| 33.4MB / 33.4MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 33.4MB / 33.4MB, 2.95MB/s  
+New Data Upload               : 100%|██████████| 33.4MB / 33.4MB, 2.95MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...heart_2x_fp16.safetensors: 100%|██████████| 33.4MB / 33.4MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 33.4MB / 33.4MB, 2.93MB/s  
+New Data Upload               : 100%|██████████| 33.4MB / 33.4MB, 2.93MB/s  
+Validating                    : ██████████| 100%            
+  ...heart_2x_fp16.safetensors: 100%|██████████| 33.4MB / 33.4MB            
+uploading mlx-community/HEART-fp16 config.json
+done: https://huggingface.co/mlx-community/HEART-fp16
+  mlx-community/HEART-fp32: heart_4x_otf_v2_fp32.safetensors        66.8 MB
+  mlx-community/HEART-fp32: heart_4x_otf_gan_fp32.safetensors       66.8 MB
+  mlx-community/HEART-fp32: heart_4x_pretrain_fp32.safetensors      66.8 MB
+  mlx-community/HEART-fp32: heart_2x_fp32.safetensors               66.2 MB
+  mlx-community/HEART-fp32: config.json                              0.0 MB
+uploading mlx-community/HEART-fp32 heart_4x_otf_v2_fp32.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...x_otf_v2_fp32.safetensors:   1%|          |  551kB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors:   1%|          |  551kB / 66.8MB            [A[AProcessing Files (0 / 1)      :   1%|          |  551kB / 66.8MB, 54.3kB/s  
+New Data Upload               :   1%|          |  551kB / 66.8MB, 54.3kB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:   1%|          |  551kB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors:   1%|          |  551kB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors:   2%|▏         | 1.10MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   2%|▏         | 1.10MB / 66.8MB,  106kB/s  
+New Data Upload               :   2%|▏         | 1.10MB / 66.8MB,  106kB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:   2%|▏         | 1.65MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   2%|▏         | 1.65MB / 66.8MB,  159kB/s  
+New Data Upload               :   2%|▏         | 1.65MB / 66.8MB,  159kB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:   5%|▍         | 3.31MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   5%|▍         | 3.31MB / 66.8MB,  318kB/s  
+New Data Upload               :   5%|▍         | 3.31MB / 66.8MB,  318kB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  13%|█▎        | 8.82MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  13%|█▎        | 8.82MB / 66.8MB,  848kB/s  
+New Data Upload               :  13%|█▎        | 8.82MB / 66.8MB,  848kB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  13%|█▎        | 8.82MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors:  21%|██▏       | 14.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  21%|██▏       | 14.3MB / 66.8MB, 1.36MB/s  
+New Data Upload               :  21%|██▏       | 14.3MB / 66.8MB, 1.36MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  31%|███       | 20.4MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  31%|███       | 20.4MB / 66.8MB, 1.93MB/s  
+New Data Upload               :  31%|███       | 20.4MB / 66.8MB, 1.93MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  38%|███▊      | 25.4MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  38%|███▊      | 25.4MB / 66.8MB, 2.38MB/s  
+New Data Upload               :  38%|███▊      | 25.4MB / 66.8MB, 2.38MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  47%|████▋     | 31.4MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  47%|████▋     | 31.4MB / 66.8MB, 2.94MB/s  
+New Data Upload               :  47%|████▋     | 31.4MB / 66.8MB, 2.94MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  49%|████▊     | 32.5MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  49%|████▊     | 32.5MB / 66.8MB, 3.02MB/s  
+New Data Upload               :  49%|████▊     | 32.5MB / 66.8MB, 3.02MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  58%|█████▊    | 38.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  58%|█████▊    | 38.6MB / 66.8MB, 3.56MB/s  
+New Data Upload               :  58%|█████▊    | 38.6MB / 66.8MB, 3.56MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  64%|██████▍   | 43.0MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  64%|██████▍   | 43.0MB / 66.8MB, 3.94MB/s  
+New Data Upload               :  64%|██████▍   | 43.0MB / 66.8MB, 3.94MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  71%|███████   | 47.4MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  71%|███████   | 47.4MB / 66.8MB, 4.32MB/s  
+New Data Upload               :  71%|███████   | 47.4MB / 66.8MB, 4.32MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  80%|████████  | 53.5MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  80%|████████  | 53.5MB / 66.8MB, 4.85MB/s  
+New Data Upload               :  80%|████████  | 53.5MB / 66.8MB, 4.85MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  83%|████████▎ | 55.1MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  83%|████████▎ | 55.1MB / 66.8MB, 4.96MB/s  
+New Data Upload               :  83%|████████▎ | 55.1MB / 66.8MB, 4.96MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  90%|████████▉ | 60.1MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  90%|████████▉ | 60.1MB / 66.8MB, 5.37MB/s  
+New Data Upload               :  90%|████████▉ | 60.1MB / 66.8MB, 5.37MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors:  98%|█████████▊| 65.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  98%|█████████▊| 65.6MB / 66.8MB, 5.84MB/s  
+New Data Upload               :  98%|█████████▊| 65.6MB / 66.8MB, 5.84MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 66.8MB / 66.8MB, 5.89MB/s  
+New Data Upload               : 100%|█████████▉| 66.8MB / 66.8MB, 5.89MB/s  [A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 66.8MB / 66.8MB, 5.45MB/s  
+New Data Upload               : 100%|██████████| 66.8MB / 66.8MB, 5.45MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[A
+
+  ...x_otf_v2_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 66.8MB / 66.8MB, 5.40MB/s  
+New Data Upload               : 100%|██████████| 66.8MB / 66.8MB, 5.40MB/s  
+Validating                    : ██████████| 100%            
+  ...x_otf_v2_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            
+uploading mlx-community/HEART-fp32 heart_4x_otf_gan_fp32.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ..._otf_gan_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[AProcessing Files (0 / 1)      :   0%|          | 89.8kB / 66.8MB,   ???B/s  
+
+  ..._otf_gan_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors:   1%|          |  642kB / 66.8MB            [A[AProcessing Files (0 / 1)      :   1%|          |  642kB / 66.8MB, 62.8kB/s  
+New Data Upload               :   1%|          |  552kB / 66.7MB, 54.3kB/s  [A
+
+  ..._otf_gan_fp32.safetensors:   1%|          |  642kB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors:   2%|▏         | 1.19MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   2%|▏         | 1.19MB / 66.8MB,  116kB/s  
+New Data Upload               :   2%|▏         | 1.10MB / 66.7MB,  107kB/s  [A
+
+  ..._otf_gan_fp32.safetensors:   3%|▎         | 1.75MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   3%|▎         | 1.75MB / 66.8MB,  168kB/s  
+New Data Upload               :   2%|▏         | 1.66MB / 66.7MB,  160kB/s  [A
+
+  ..._otf_gan_fp32.safetensors:   4%|▍         | 2.85MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   4%|▍         | 2.85MB / 66.8MB,  274kB/s  
+New Data Upload               :   4%|▍         | 2.76MB / 66.7MB,  266kB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  11%|█         | 7.27MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  11%|█         | 7.27MB / 66.8MB,  699kB/s  
+New Data Upload               :  11%|█         | 7.18MB / 66.7MB,  691kB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  12%|█▏        | 7.82MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  12%|█▏        | 7.82MB / 66.8MB,  746kB/s  
+New Data Upload               :  12%|█▏        | 7.73MB / 66.7MB,  738kB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  19%|█▉        | 12.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  19%|█▉        | 12.8MB / 66.8MB, 1.22MB/s  
+New Data Upload               :  19%|█▉        | 12.7MB / 66.7MB, 1.21MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  27%|██▋       | 18.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  27%|██▋       | 18.3MB / 66.8MB, 1.74MB/s  
+New Data Upload               :  27%|██▋       | 18.2MB / 66.7MB, 1.73MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  36%|███▌      | 23.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  36%|███▌      | 23.8MB / 66.8MB, 2.25MB/s  
+New Data Upload               :  36%|███▌      | 23.7MB / 66.7MB, 2.24MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  44%|████▍     | 29.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  44%|████▍     | 29.3MB / 66.8MB, 2.75MB/s  
+New Data Upload               :  44%|████▍     | 29.3MB / 66.7MB, 2.74MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  47%|████▋     | 31.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  47%|████▋     | 31.6MB / 66.8MB, 2.94MB/s  
+New Data Upload               :  47%|████▋     | 31.5MB / 66.7MB, 2.93MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  55%|█████▍    | 36.5MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  55%|█████▍    | 36.5MB / 66.8MB, 3.38MB/s  
+New Data Upload               :  55%|█████▍    | 36.4MB / 66.7MB, 3.37MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  64%|██████▍   | 42.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  64%|██████▍   | 42.6MB / 66.8MB, 3.92MB/s  
+New Data Upload               :  64%|██████▎   | 42.5MB / 66.7MB, 3.91MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  71%|███████   | 47.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  71%|███████   | 47.6MB / 66.8MB, 4.35MB/s  
+New Data Upload               :  71%|███████   | 47.5MB / 66.7MB, 4.35MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  80%|████████  | 53.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  80%|████████  | 53.6MB / 66.8MB, 4.88MB/s  
+New Data Upload               :  80%|████████  | 53.5MB / 66.7MB, 4.88MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  83%|████████▎ | 55.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  83%|████████▎ | 55.3MB / 66.8MB, 4.99MB/s  
+New Data Upload               :  83%|████████▎ | 55.2MB / 66.7MB, 4.98MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  91%|█████████ | 60.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  91%|█████████ | 60.8MB / 66.8MB, 5.46MB/s  
+New Data Upload               :  91%|█████████ | 60.7MB / 66.7MB, 5.45MB/s  [A
+
+  ..._otf_gan_fp32.safetensors:  99%|█████████▉| 66.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  99%|█████████▉| 66.3MB / 66.8MB, 5.92MB/s  
+New Data Upload               :  99%|█████████▉| 66.2MB / 66.7MB, 5.91MB/s  [A
+
+  ..._otf_gan_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 66.8MB / 66.8MB, 5.91MB/s  
+New Data Upload               : 100%|█████████▉| 66.7MB / 66.7MB, 5.90MB/s  [A
+
+  ..._otf_gan_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 66.8MB / 66.8MB, 5.57MB/s  
+New Data Upload               : 100%|██████████| 66.7MB / 66.7MB, 5.57MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ..._otf_gan_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 66.8MB / 66.8MB, 5.50MB/s  
+New Data Upload               : 100%|██████████| 66.7MB / 66.7MB, 5.49MB/s  
+Validating                    : ██████████| 100%            
+  ..._otf_gan_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            
+uploading mlx-community/HEART-fp32 heart_4x_pretrain_fp32.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...pretrain_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[AProcessing Files (0 / 1)      :   0%|          | 89.8kB / 66.8MB,   ???B/s  
+
+  ...pretrain_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   0%|          | 89.8kB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   1%|          |  641kB / 66.8MB            [A[AProcessing Files (0 / 1)      :   1%|          |  641kB / 66.8MB, 62.8kB/s  
+New Data Upload               :   1%|          |  551kB / 66.7MB, 54.3kB/s  [A
+
+  ...pretrain_fp32.safetensors:   1%|          |  641kB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   2%|▏         | 1.19MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   2%|▏         | 1.19MB / 66.8MB,  115kB/s  
+New Data Upload               :   2%|▏         | 1.10MB / 66.7MB,  107kB/s  [A
+
+  ...pretrain_fp32.safetensors:   2%|▏         | 1.19MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors:   5%|▌         | 3.40MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   5%|▌         | 3.40MB / 66.8MB,  328kB/s  
+New Data Upload               :   5%|▍         | 3.31MB / 66.7MB,  320kB/s  [A
+
+  ...pretrain_fp32.safetensors:   9%|▉         | 6.16MB / 66.8MB            [A[AProcessing Files (0 / 1)      :   9%|▉         | 6.16MB / 66.8MB,  592kB/s  
+New Data Upload               :   9%|▉         | 6.07MB / 66.7MB,  584kB/s  [A
+
+  ...pretrain_fp32.safetensors:  14%|█▍        | 9.46MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  14%|█▍        | 9.46MB / 66.8MB,  906kB/s  
+New Data Upload               :  14%|█▍        | 9.37MB / 66.7MB,  898kB/s  [A
+
+  ...pretrain_fp32.safetensors:  20%|█▉        | 13.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  20%|█▉        | 13.3MB / 66.8MB, 1.27MB/s  
+New Data Upload               :  20%|█▉        | 13.2MB / 66.7MB, 1.26MB/s  [A
+
+  ...pretrain_fp32.safetensors:  25%|██▍       | 16.6MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  25%|██▍       | 16.6MB / 66.8MB, 1.57MB/s  
+New Data Upload               :  25%|██▍       | 16.5MB / 66.7MB, 1.57MB/s  [A
+
+  ...pretrain_fp32.safetensors:  33%|███▎      | 22.1MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  33%|███▎      | 22.1MB / 66.8MB, 2.09MB/s  
+New Data Upload               :  33%|███▎      | 22.1MB / 66.7MB, 2.08MB/s  [A
+
+  ...pretrain_fp32.safetensors:  41%|████▏     | 27.7MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  41%|████▏     | 27.7MB / 66.8MB, 2.59MB/s  
+New Data Upload               :  41%|████▏     | 27.6MB / 66.7MB, 2.59MB/s  [A
+
+  ...pretrain_fp32.safetensors:  48%|████▊     | 32.1MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  48%|████▊     | 32.1MB / 66.8MB, 2.99MB/s  
+New Data Upload               :  48%|████▊     | 32.0MB / 66.7MB, 2.98MB/s  [A
+
+  ...pretrain_fp32.safetensors:  55%|█████▍    | 36.5MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  55%|█████▍    | 36.5MB / 66.8MB, 3.38MB/s  
+New Data Upload               :  55%|█████▍    | 36.4MB / 66.7MB, 3.37MB/s  [A
+
+  ...pretrain_fp32.safetensors:  61%|██████    | 40.9MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  61%|██████    | 40.9MB / 66.8MB, 3.76MB/s  
+New Data Upload               :  61%|██████    | 40.8MB / 66.7MB, 3.75MB/s  [A
+
+  ...pretrain_fp32.safetensors:  68%|██████▊   | 45.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  68%|██████▊   | 45.3MB / 66.8MB, 4.14MB/s  
+New Data Upload               :  68%|██████▊   | 45.2MB / 66.7MB, 4.14MB/s  [A
+
+  ...pretrain_fp32.safetensors:  76%|███████▌  | 50.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  76%|███████▌  | 50.8MB / 66.8MB, 4.62MB/s  
+New Data Upload               :  76%|███████▌  | 50.7MB / 66.7MB, 4.61MB/s  [A
+
+  ...pretrain_fp32.safetensors:  84%|████████▍ | 56.3MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  84%|████████▍ | 56.3MB / 66.8MB, 5.10MB/s  
+New Data Upload               :  84%|████████▍ | 56.2MB / 66.7MB, 5.09MB/s  [A
+
+  ...pretrain_fp32.safetensors:  91%|█████████ | 60.7MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  91%|█████████ | 60.7MB / 66.8MB, 5.46MB/s  
+New Data Upload               :  91%|█████████ | 60.7MB / 66.7MB, 5.45MB/s  [A
+
+  ...pretrain_fp32.safetensors:  96%|█████████▌| 64.1MB / 66.8MB            [A[AProcessing Files (0 / 1)      :  96%|█████████▌| 64.1MB / 66.8MB, 5.72MB/s  
+New Data Upload               :  96%|█████████▌| 64.0MB / 66.7MB, 5.71MB/s  [A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 66.8MB / 66.8MB, 5.92MB/s  
+New Data Upload               : 100%|█████████▉| 66.7MB / 66.7MB, 5.91MB/s  [A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors: 100%|█████████▉| 66.8MB / 66.8MB            [A[A
+
+  ...pretrain_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 66.8MB / 66.8MB, 5.53MB/s  
+New Data Upload               : 100%|██████████| 66.7MB / 66.7MB, 5.53MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...pretrain_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 66.8MB / 66.8MB, 5.49MB/s  
+New Data Upload               : 100%|██████████| 66.7MB / 66.7MB, 5.49MB/s  
+Validating                    : ██████████| 100%            
+  ...pretrain_fp32.safetensors: 100%|██████████| 66.8MB / 66.8MB            
+uploading mlx-community/HEART-fp32 heart_2x_fp32.safetensors
+Processing Files (0 / 0)      : |          |  0.00B /  0.00B            
+New Data Upload               : |          |  0.00B /  0.00B            [A
+
+  ...heart_2x_fp32.safetensors:   1%|          |  551kB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors:   1%|          |  551kB / 66.2MB            [A[AProcessing Files (0 / 1)      :   1%|          |  551kB / 66.2MB, 54.3kB/s  
+New Data Upload               :   1%|          |  551kB / 66.2MB, 54.3kB/s  [A
+
+  ...heart_2x_fp32.safetensors:   1%|          |  551kB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors:   2%|▏         | 1.10MB / 66.2MB            [A[AProcessing Files (0 / 1)      :   2%|▏         | 1.10MB / 66.2MB,  107kB/s  
+New Data Upload               :   2%|▏         | 1.10MB / 66.2MB,  107kB/s  [A
+
+  ...heart_2x_fp32.safetensors:   2%|▏         | 1.65MB / 66.2MB            [A[AProcessing Files (0 / 1)      :   2%|▏         | 1.65MB / 66.2MB,  160kB/s  
+New Data Upload               :   2%|▏         | 1.65MB / 66.2MB,  160kB/s  [A
+
+  ...heart_2x_fp32.safetensors:   3%|▎         | 2.20MB / 66.2MB            [A[AProcessing Files (0 / 1)      :   3%|▎         | 2.20MB / 66.2MB,  212kB/s  
+New Data Upload               :   3%|▎         | 2.20MB / 66.2MB,  212kB/s  [A
+
+  ...heart_2x_fp32.safetensors:   9%|▉         | 6.06MB / 66.2MB            [A[AProcessing Files (0 / 1)      :   9%|▉         | 6.06MB / 66.2MB,  584kB/s  
+New Data Upload               :   9%|▉         | 6.06MB / 66.2MB,  584kB/s  [A
+
+  ...heart_2x_fp32.safetensors:  14%|█▍        | 9.37MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  14%|█▍        | 9.37MB / 66.2MB,  898kB/s  
+New Data Upload               :  14%|█▍        | 9.37MB / 66.2MB,  898kB/s  [A
+
+  ...heart_2x_fp32.safetensors:  22%|██▏       | 14.9MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  22%|██▏       | 14.9MB / 66.2MB, 1.42MB/s  
+New Data Upload               :  22%|██▏       | 14.9MB / 66.2MB, 1.42MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  28%|██▊       | 18.7MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  28%|██▊       | 18.7MB / 66.2MB, 1.78MB/s  
+New Data Upload               :  28%|██▊       | 18.7MB / 66.2MB, 1.78MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  34%|███▍      | 22.6MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  34%|███▍      | 22.6MB / 66.2MB, 2.13MB/s  
+New Data Upload               :  34%|███▍      | 22.6MB / 66.2MB, 2.13MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  42%|████▏     | 28.1MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  42%|████▏     | 28.1MB / 66.2MB, 2.64MB/s  
+New Data Upload               :  42%|████▏     | 28.1MB / 66.2MB, 2.64MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  50%|████▉     | 33.1MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  50%|████▉     | 33.1MB / 66.2MB, 3.08MB/s  
+New Data Upload               :  50%|████▉     | 33.1MB / 66.2MB, 3.08MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  58%|█████▊    | 38.6MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  58%|█████▊    | 38.6MB / 66.2MB, 3.58MB/s  
+New Data Upload               :  58%|█████▊    | 38.6MB / 66.2MB, 3.58MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  63%|██████▎   | 41.9MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  63%|██████▎   | 41.9MB / 66.2MB, 3.85MB/s  
+New Data Upload               :  63%|██████▎   | 41.9MB / 66.2MB, 3.85MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  70%|██████▉   | 46.3MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  70%|██████▉   | 46.3MB / 66.2MB, 4.23MB/s  
+New Data Upload               :  70%|██████▉   | 46.3MB / 66.2MB, 4.23MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  78%|███████▊  | 51.8MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  78%|███████▊  | 51.8MB / 66.2MB, 4.71MB/s  
+New Data Upload               :  78%|███████▊  | 51.8MB / 66.2MB, 4.71MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  86%|████████▌ | 56.8MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  86%|████████▌ | 56.8MB / 66.2MB, 5.13MB/s  
+New Data Upload               :  86%|████████▌ | 56.8MB / 66.2MB, 5.13MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  94%|█████████▍| 62.3MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  94%|█████████▍| 62.3MB / 66.2MB, 5.60MB/s  
+New Data Upload               :  94%|█████████▍| 62.3MB / 66.2MB, 5.60MB/s  [A
+
+  ...heart_2x_fp32.safetensors:  97%|█████████▋| 63.9MB / 66.2MB            [A[AProcessing Files (0 / 1)      :  97%|█████████▋| 63.9MB / 66.2MB, 5.70MB/s  
+New Data Upload               :  97%|█████████▋| 63.9MB / 66.2MB, 5.70MB/s  [A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[AProcessing Files (0 / 1)      : 100%|█████████▉| 66.2MB / 66.2MB, 5.85MB/s  
+New Data Upload               : 100%|█████████▉| 66.2MB / 66.2MB, 5.85MB/s  [A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors: 100%|█████████▉| 66.2MB / 66.2MB            [A[A
+
+  ...heart_2x_fp32.safetensors: 100%|██████████| 66.2MB / 66.2MB            [A[AProcessing Files (1 / 1)      : 100%|██████████| 66.2MB / 66.2MB, 5.47MB/s  
+New Data Upload               : 100%|██████████| 66.2MB / 66.2MB, 5.47MB/s  [A
+
+
+Validating                    :           |   0%            [A[A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...heart_2x_fp32.safetensors: 100%|██████████| 66.2MB / 66.2MB            [A[A
+
+
+Validating                    :           |   0%            [A[A[A
+
+  ...heart_2x_fp32.safetensors: 100%|██████████| 66.2MB / 66.2MB            [A[A
+
+
+Validating                    : ██████████| 100%            [A[A[AProcessing Files (1 / 1)      : 100%|██████████| 66.2MB / 66.2MB, 5.38MB/s  
+New Data Upload               : 100%|██████████| 66.2MB / 66.2MB, 5.38MB/s  
+Validating                    : ██████████| 100%            
+  ...heart_2x_fp32.safetensors: 100%|██████████| 66.2MB / 66.2MB            
+uploading mlx-community/HEART-fp32 config.json
+done: https://huggingface.co/mlx-community/HEART-fp32
+EXIT 0

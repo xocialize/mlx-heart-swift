@@ -1,0 +1,23 @@
+  mlx-community/HEART-fp16/heart_4x_otf_v2_fp16.safetensors: hub sha256 d326fbcc3421 == staged sha256 d326fbcc3421 → OK
+  mlx-community/HEART-fp16/heart_4x_otf_gan_fp16.safetensors: hub sha256 e4c804377a92 == staged sha256 e4c804377a92 → OK
+  mlx-community/HEART-fp16/heart_4x_pretrain_fp16.safetensors: hub sha256 707d4de672e7 == staged sha256 707d4de672e7 → OK
+  mlx-community/HEART-fp16/heart_2x_fp16.safetensors: hub sha256 3c6c3b59a5b2 == staged sha256 3c6c3b59a5b2 → OK
+  mlx-community/HEART-fp16/config.json: hub size 3109 == staged sha256 46c4cdb10f1a → OK
+  mlx-community/HEART-fp16/README.md: present True
+  fresh download mlx-community/HEART-fp16/heart_4x_otf_v2_fp16.safetensors → hub-verify/fp16: byte-identical to staged OK
+  fresh download mlx-community/HEART-fp16/config.json → hub-verify/fp16: byte-identical to staged OK
+  mlx-community/HEART-fp32/heart_4x_otf_v2_fp32.safetensors: hub sha256 fcb25967bc0e == staged sha256 fcb25967bc0e → OK
+  mlx-community/HEART-fp32/heart_4x_otf_gan_fp32.safetensors: hub sha256 fadfdf0a2a1b == staged sha256 fadfdf0a2a1b → OK
+  mlx-community/HEART-fp32/heart_4x_pretrain_fp32.safetensors: hub sha256 b833d344a392 == staged sha256 b833d344a392 → OK
+  mlx-community/HEART-fp32/heart_2x_fp32.safetensors: hub sha256 3b13233e19e0 == staged sha256 3b13233e19e0 → OK
+  mlx-community/HEART-fp32/config.json: hub size 3109 == staged sha256 46c4cdb10f1a → OK
+  mlx-community/HEART-fp32/README.md: present True
+  fresh download mlx-community/HEART-fp32/heart_4x_otf_v2_fp32.safetensors → hub-verify/fp32: byte-identical to staged OK
+  fresh download mlx-community/HEART-fp32/config.json → hub-verify/fp32: byte-identical to staged OK
+PUBLISHED-ARTIFACT CHECK: PASS
+OK engine fidelity fp16 ×4 → 512x512 png | reg 0.00 s run 5.37 s | MLX peak 1329 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 512x512 png | reg 0.00 s run 5.29 s | MLX peak 1329 MB floor 61 MB
+fp16: hub-run PNG byte-identical to staged-run PNG (dd217f7b4a1cefc0)
+OK engine fidelity fp32 ×4 → 512x512 png | reg 0.00 s run 4.46 s | MLX peak 1382 MB floor 114 MB
+OK engine fidelity fp32 ×4 → 512x512 png | reg 0.00 s run 4.38 s | MLX peak 1382 MB floor 114 MB
+fp32: hub-run PNG byte-identical to staged-run PNG (a473596693e3c1b2)
