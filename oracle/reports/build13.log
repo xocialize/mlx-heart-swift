@@ -1,0 +1,30 @@
+Building for production...
+[Computing dependencies]
+[1 / 35]
+[6 / 35] MLXToolKit
+[8 / 36] RealModule
+[15 / 41] ComplexModule
+[27 / 49] MLX
+[28 / 50] MLXToolKit
+[35 / 55] MLXHubMetadata
+[40 / 57] MLX
+[51 / 69] MLXFast
+[60 / 75] MLXProfiling
+[65 / 77] MLXNN
+[74 / 84] RealESRGANMLX
+[82 / 90] MLXServeCore
+[88 / 93] HEARTMLX
+[97 / 100] MLXHEART
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/Smoke/main.swift:443:37: [1;33mwarning: [1;39m'setDefault(device:)' is deprecated: use withDefaultDevice() -- this only works before any mlx resources are created[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration\DeprecatedDeclaration]8;;\]
+[0;36m441 |[0;0m                                  inputTileSize: opt(args, "--tile").map { Int($0)! },
+[0;36m442 |[0;0m                                  weightsDirectory: URL(fileURLWithPath: args[2]))
+[0;36m443 |[0;0m     if flag(args, "--cpu") { Device.setDefault(device: Device(.cpu)) }      // the whole engine run on the CPU stream
+    [0;36m|[0;0m                                     `- [1;33mwarning: [1;39m'setDefault(device:)' is deprecated: use withDefaultDevice() -- this only works before any mlx resources are created[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration\DeprecatedDeclaration]8;;\]
+[0;36m444 |[0;0m     let engine = MLXServeEngine()
+[0;36m445 |[0;0m     await engine.useModelStore(ModelStore(root: nil))
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>
+[104 / 107] heart-smoke-product
+[106 / 107] heart-smoke-product
+[107 / 107] heart-smoke-product
+Build complete! (20.46 sec)

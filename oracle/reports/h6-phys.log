@@ -1,0 +1,4 @@
+OK engine fidelity fp16 ×4 → 2048x2048 png | reg 0.00 s run 2.13 s | MLX peak 2489 MB floor 61 MB | phys_footprint after run 2.39 GB, lifetime peak 5.01 GB, after clearCache 2.39 GB
+OK engine fidelity fp16 ×4 → 7680x4320 png | reg 0.00 s run 24.80 s | MLX peak 2644 MB floor 61 MB | phys_footprint after run 2.95 GB, lifetime peak 5.63 GB, after clearCache 2.95 GB
+OK engine fidelity fp32 ×4 → 2048x2048 png | reg 0.00 s run 2.89 s | MLX peak 4968 MB floor 114 MB | phys_footprint after run 3.52 GB, lifetime peak 7.40 GB, after clearCache 3.52 GB
+OK engine fidelity fp32 ×4 → 7680x4320 png | reg 0.00 s run 37.05 s | MLX peak 5016 MB floor 114 MB | phys_footprint after run 4.07 GB, lifetime peak 7.89 GB, after clearCache 4.07 GB

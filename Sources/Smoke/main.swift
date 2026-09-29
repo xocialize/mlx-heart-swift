@@ -95,6 +95,20 @@ func withDevice<R>(gpu: Bool, _ body: () throws -> R) rethrows -> R {
     try Device.withDefaultDevice(gpu ? Device(.gpu) : Device(.cpu), body)
 }
 
+/// The process's `phys_footprint` now and its lifetime peak — the governor's admission basis (the same sampler
+/// ForgeCore's live tests use); MLX's `peakMemory` counts only active MLX allocations, not the retained buffer pool.
+func physFootprint() -> (current: UInt64, peak: UInt64)? {
+    var info = task_vm_info_data_t()
+    var count = mach_msg_type_number_t(MemoryLayout<task_vm_info_data_t>.size / MemoryLayout<natural_t>.size)
+    let kr = withUnsafeMutablePointer(to: &info) {
+        $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+            task_info(mach_task_self_, task_flavor_t(TASK_VM_INFO), $0, &count)
+        }
+    }
+    guard kr == KERN_SUCCESS else { return nil }
+    return (info.phys_footprint, UInt64(info.ledger_phys_footprint_peak))
+}
+
 func gpuUtilization() -> Int {
     let p = Process(); p.executableURL = URL(fileURLWithPath: "/usr/sbin/ioreg")
     p.arguments = ["-r", "-d", "1", "-c", "AGXAccelerator"]
@@ -448,11 +462,14 @@ func runEngine(_ args: [String]) async throws {
     }
     try outData.write(to: URL(fileURLWithPath: args[1]))
     let peak = Double(MLX.Memory.snapshot().peakMemory) / 1_048_576
+    let phys = physFootprint()
     MLX.Memory.clearCache()
     let floorMB = Double(MLX.Memory.snapshot().activeMemory) / 1_048_576
-    print(String(format: "OK engine %@ %@ ×%d → %dx%d %@ | reg %.2f s run %.2f s | MLX peak %.0f MB floor %.0f MB",
+    let physAfterClear = physFootprint()
+    print(String(format: "OK engine %@ %@ ×%d → %dx%d %@ | reg %.2f s run %.2f s | MLX peak %.0f MB floor %.0f MB | phys_footprint after run %.2f GB, lifetime peak %.2f GB, after clearCache %.2f GB",
                  v.rawValue, quant.rawValue, up.appliedScale, up.image.width ?? -1, up.image.height ?? -1,
-                 up.image.format.rawValue, tReg, tRun, peak, floorMB))
+                 up.image.format.rawValue, tReg, tRun, peak, floorMB,
+                 Double(phys?.current ?? 0) / 1e9, Double(phys?.peak ?? 0) / 1e9, Double(physAfterClear?.current ?? 0) / 1e9))
 }
 
 // MARK: - perf (H4)
