@@ -1,0 +1,204 @@
+{
+  "arms" : [
+    "fp16-64-whole"
+  ],
+  "cells" : [
+    {
+      "cell" : "Bayer_photo__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1680755615234,
+        "s" : 4.0662479400634766
+      }
+    },
+    {
+      "cell" : "Bayer_photo__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1680850982666,
+        "s" : 3.1768448352813721
+      }
+    },
+    {
+      "cell" : "Bayer_photo__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1680850982666,
+        "s" : 3.4707980155944824
+      }
+    },
+    {
+      "cell" : "CustSpotlight_graphic__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1680850982666,
+        "s" : 3.4912669658660889
+      }
+    },
+    {
+      "cell" : "CustSpotlight_graphic__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1680946350098,
+        "s" : 3.6707139015197754
+      }
+    },
+    {
+      "cell" : "CustSpotlight_graphic__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681041717529,
+        "s" : 3.8915219306945801
+      }
+    },
+    {
+      "cell" : "FisherPaykel_photo__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681041717529,
+        "s" : 3.9544529914855957
+      }
+    },
+    {
+      "cell" : "FisherPaykel_photo__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.1536450386047363
+      }
+    },
+    {
+      "cell" : "FisherPaykel_photo__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.2338128089904785
+      }
+    },
+    {
+      "cell" : "KEYNOTE_graphic__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.3377971649169922
+      }
+    },
+    {
+      "cell" : "KEYNOTE_graphic__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.8346171379089355
+      }
+    },
+    {
+      "cell" : "KEYNOTE_graphic__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.3092141151428223
+      }
+    },
+    {
+      "cell" : "Kelloggs_photo__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.401296854019165
+      }
+    },
+    {
+      "cell" : "Kelloggs_photo__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.2452020645141602
+      }
+    },
+    {
+      "cell" : "Kelloggs_photo__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.2715890407562256
+      }
+    },
+    {
+      "cell" : "PubSec_graphic__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.0547699928283691
+      }
+    },
+    {
+      "cell" : "PubSec_graphic__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.9868290424346924
+      }
+    },
+    {
+      "cell" : "PubSec_graphic__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 4.0862879753112793
+      }
+    },
+    {
+      "cell" : "RBC_photo__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.7462379932403564
+      }
+    },
+    {
+      "cell" : "RBC_photo__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.8514659404754639
+      }
+    },
+    {
+      "cell" : "RBC_photo__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.5657069683074951
+      }
+    },
+    {
+      "cell" : "SNS_graphic__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.5890281200408936
+      }
+    },
+    {
+      "cell" : "SNS_graphic__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.7070889472961426
+      }
+    },
+    {
+      "cell" : "SNS_graphic__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.6499009132385254
+      }
+    },
+    {
+      "cell" : "Unilever_photo__bicubic",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.56260085105896
+      }
+    },
+    {
+      "cell" : "Unilever_photo__jpeg",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.7097458839416504
+      }
+    },
+    {
+      "cell" : "Unilever_photo__lanczos",
+      "fp16-64-whole" : {
+        "peakMB" : 2860.1681137084961,
+        "s" : 3.6539597511291504
+      }
+    }
+  ],
+  "gpu_after" : 99,
+  "gpu_before" : 0,
+  "summary" : {
+    "fp16-64-whole" : {
+      "median_peakMB" : 2860.1681137084961,
+      "median_s" : 3.8915219306945801
+    }
+  }
+}

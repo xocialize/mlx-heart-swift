@@ -1,0 +1,6 @@
+  SNS_graphic__lanczos.png  FR 67.28  PSNR 39.78  oct 0.990/0.999/1.000/1.000
+  Unilever_photo__bicubic.png  FR 51.57  PSNR 31.27  oct 0.925/0.979/0.993/0.998
+  Unilever_photo__jpeg.png  FR 25.08  PSNR 28.43  oct 0.879/0.919/0.979/0.994
+  Unilever_photo__lanczos.png  FR 65.99  PSNR 35.73  oct 0.948/0.995/0.999/1.000
+fidelity_x4_down   n=27 SSIMULACRA2 vs ref@1024: mean 51.32 median 51.86 min 7.88  (/private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/x2score/pair_fidelity_x4_down.csv)
+clean2x_native     n=27 SSIMULACRA2 vs ref@1024: mean 46.26 median 51.79 min -0.11  (/private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/x2score/pair_clean2x_native.csv)

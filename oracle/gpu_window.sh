@@ -33,7 +33,7 @@ done
 MLX_ENABLE_TF32=0 $SMOKE run "$IMG" "$OUT/eyeball_fidelity_fp32.png" $W --variant fidelity --fp32 2>&1 | tail -1
 
 stage "H4 · perf bracket (arms interleaved: fp32/fp16 × head 64/40) at 256² and 512²"; idle
-$SMOKE perf $W --sizes 256,512 --rounds 5 --json oracle/reports/h4-perf.json 2>&1 | tee oracle/reports/h4-perf.log | grep -v "^loaded"
+$SMOKE perf $W --sizes 256,512 --rounds 5 --arms fp32-64,fp32-40,fp16-64,fp16-40,fp16r-64,fp16-64-seams --json oracle/reports/h4-perf.json 2>&1 | tee oracle/reports/h4-perf.log | grep -v "^loaded"
 idle
 
 stage "H3 + H5 · the 27 bench cells: dtype arms (fp32 / fp16 / fp16 residual-fp32) and tile arms (256/384/512 × overlap 32/64)"; idle

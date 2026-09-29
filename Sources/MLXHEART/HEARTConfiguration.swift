@@ -33,10 +33,14 @@ public enum HEARTVariant: String, Codable, Sendable, CaseIterable {
 /// the file: a configuration downloads only its own checkpoint (`WeightSourcing`, one role per variant × lane).
 ///
 ///   quant   file                              resident (weights)   role
-///   .fp16   <ckpt>_fp16.safetensors           ≈ 34 MB              shipping lane — i-LN statistics, RIB tables
-///                                                                  and softmax stay fp32 inside (PORTING-SPEC H3)
+///   .fp16   <ckpt>_fp16.safetensors           ≈ 34 MB              shipping lane — every reduction (i-LN statistics,
+///                                                                  RIB tables, softmax, global pool + its head) in
+///                                                                  fp32 inside; 67.6 dB vs the fp32 oracle, FR
+///                                                                  indistinguishable from fp32 on the bench (Δ −0.01),
+///                                                                  1.25× faster, 0.55× the memory (PORTING-SPEC H3)
 ///   .fp32   <ckpt>_fp32.safetensors           ≈ 67 MB              parity / reference lane (TF32 on M5 unless the
-///                                                                  HOST sets MLX_ENABLE_TF32=0 — AB-L-0175)
+///                                                                  HOST sets MLX_ENABLE_TF32=0 — AB-L-0175: 63.6 dB
+///                                                                  with the default, 126 dB with the flag)
 ///
 /// bf16 is not offered (small-net mantissa posture: the fleet measured fp16 beating bf16 by 20 dB on FFTformer and
 /// VOSR2 rejected bf16 at 37.6 dB); it resolves to fp16.
@@ -46,9 +50,11 @@ public struct HEARTConfiguration: PackageConfiguration, ModelStorable, QuantConf
     public var quant: Quant
 
     /// Whole-frame fast-path ceiling in INPUT pixels, forwarded to the core; `nil` keeps the core default
-    /// (`HEART_Playback.defaultWholeFrameMaxPixels`). ⚠️ i-LN makes tiled output differ from whole-frame output
-    /// (each tile is normalised by its own statistics), so this is a QUALITY knob as well as a memory knob —
-    /// PORTING-SPEC H5 measured the defaults; hosts on small-memory machines lower it.
+    /// (`HEART_Playback.defaultWholeFrameMaxPixels` = 512², the bench-validated envelope). ⚠️ i-LN makes tiled
+    /// output differ from whole-frame output (each tile is normalised by its own statistics), so this is a QUALITY
+    /// knob as well as a memory knob — PORTING-SPEC H5 measured the defaults. Whole-frame memory (fp16, MLX peak):
+    /// 3.5 GB at 512², 6.7 GB at 960×540, 11.7 GB at 1280×720, 25.8 GB at 1920×1080 (fp32 ≈ 2×); the tiled path
+    /// stays under 3.2 GB at any size. Raising it trades memory for speed (540p: 3.5 s whole-frame vs 16 s tiled).
     public var wholeFrameMaxPixels: Int?
     /// Tile geometry for the tiled path; `nil` keeps the core defaults (H5-measured). Multiples of 32 recommended.
     public var inputTileSize: Int?
@@ -68,9 +74,9 @@ public struct HEARTConfiguration: PackageConfiguration, ModelStorable, QuantConf
     public static let fp16Repo = "mlx-community/HEART-fp16"
     public static let fp32Repo = "mlx-community/HEART-fp32"
     public static func repo(for quant: Quant) -> String { quant == .fp32 ? fp32Repo : fp16Repo }
-    /// Below this budget an fp32 request drops to fp16 (the fp32 lane's activation peak is ~2× fp16's at the
-    /// same geometry — see the manifest footprints).
-    public static let fp32MinBudgetBytes: UInt64 = 8_000_000_000
+    /// Below this budget an fp32 request drops to fp16: the fp32 lane's declared working set is ~13.7 GB
+    /// (1.09 GB resident + 12.6 GB activation peak on the in-app basis) against fp16's ~8.7 GB — see the manifest.
+    public static let fp32MinBudgetBytes: UInt64 = 14_000_000_000
 
     public init(variant: HEARTVariant = .fidelity,
                 quant: Quant = .fp16,

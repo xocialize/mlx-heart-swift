@@ -51,10 +51,12 @@ the same seams.
 
 An isomorphic translation of `heart_arch.py` and the traiNNer-redux helpers it imports (same classes, same forward
 order; NHWC; the `(3, heads, c)` QKV split, the non-wrapping reflect-shift, i-LN's inference semantics and the pre-scaled
-SDPA are all encoded and probed). Parity against the upstream PyTorch code on the CPU: every sub-op within 1e-5
-relative, end-to-end **127.5 dB** (`.fidelity`, 128²); the author's ONNX exports as the second oracle. The full gate table,
-the dtype and tiling studies and the lessons (MLX's naive CPU reductions, torch's 1-ulp `sin`) are in
-[`PORTING-SPEC.md`](PORTING-SPEC.md).
+SDPA are all encoded and probed). Parity against the upstream PyTorch code: every sub-op within 1e-5 relative,
+end-to-end **127.5 dB** (`.fidelity`, fp32, CPU stream and Metal with `MLX_ENABLE_TF32=0`); the author's ONNX exports as
+the second oracle. The shipping fp16 lane reads **67.6 dB** against that oracle and is SSIMULACRA2-indistinguishable
+from fp32 on the Forge bench (Δ −0.01), at **416–450 ms per output megapixel** on M5 Max (head padded to 64 for the
+fused attention kernel; ~4× RealPLKSR). The full gate table, the dtype and tiling studies and the lessons (MLX's naive
+CPU reductions, torch's 1-ulp `sin`, fp16 reductions) are in [`PORTING-SPEC.md`](PORTING-SPEC.md).
 
 Building the CLI gate lane: `xcrun swift build -c release --target HEARTSmoke` → `.build/out/Products/Release/heart-smoke`.
 

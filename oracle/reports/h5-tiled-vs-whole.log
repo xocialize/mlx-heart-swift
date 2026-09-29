@@ -1,0 +1,7 @@
+tiled arm vs the fp16 WHOLE-frame output (8-bit PNGs), PSNR dB over 27 cells — isolates the tiling effect from the fp16 floor
+  fp16-64-t256o32  median 49.0  min 45.1  max 53.4   seam-band MSE / interior MSE median 1.12x
+  fp16-64-t256o64  median 49.7  min 45.4  max 53.6   seam-band MSE / interior MSE median 1.12x
+  fp16-64-t384o32  median 54.9  min 51.8  max 57.0   seam-band MSE / interior MSE median 0.71x
+  fp16-64-t384o64  median 54.9  min 51.7  max 56.9   seam-band MSE / interior MSE median 0.74x
+  fp16-64-t512o32  median 100.6  min 97.9  max 104.8
+  fp32-64-whole    median 59.4  min 58.1  max 61.0

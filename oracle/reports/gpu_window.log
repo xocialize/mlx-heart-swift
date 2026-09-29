@@ -1,0 +1,144 @@
+
+════ S2b · GPU parity gate, fp32 lane, TF32 OFF (the honest fp32) then default (TF32 on) ════ 17:10:33
+GPU utilization samples (10 × 1 s):
+ 29 0 0 0 0 0 0 0 0 0
+os 1.00000000  n≠ 188877 tol 2e-04  PSNR 126.2 dB
+  PASS out (module forward) max|Δ| 2.682e-06  mean|Δ| 3.844e-07  |ref|max 0.7616  rel 3.52e-06  cos 1.00000000  n≠ 424335 tol 2e-04  PSNR 126.2 dB
+  PASS out (module forward) max|Δ| 2.444e-06  mean|Δ| 3.870e-07  |ref|max 0.766  rel 3.19e-06  cos 1.00000012  n≠ 644002 tol 2e-04  PSNR 126.2 dB
+  PASS out (module forward) max|Δ| 2.086e-06  mean|Δ| 3.534e-07  |ref|max 0.7142  rel 2.92e-06  cos 1.00000000  n≠ 18291 tol 2e-04  PSNR 126.9 dB
+  PASS out (module forward) max|Δ| 3.397e-06  mean|Δ| 5.260e-07  |ref|max 1.111  rel 3.06e-06  cos 1.00000000  n≠ 6726 tol 2e-04  PSNR 123.4 dB
+  PASS headpad 64 vs 40 (e2e 64²) max|Δ| 1.907e-06  mean|Δ| 1.769e-07  |ref|max 0.7304  rel 2.61e-06  cos 1.00000000  n≠ 173153 tol 1e-05  PSNR 132.6 dB — zero columns, identical math
+  PASS fidelity 128² vs torch max|Δ| 2.503e-06  mean|Δ| 3.943e-07  |ref|max 0.7964  rel 3.14e-06  cos 1.00000000  n≠ 755871  PSNR vs torch 126.0 dB · vs ONNX 90.3 dB (torch-vs-ONNX 90.2 dB) · 0.2 s
+  PASS sharp 128² vs torch max|Δ| 4.530e-06  mean|Δ| 5.605e-07  |ref|max 0.9294  rel 4.87e-06  cos 1.00000000  n≠ 764366  PSNR vs torch 123.0 dB · vs ONNX 84.9 dB (torch-vs-ONNX 84.9 dB) · 0.2 s
+  PASS clean 128² vs torch max|Δ| 9.179e-06  mean|Δ| 7.706e-07  |ref|max 1.823  rel 5.04e-06  cos 0.99999988  n≠ 771593  PSNR vs torch 119.9 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 0.2 s
+  PASS clean2x 128² vs torch max|Δ| 5.186e-06  mean|Δ| 5.489e-07  |ref|max 1.637  rel 3.17e-06  cos 0.99999988  n≠ 191803  PSNR vs torch 122.9 dB · vs ONNX 95.8 dB (torch-vs-ONNX 95.8 dB) · 0.2 s
+gate summary: 177 passed, 0 failed
+  FAIL headpad 64 vs 40 (e2e 64²) max|Δ| 3.452e-03  mean|Δ| 2.241e-04  |ref|max 0.7289  rel 4.74e-03  cos 0.99999994  n≠ 196592 tol 1e-05  PSNR 70.1 dB — zero columns, identical math
+  FAIL fidelity 128² vs torch max|Δ| 4.069e-03  mean|Δ| 5.601e-04  |ref|max 0.7964  rel 5.11e-03  cos 0.99999964  n≠ 786418  PSNR vs torch 63.6 dB · vs ONNX 63.5 dB (torch-vs-ONNX 90.2 dB) · 0.1 s
+  FAIL sharp 128² vs torch max|Δ| 6.530e-03  mean|Δ| 7.403e-04  |ref|max 0.9294  rel 7.03e-03  cos 0.99999893  n≠ 786422  PSNR vs torch 60.7 dB · vs ONNX 60.5 dB (torch-vs-ONNX 84.9 dB) · 0.1 s
+  FAIL clean 128² vs torch max|Δ| 1.864e-02  mean|Δ| 1.314e-03  |ref|max 1.823  rel 1.02e-02  cos 0.99999678  n≠ 786425  PSNR vs torch 55.1 dB · vs ONNX 7.9 dB (torch-vs-ONNX 7.8 dB) · 0.1 s
+  FAIL clean2x 128² vs torch max|Δ| 1.204e-02  mean|Δ| 8.947e-04  |ref|max 1.637  rel 7.35e-03  cos 0.99999827  n≠ 196608  PSNR vs torch 58.2 dB · vs ONNX 58.1 dB (torch-vs-ONNX 95.8 dB) · 0.1 s
+gate summary: 36 passed, 141 failed
+
+════ S2b · fp16 lane on the GPU vs the torch fp32 oracle (128² and 512², all variants), residual fp16 then fp32 ════ 17:10:55
+  FAIL fidelity 128² vs torch max|Δ| 5.033e-03  mean|Δ| 3.217e-04  |ref|max 0.7964  rel 6.32e-03  cos 0.99999970  n≠ 786391  PSNR vs torch 67.6 dB · vs ONNX 67.7 dB (torch-vs-ONNX 90.2 dB) · 2.4 s
+  FAIL fidelity 512² vs torch max|Δ| 3.682e-03  mean|Δ| 2.849e-04  |ref|max 0.7558  rel 4.87e-03  cos 0.99999994  n≠ 12582151  PSNR vs torch 68.7 dB · vs ONNX 54.8 dB (torch-vs-ONNX 54.5 dB) · 1.7 s
+  FAIL sharp 128² vs torch max|Δ| 5.642e-03  mean|Δ| 5.220e-04  |ref|max 0.9294  rel 6.07e-03  cos 0.99999928  n≠ 786403  PSNR vs torch 63.3 dB · vs ONNX 63.3 dB (torch-vs-ONNX 84.9 dB) · 0.1 s
+  FAIL sharp 512² vs torch max|Δ| 5.884e-03  mean|Δ| 4.639e-04  |ref|max 0.9484  rel 6.20e-03  cos 0.99999952  n≠ 12582426  PSNR vs torch 64.3 dB · vs ONNX 48.8 dB (torch-vs-ONNX 48.9 dB) · 1.7 s
+  FAIL clean 128² vs torch max|Δ| 1.891e-02  mean|Δ| 1.371e-03  |ref|max 1.823  rel 1.04e-02  cos 0.99999571  n≠ 786419  PSNR vs torch 54.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 0.1 s
+  FAIL clean 512² vs torch max|Δ| 2.321e-02  mean|Δ| 1.373e-03  |ref|max 1.841  rel 1.26e-02  cos 0.99999595  n≠ 12582757  PSNR vs torch 54.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 1.7 s
+  FAIL clean2x 128² vs torch max|Δ| 1.165e-02  mean|Δ| 9.606e-04  |ref|max 1.637  rel 7.11e-03  cos 0.99999785  n≠ 196605  PSNR vs torch 57.6 dB · vs ONNX 57.6 dB (torch-vs-ONNX 95.8 dB) · 0.1 s
+  FAIL clean2x 512² vs torch max|Δ| 1.532e-02  mean|Δ| 9.689e-04  |ref|max 1.767  rel 8.67e-03  cos 0.99999785  n≠ 3145674  PSNR vs torch 57.5 dB · vs ONNX 55.4 dB (torch-vs-ONNX 59.8 dB) · 1.8 s
+  FAIL fidelity 128² vs torch max|Δ| 6.001e-03  mean|Δ| 6.074e-04  |ref|max 0.7964  rel 7.54e-03  cos 0.99999988  n≠ 786420  PSNR vs torch 63.1 dB · vs ONNX 63.0 dB (torch-vs-ONNX 90.2 dB) · 0.2 s
+  FAIL fidelity 512² vs torch max|Δ| 4.185e-03  mean|Δ| 5.908e-04  |ref|max 0.7558  rel 5.54e-03  cos 0.99999976  n≠ 12582781  PSNR vs torch 63.4 dB · vs ONNX 53.6 dB (torch-vs-ONNX 54.5 dB) · 2.2 s
+  FAIL sharp 128² vs torch max|Δ| 5.870e-03  mean|Δ| 7.441e-04  |ref|max 0.9294  rel 6.32e-03  cos 0.99999905  n≠ 786414  PSNR vs torch 60.7 dB · vs ONNX 60.4 dB (torch-vs-ONNX 84.9 dB) · 0.1 s
+  FAIL sharp 512² vs torch max|Δ| 6.593e-03  mean|Δ| 7.141e-04  |ref|max 0.9484  rel 6.95e-03  cos 0.99999905  n≠ 12582662  PSNR vs torch 61.1 dB · vs ONNX 47.6 dB (torch-vs-ONNX 48.9 dB) · 2.2 s
+
+════ S2b · eyeballs: one real image per variant, fp16 (shipping) and fp32 (TF32 off) ════ 17:11:10
+OK fidelity fp16 head 64 ×4 512x512 → 2048x2048 | first 1.86 s, second 1.84 s | peakGPU 3543 MB | /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/eyeball_fidelity_fp16.png
+OK sharp fp16 head 64 ×4 512x512 → 2048x2048 | first 1.81 s, second 1.88 s | peakGPU 3543 MB | /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/eyeball_sharp_fp16.png
+OK clean fp16 head 64 ×4 512x512 → 2048x2048 | first 1.88 s, second 1.87 s | peakGPU 3543 MB | /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/eyeball_clean_fp16.png
+OK clean2x fp16 head 64 ×2 512x512 → 1024x1024 | first 1.86 s, second 1.90 s | peakGPU 2775 MB | /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/eyeball_clean2x_fp16.png
+OK fidelity fp32 head 64 ×4 512x512 → 2048x2048 | first 2.95 s, second 2.85 s | peakGPU 7076 MB | /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/eyeball_fidelity_fp32.png
+
+════ H4 · perf bracket (arms interleaved: fp32/fp16 × head 64/40) at 256² and 512² ════ 17:11:31
+GPU utilization samples (10 × 1 s):
+ 98 0 0 0 0 0 0 0 0 0
+perf: GPU utilization before 0 % (sample the counter for ~10 s before starting; must be idle)
+── LR 256² → 1024² (1.05 Mpx out), median of 5, arms interleaved ──
+  fp32-64     585.1 ms      558.0 ms/Mpx-out   (all: 528, 572, 585, 593, 600)
+  fp32-40     790.8 ms      754.2 ms/Mpx-out   (all: 738, 763, 791, 800, 807)
+  fp16-64     472.3 ms      450.4 ms/Mpx-out   (all: 439, 458, 472, 496, 498)
+  fp16-40     568.8 ms      542.4 ms/Mpx-out   (all: 537, 559, 569, 651, 615)
+  fp16r-64     575.3 ms      548.7 ms/Mpx-out   (all: 545, 563, 575, 586, 601)
+  fp16-64-seams     481.1 ms      458.8 ms/Mpx-out   (all: 450, 464, 481, 491, 494)
+── LR 512² → 2048² (4.19 Mpx out), median of 5, arms interleaved ──
+  fp32-64    3224.4 ms      768.8 ms/Mpx-out   (all: 2571, 3017, 3224, 3857, 4490)
+  fp32-40    4511.3 ms     1075.6 ms/Mpx-out   (all: 3462, 3592, 4511, 5450, 6972)
+  fp16-64    2586.1 ms      616.6 ms/Mpx-out   (all: 2356, 2499, 2586, 3458, 4239)
+  fp16-40    3049.5 ms      727.1 ms/Mpx-out   (all: 2641, 2779, 3050, 3638, 5534)
+  fp16r-64    3177.3 ms      757.5 ms/Mpx-out   (all: 2742, 2880, 3177, 3573, 3988)
+  fp16-64-seams    2596.2 ms      619.0 ms/Mpx-out   (all: 2319, 2490, 2596, 3184, 3515)
+perf: GPU utilization after 99 %; RealPLKSR anchor 111 ms/Mpx (AB-R-0365), P0 bar 540–590 ms/Mpx at head 64 (AB-R-0370)
+GPU utilization samples (10 × 1 s):
+ 0 0 0 0 0 0 0 0 0 0
+
+════ H3 + H5 · the 27 bench cells: dtype arms (fp32 / fp16 / fp16 residual-fp32) and tile arms (256/384/512 × overlap 32/64) ════ 17:14:32
+GPU utilization samples (10 × 1 s):
+ 0 0 0 0 0 0 0 0 0 0
+bench: 27 cells × 9 arms, variant fidelity, GPU util before 0 % (must be idle)
+  1/27 Bayer_photo__bicubic: fp32-64-whole 5.37s/7224MB fp16-64-whole 59.8dB/3.59s/3973MB fp16r-64-whole 63.4dB/5.43s/7413MB fp16-64-t256o32 48.1dB/8.05s/2335MB fp16-64-t384o32 55.1dB/7.87s/2751MB fp16-64-t512o32 59.8dB/3.64s/4165MB fp16-64-t256o64 48.7dB/7.81s/2479MB fp16-64-t384o64 55.0dB/7.72s/2895MB fp16-64-t512o64 59.8dB/3.63s/4309MB
+  2/27 Bayer_photo__jpeg: fp32-64-whole 5.25s/7608MB fp16-64-whole 59.4dB/3.57s/3925MB fp16r-64-whole 62.9dB/5.18s/7365MB fp16-64-t256o32 50.3dB/7.63s/2287MB fp16-64-t384o32 55.6dB/7.91s/2703MB fp16-64-t512o32 59.4dB/3.48s/4117MB fp16-64-t256o64 50.3dB/7.52s/2431MB fp16-64-t384o64 55.7dB/7.68s/2847MB fp16-64-t512o64 59.4dB/3.34s/4261MB
+  3/27 Bayer_photo__lanczos: fp32-64-whole 4.97s/7560MB fp16-64-whole 59.9dB/3.20s/4309MB fp16r-64-whole 63.7dB/5.05s/7317MB fp16-64-t256o32 48.9dB/7.44s/2239MB fp16-64-t384o32 55.5dB/7.50s/2655MB fp16-64-t512o32 59.9dB/3.38s/4069MB fp16-64-t256o64 49.5dB/7.33s/2383MB fp16-64-t384o64 55.4dB/7.52s/2799MB fp16-64-t512o64 59.9dB/3.38s/4213MB
+  4/27 CustSpotlight_graphic__bicubic: fp32-64-whole 4.88s/7512MB fp16-64-whole 58.4dB/3.21s/4261MB fp16r-64-whole 62.7dB/4.78s/7701MB fp16-64-t256o32 49.6dB/7.35s/2191MB fp16-64-t384o32 56.4dB/7.42s/2607MB fp16-64-t512o32 58.4dB/3.25s/4021MB fp16-64-t256o64 50.1dB/7.26s/2335MB fp16-64-t384o64 56.3dB/7.37s/2751MB fp16-64-t512o64 58.4dB/3.30s/4165MB
+  5/27 CustSpotlight_graphic__jpeg: fp32-64-whole 4.85s/7464MB fp16-64-whole 58.4dB/3.17s/4213MB fp16r-64-whole 62.5dB/4.58s/7653MB fp16-64-t256o32 49.2dB/7.14s/2575MB fp16-64-t384o32 54.3dB/7.54s/2559MB fp16-64-t512o32 58.4dB/3.14s/3973MB fp16-64-t256o64 48.9dB/7.25s/2287MB fp16-64-t384o64 54.4dB/7.28s/2703MB fp16-64-t512o64 58.4dB/3.20s/4117MB
+  6/27 CustSpotlight_graphic__lanczos: fp32-64-whole 4.83s/7416MB fp16-64-whole 58.5dB/3.20s/4165MB fp16r-64-whole 62.9dB/4.75s/7605MB fp16-64-t256o32 49.6dB/7.03s/2527MB fp16-64-t384o32 56.1dB/7.25s/2943MB fp16-64-t512o32 58.5dB/3.19s/3925MB fp16-64-t256o64 50.1dB/7.09s/2239MB fp16-64-t384o64 56.0dB/7.24s/2655MB fp16-64-t512o64 58.5dB/3.17s/4069MB
+  7/27 FisherPaykel_photo__bicubic: fp32-64-whole 4.81s/7368MB fp16-64-whole 59.6dB/3.28s/4117MB fp16r-64-whole 63.0dB/4.93s/7557MB fp16-64-t256o32 48.9dB/7.07s/2479MB fp16-64-t384o32 54.8dB/7.36s/2895MB fp16-64-t512o32 59.6dB/3.16s/4309MB fp16-64-t256o64 49.7dB/7.16s/2191MB fp16-64-t384o64 54.6dB/7.45s/2607MB fp16-64-t512o64 59.6dB/3.35s/4021MB
+  8/27 FisherPaykel_photo__jpeg: fp32-64-whole 4.82s/7320MB fp16-64-whole 59.0dB/3.19s/4069MB fp16r-64-whole 62.2dB/4.71s/7509MB fp16-64-t256o32 50.0dB/7.13s/2431MB fp16-64-t384o32 55.4dB/7.26s/2847MB fp16-64-t512o32 59.0dB/3.26s/4261MB fp16-64-t256o64 50.8dB/7.06s/2575MB fp16-64-t384o64 55.4dB/7.27s/2559MB fp16-64-t512o64 59.0dB/3.22s/3973MB
+  9/27 FisherPaykel_photo__lanczos: fp32-64-whole 4.81s/7272MB fp16-64-whole 59.6dB/3.15s/4021MB fp16r-64-whole 63.1dB/4.63s/7461MB fp16-64-t256o32 49.6dB/7.31s/2383MB fp16-64-t384o32 55.5dB/7.25s/2799MB fp16-64-t512o32 59.6dB/3.19s/4213MB fp16-64-t256o64 50.2dB/7.07s/2527MB fp16-64-t384o64 55.3dB/7.27s/2943MB fp16-64-t512o64 59.6dB/3.14s/3925MB
+  10/27 KEYNOTE_graphic__bicubic: fp32-64-whole 4.83s/7224MB fp16-64-whole 58.8dB/3.12s/3973MB fp16r-64-whole 62.9dB/4.75s/7413MB fp16-64-t256o32 53.3dB/6.99s/2335MB fp16-64-t384o32 55.6dB/7.20s/2751MB fp16-64-t512o32 58.8dB/3.26s/4165MB fp16-64-t256o64 53.5dB/7.05s/2479MB fp16-64-t384o64 55.5dB/7.25s/2895MB fp16-64-t512o64 58.8dB/3.20s/4309MB
+  11/27 KEYNOTE_graphic__jpeg: fp32-64-whole 4.76s/7608MB fp16-64-whole 58.6dB/3.09s/3925MB fp16r-64-whole 62.7dB/4.67s/7365MB fp16-64-t256o32 51.4dB/7.06s/2287MB fp16-64-t384o32 55.5dB/7.24s/2703MB fp16-64-t512o32 58.6dB/3.15s/4117MB fp16-64-t256o64 51.9dB/7.11s/2431MB fp16-64-t384o64 55.5dB/7.18s/2847MB fp16-64-t512o64 58.6dB/3.23s/4261MB
+  12/27 KEYNOTE_graphic__lanczos: fp32-64-whole 4.84s/7560MB fp16-64-whole 58.8dB/3.04s/4309MB fp16r-64-whole 63.0dB/4.78s/7317MB fp16-64-t256o32 52.6dB/7.03s/2239MB fp16-64-t384o32 54.8dB/7.27s/2655MB fp16-64-t512o32 58.8dB/3.20s/4069MB fp16-64-t256o64 52.9dB/7.04s/2383MB fp16-64-t384o64 54.7dB/7.18s/2799MB fp16-64-t512o64 58.8dB/3.20s/4213MB
+  13/27 Kelloggs_photo__bicubic: fp32-64-whole 4.73s/7512MB fp16-64-whole 59.8dB/3.17s/4261MB fp16r-64-whole 63.1dB/4.72s/7701MB fp16-64-t256o32 46.9dB/7.16s/2191MB fp16-64-t384o32 52.9dB/7.19s/2607MB fp16-64-t512o32 59.8dB/3.19s/4021MB fp16-64-t256o64 47.5dB/7.07s/2335MB fp16-64-t384o64 52.8dB/7.28s/2751MB fp16-64-t512o64 59.8dB/3.22s/4165MB
+  14/27 Kelloggs_photo__jpeg: fp32-64-whole 4.74s/7464MB fp16-64-whole 59.7dB/3.18s/4213MB fp16r-64-whole 62.4dB/4.68s/7653MB fp16-64-t256o32 47.8dB/7.11s/2575MB fp16-64-t384o32 53.5dB/7.51s/2559MB fp16-64-t512o32 59.7dB/3.12s/3973MB fp16-64-t256o64 48.4dB/7.09s/2287MB fp16-64-t384o64 53.5dB/7.16s/2703MB fp16-64-t512o64 59.7dB/3.22s/4117MB
+  15/27 Kelloggs_photo__lanczos: fp32-64-whole 4.76s/7416MB fp16-64-whole 59.9dB/3.09s/4165MB fp16r-64-whole 63.2dB/4.51s/7605MB fp16-64-t256o32 47.1dB/7.16s/2527MB fp16-64-t384o32 53.8dB/7.18s/2943MB fp16-64-t512o32 59.9dB/3.05s/3925MB fp16-64-t256o64 47.8dB/7.06s/2239MB fp16-64-t384o64 53.7dB/7.12s/2655MB fp16-64-t512o64 59.9dB/3.17s/4069MB
+  16/27 PubSec_graphic__bicubic: fp32-64-whole 4.80s/7368MB fp16-64-whole 58.8dB/3.08s/4117MB fp16r-64-whole 62.4dB/4.73s/7557MB fp16-64-t256o32 48.8dB/6.98s/2479MB fp16-64-t384o32 55.0dB/7.11s/2895MB fp16-64-t512o32 58.8dB/3.17s/4309MB fp16-64-t256o64 49.5dB/6.98s/2191MB fp16-64-t384o64 54.8dB/7.18s/2607MB fp16-64-t512o64 58.8dB/3.17s/4021MB
+  17/27 PubSec_graphic__jpeg: fp32-64-whole 4.76s/7320MB fp16-64-whole 58.1dB/3.09s/4069MB fp16r-64-whole 62.3dB/4.74s/7509MB fp16-64-t256o32 48.7dB/6.96s/2431MB fp16-64-t384o32 55.4dB/7.05s/2847MB fp16-64-t512o32 58.1dB/3.16s/4261MB fp16-64-t256o64 48.7dB/6.92s/2575MB fp16-64-t384o64 55.4dB/7.15s/2559MB fp16-64-t512o64 58.1dB/3.19s/3973MB
+  18/27 PubSec_graphic__lanczos: fp32-64-whole 4.71s/7272MB fp16-64-whole 58.9dB/3.07s/4021MB fp16r-64-whole 62.7dB/4.75s/7461MB fp16-64-t256o32 48.0dB/6.88s/2383MB fp16-64-t384o32 53.5dB/7.11s/2799MB fp16-64-t512o32 58.9dB/3.14s/4213MB fp16-64-t256o64 48.7dB/6.87s/2527MB fp16-64-t384o64 53.3dB/7.12s/2943MB fp16-64-t512o64 58.9dB/3.13s/3925MB
+  19/27 RBC_photo__bicubic: fp32-64-whole 4.60s/7224MB fp16-64-whole 60.5dB/3.12s/3973MB fp16r-64-whole 63.7dB/4.62s/7413MB fp16-64-t256o32 45.2dB/6.90s/2335MB fp16-64-t384o32 51.9dB/7.03s/2751MB fp16-64-t512o32 60.5dB/3.12s/4165MB fp16-64-t256o64 45.4dB/6.87s/2479MB fp16-64-t384o64 51.8dB/6.96s/2895MB fp16-64-t512o64 60.5dB/3.17s/4309MB
+  20/27 RBC_photo__jpeg: fp32-64-whole 4.58s/7608MB fp16-64-whole 60.6dB/3.09s/3925MB fp16r-64-whole 63.1dB/4.55s/7365MB fp16-64-t256o32 49.0dB/6.92s/2287MB fp16-64-t384o32 53.8dB/7.04s/2703MB fp16-64-t512o32 60.6dB/3.03s/4117MB fp16-64-t256o64 49.7dB/6.97s/2431MB fp16-64-t384o64 53.9dB/7.08s/2847MB fp16-64-t512o64 60.6dB/3.07s/4261MB
+  21/27 RBC_photo__lanczos: fp32-64-whole 4.64s/7560MB fp16-64-whole 60.7dB/3.07s/4309MB fp16r-64-whole 64.0dB/4.69s/7317MB fp16-64-t256o32 46.4dB/6.74s/2239MB fp16-64-t384o32 53.3dB/7.00s/2655MB fp16-64-t512o32 60.7dB/3.08s/4069MB fp16-64-t256o64 46.6dB/6.81s/2383MB fp16-64-t384o64 53.2dB/7.04s/2799MB fp16-64-t512o64 60.7dB/3.00s/4213MB
+  22/27 SNS_graphic__bicubic: fp32-64-whole 4.75s/7512MB fp16-64-whole 59.0dB/3.03s/4261MB fp16r-64-whole 62.5dB/4.60s/7701MB fp16-64-t256o32 53.2dB/6.78s/2191MB fp16-64-t384o32 56.7dB/6.97s/2607MB fp16-64-t512o32 59.0dB/3.13s/4021MB fp16-64-t256o64 53.2dB/6.79s/2335MB fp16-64-t384o64 56.5dB/7.04s/2751MB fp16-64-t512o64 59.0dB/3.02s/4165MB
+  23/27 SNS_graphic__jpeg: fp32-64-whole 4.88s/7464MB fp16-64-whole 58.2dB/3.16s/4213MB fp16r-64-whole 62.1dB/4.90s/7653MB fp16-64-t256o32 52.1dB/7.22s/2575MB fp16-64-t384o32 55.2dB/6.97s/2559MB fp16-64-t512o32 58.2dB/3.17s/3973MB fp16-64-t256o64 51.9dB/6.81s/2287MB fp16-64-t384o64 55.3dB/8.38s/2703MB fp16-64-t512o64 58.2dB/3.34s/4117MB
+  24/27 SNS_graphic__lanczos: fp32-64-whole 4.75s/7416MB fp16-64-whole 59.2dB/3.19s/4165MB fp16r-64-whole 62.8dB/4.83s/7605MB fp16-64-t256o32 51.6dB/7.29s/2527MB fp16-64-t384o32 54.7dB/7.24s/2943MB fp16-64-t512o32 59.2dB/3.17s/3925MB fp16-64-t256o64 51.7dB/7.22s/2239MB fp16-64-t384o64 54.5dB/7.25s/2655MB fp16-64-t512o64 59.2dB/3.29s/4069MB
+  25/27 Unilever_photo__bicubic: fp32-64-whole 4.87s/7368MB fp16-64-whole 60.9dB/3.13s/4117MB fp16r-64-whole 65.1dB/4.70s/7557MB fp16-64-t256o32 48.3dB/7.12s/2479MB fp16-64-t384o32 53.1dB/7.30s/2895MB fp16-64-t512o32 60.9dB/3.24s/4309MB fp16-64-t256o64 48.6dB/7.22s/2191MB fp16-64-t384o64 53.1dB/7.33s/2607MB fp16-64-t512o64 60.9dB/3.18s/4021MB
+  26/27 Unilever_photo__jpeg: fp32-64-whole 4.89s/7320MB fp16-64-whole 60.2dB/3.12s/4069MB fp16r-64-whole 62.8dB/4.78s/7509MB fp16-64-t256o32 49.0dB/7.11s/2431MB fp16-64-t384o32 52.8dB/7.32s/2847MB fp16-64-t512o32 60.2dB/3.20s/4261MB fp16-64-t256o64 49.2dB/7.12s/2575MB fp16-64-t384o64 52.8dB/7.30s/2559MB fp16-64-t512o64 60.2dB/3.14s/3973MB
+  27/27 Unilever_photo__lanczos: fp32-64-whole 5.01s/7272MB fp16-64-whole 61.0dB/3.75s/4021MB fp16r-64-whole 65.1dB/4.80s/7461MB fp16-64-t256o32 48.5dB/7.04s/2383MB fp16-64-t384o32 53.4dB/7.21s/2799MB fp16-64-t512o32 61.0dB/3.27s/4213MB fp16-64-t256o64 48.9dB/7.04s/2527MB fp16-64-t384o64 53.4dB/7.42s/2943MB fp16-64-t512o64 61.0dB/3.15s/3925MB
+── per arm over 27 cells (8-bit PNGs; dB = PSNR vs the fp32-64-whole arm) ──
+  fp32-64-whole median 4.81 s  peak 7416 MB
+  fp16-64-whole median 3.15 s  peak 4117 MB  vs fp32-64-whole: median 59.4 dB  min 58.1  max 61.0
+  fp16r-64-whole median 4.74 s  peak 7509 MB  vs fp32-64-whole: median 62.9 dB  min 62.1  max 65.1
+  fp16-64-t256o32 median 7.11 s  peak 2383 MB  vs fp32-64-whole: median 49.0 dB  min 45.2  max 53.3
+  fp16-64-t384o32 median 7.24 s  peak 2751 MB  vs fp32-64-whole: median 54.8 dB  min 51.9  max 56.7
+  fp16-64-t512o32 median 3.17 s  peak 4117 MB  vs fp32-64-whole: median 59.4 dB  min 58.1  max 61.0
+  fp16-64-t256o64 median 7.07 s  peak 2383 MB  vs fp32-64-whole: median 49.5 dB  min 45.4  max 53.5
+  fp16-64-t384o64 median 7.25 s  peak 2751 MB  vs fp32-64-whole: median 54.7 dB  min 51.8  max 56.5
+  fp16-64-t512o64 median 3.20 s  peak 4117 MB  vs fp32-64-whole: median 59.4 dB  min 58.1  max 61.0
+GPU util before 0 % after 99 %. Score with: vosrgate score /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/bench <out.csv> (SSIMULACRA2 vs __reference.png)
+  Unilever_photo/jpeg/HEART-fp16r-64-whole  FR 3.66  grad 2.048  sigma 97.1  DC psnr 37.3 ssim 0.9750 worst 0.9333  oct 0.881/0.901/0.951/0.986
+  Unilever_photo/jpeg/HEART-fp32-64-whole  FR 3.66  grad 2.052  sigma 97.2  DC psnr 37.3 ssim 0.9751 worst 0.9339  oct 0.881/0.901/0.951/0.986
+  Unilever_photo/jpeg/REFERENCE  FR 100.00  grad 3.382  sigma 97.8  DC psnr 32.3 ssim 0.9485 worst 0.8863  oct nan/nan/nan/nan
+
+════ H5 · whole-frame memory curve (fp16 and fp32) at 512², 960×540, 1280×720, 1920×1080 ════ 17:47:31
+whole-frame peak MLX memory (one forward each, fresh tier per size; GPU util before 0 %)
+  fp16-64-whole 512x512 → 2048x2048: first 1.76 s, second 1.70 s, MLX peak 3543 MB
+  fp16-64-whole 960x540 → 3840x2160: first 3.48 s, second 3.50 s, MLX peak 6675 MB
+  fp16-64-whole 1280x720 → 5120x2880: first 6.73 s, second 6.66 s, MLX peak 11666 MB
+  fp16-64-whole 1920x1080 → 7680x4320: first 15.60 s, second 15.47 s, MLX peak 25755 MB
+  fp32-64-whole 512x512 → 2048x2048: first 2.57 s, second 2.43 s, MLX peak 7076 MB
+  fp32-64-whole 960x540 → 3840x2160: first 5.25 s, second 4.93 s, MLX peak 13335 MB
+  fp32-64-whole 1280x720 → 5120x2880: first 9.78 s, second 9.24 s, MLX peak 23312 MB
+  fp32-64-whole 1920x1080 → 7680x4320: first 28.43 s, second 47.82 s, MLX peak 49662 MB
+GPU util after 99 %
+
+════ H5 · the ×2 route: heart_2x (clean2x) vs .fidelity ×4 + downsample — outputs for scoring ════ 17:50:17
+── per arm over 27 cells (8-bit PNGs; dB = PSNR vs the fp16-64-whole arm) ──
+  fp16-64-whole median 3.89 s  peak 2860 MB
+GPU util before 0 % after 99 %. Score with: vosrgate score /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/x2 <out.csv> (SSIMULACRA2 vs __reference.png)
+
+════ CAN · live mid-run cancel probe through the engine (1024² tiled, cancel at 1.5 s) ════ 17:52:07
+[Prewarm] heart-upscale: paged 2 file(s) / 0.0 GB into cache in 0.0s
+cancel probe: full run 36.58 s; cancelled at 1.50 s → CancellationError (unwrapped) after 0.234 s
+
+════ H6 · engine footprints (MLX peak / floor) at five sizes, fp16 and fp32, through the REAL engine ════ 17:52:45
+OK engine fidelity fp16 ×4 → 1024x1024 png | reg 0.00 s run 0.89 s | MLX peak 1630 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 2048x2048 png | reg 0.00 s run 4.05 s | MLX peak 2860 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 3840x2160 png | reg 0.00 s run 15.95 s | MLX peak 3183 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 4096x4096 png | reg 0.00 s run 35.52 s | MLX peak 3183 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 7680x4320 png | reg 0.00 s run 46.86 s | MLX peak 3183 MB floor 61 MB
+OK engine fidelity fp32 ×4 → 2048x2048 png | reg 0.00 s run 5.17 s | MLX peak 5298 MB floor 114 MB
+OK engine fidelity fp32 ×4 → 7680x4320 png | reg 0.00 s run 58.99 s | MLX peak 5167 MB floor 114 MB
+
+GPU utilization after: 98 %
+done 17:55:34
+WINDOW EXIT 0

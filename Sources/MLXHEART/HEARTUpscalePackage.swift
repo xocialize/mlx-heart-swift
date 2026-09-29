@@ -44,15 +44,33 @@ public final class HEARTUpscalePackage: ModelPackage {
             provenance: Provenance(sourceRepo: HEARTConfiguration.fp16Repo, revision: "main", tier: 1),
             requirements: RequirementsManifest(
                 // Split footprint (engine 1.14). resident = the loaded checkpoint (34 MB fp16 / 67 MB fp32 — a
-                // rounding error); the working set is the activations: 180-channel feature maps through 36 blocks
-                // at the INPUT resolution plus the padded (q ‖ pos ‖ 0) Q/K/V of the window attention and the 4×
-                // output buffer, bounded by the tile geometry above `wholeFrameMaxPixels`.
+                // rounding error next to the process floor); the working set is the activations: 180-channel feature
+                // maps through 36 blocks at the INPUT resolution plus the padded (q ‖ pos ‖ 0) Q/K/V of the window
+                // attention and the 4× output buffer — bounded by the 512² tile geometry above `wholeFrameMaxPixels`.
+                // Measured with `heart-smoke engine` through the REAL MLXServeEngine (release, M5 Max, MLX peak / floor,
+                // one process per row, PORTING-SPEC H6, 2026-09-28):
                 //
-                // ⚠️ PROVISIONAL — placeholders until PORTING-SPEC H5/H6 measure `heart-smoke engine` at five sizes
-                // (MLX-peak basis) and the image-fleet batch (AB-T-0019) re-baselines to in-app `phys_footprint`.
+                //   input        output       path              lane   run       MLX peak   floor
+                //   256²         1024²        whole-frame       fp16    0.9 s     1630 MB    61 MB
+                //   512²         2048²        whole-frame       fp16    4.1 s*    2860 MB    61 MB
+                //   960×540      3840×2160    tiled 512/32      fp16   16.0 s     3183 MB    61 MB
+                //   1024²        4096²        tiled 512/32      fp16   35.5 s     3183 MB    61 MB
+                //   1920×1080    7680×4320    tiled 512/32      fp16   46.9 s     3183 MB    61 MB
+                //   512²         2048²        whole-frame       fp32    5.2 s     5298 MB   114 MB
+                //   1920×1080    7680×4320    tiled 512/32      fp32   59.0 s     5167 MB   114 MB
+                //   (* engine run incl. PNG codec; the model alone is 1.8 s. Whole-frame above the ceiling, if a host
+                //    raises it: fp16 6.7 / 11.7 / 25.8 GB MLX peak at 960×540 / 1280×720 / 1920×1080, fp32 ≈ 2×.)
+                //
+                // DECLARED at the default envelope (512² tiles above 512² whole), converted from MLX-peak to the in-app
+                // `phys_footprint` basis the governor compares against with the ratios the tile-driver SIBLING measured
+                // on both bases (mlx-realesrgan-swift EFFICIENCY-ADOPTION.md: ~1.02 GB process floor; activation ×2.38):
+                //   fp16: residentBytes ≈ 1.02 GB + 34 MB = 1.06 GB   peakActivationBytes ≈ 3.18 GB × 2.38 = 7.6 GB
+                //   fp32: residentBytes ≈ 1.02 GB + 67 MB = 1.09 GB   peakActivationBytes ≈ 5.30 GB × 2.38 = 12.6 GB
+                // ⚠️ PROVISIONAL — derived, not measured in-app. RE-BASELINE to real `phys_footprint` with the
+                // image-fleet batch (AB-T-0019) and replace both numbers.
                 footprints: [
-                    QuantFootprint(quant: .fp16, residentBytes: 1_100_000_000, peakActivationBytes: 4_000_000_000),
-                    QuantFootprint(quant: .fp32, residentBytes: 1_150_000_000, peakActivationBytes: 8_000_000_000),
+                    QuantFootprint(quant: .fp16, residentBytes: 1_060_000_000, peakActivationBytes: 7_600_000_000),
+                    QuantFootprint(quant: .fp32, residentBytes: 1_090_000_000, peakActivationBytes: 12_600_000_000),
                 ],
                 requiredBackends: [.metalGPU],
                 os: OSRequirement(minMacOS: SemanticVersion(major: 26, minor: 0, patch: 0)),

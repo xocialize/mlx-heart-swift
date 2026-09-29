@@ -1,0 +1,33 @@
+bench: 27 cells × 3 arms, variant fidelity, GPU util before 0 % (must be idle)
+  1/27 Bayer_photo__bicubic: fp32-64-whole 2.94s/6838MB fp16-64-whole 59.8dB/1.89s/3587MB fp16r-64-whole 59.8dB/1.96s/3635MB
+  2/27 Bayer_photo__jpeg: fp32-64-whole 2.88s/6934MB fp16-64-whole 59.4dB/1.91s/3539MB fp16r-64-whole 59.4dB/2.00s/3587MB
+  3/27 Bayer_photo__lanczos: fp32-64-whole 2.94s/6886MB fp16-64-whole 59.9dB/1.94s/3635MB fp16r-64-whole 59.9dB/1.97s/3539MB
+  4/27 CustSpotlight_graphic__bicubic: fp32-64-whole 2.88s/6838MB fp16-64-whole 58.4dB/1.92s/3587MB fp16r-64-whole 58.4dB/1.99s/3635MB
+  5/27 CustSpotlight_graphic__jpeg: fp32-64-whole 2.89s/6934MB fp16-64-whole 58.4dB/1.95s/3539MB fp16r-64-whole 58.4dB/1.99s/3587MB
+  6/27 CustSpotlight_graphic__lanczos: fp32-64-whole 3.06s/6886MB fp16-64-whole 58.5dB/1.97s/3635MB fp16r-64-whole 58.5dB/2.02s/3539MB
+  7/27 FisherPaykel_photo__bicubic: fp32-64-whole 3.02s/6838MB fp16-64-whole 59.6dB/2.00s/3587MB fp16r-64-whole 59.6dB/2.12s/3635MB
+  8/27 FisherPaykel_photo__jpeg: fp32-64-whole 3.13s/6934MB fp16-64-whole 59.0dB/2.06s/3539MB fp16r-64-whole 59.1dB/2.10s/3587MB
+  9/27 FisherPaykel_photo__lanczos: fp32-64-whole 3.19s/6886MB fp16-64-whole 59.6dB/2.09s/3635MB fp16r-64-whole 59.6dB/2.16s/3539MB
+  10/27 KEYNOTE_graphic__bicubic: fp32-64-whole 3.29s/6838MB fp16-64-whole 58.8dB/2.15s/3587MB fp16r-64-whole 58.8dB/2.21s/3635MB
+  11/27 KEYNOTE_graphic__jpeg: fp32-64-whole 3.46s/6934MB fp16-64-whole 58.6dB/2.17s/3539MB fp16r-64-whole 58.5dB/2.27s/3587MB
+  12/27 KEYNOTE_graphic__lanczos: fp32-64-whole 3.40s/6886MB fp16-64-whole 58.8dB/2.28s/3635MB fp16r-64-whole 58.9dB/2.23s/3539MB
+  13/27 Kelloggs_photo__bicubic: fp32-64-whole 3.55s/6838MB fp16-64-whole 59.8dB/2.35s/3587MB fp16r-64-whole 59.8dB/2.61s/3635MB
+  14/27 Kelloggs_photo__jpeg: fp32-64-whole 4.27s/6934MB fp16-64-whole 59.7dB/2.62s/3539MB fp16r-64-whole 59.7dB/2.67s/3587MB
+  15/27 Kelloggs_photo__lanczos: fp32-64-whole 4.65s/6886MB fp16-64-whole 59.9dB/3.40s/3635MB fp16r-64-whole 59.9dB/3.09s/3539MB
+  16/27 PubSec_graphic__bicubic: fp32-64-whole 5.44s/6838MB fp16-64-whole 58.8dB/4.09s/3587MB fp16r-64-whole 58.8dB/4.58s/3635MB
+  17/27 PubSec_graphic__jpeg: fp32-64-whole 9.11s/6934MB fp16-64-whole 58.1dB/4.95s/3539MB fp16r-64-whole 58.2dB/5.54s/3587MB
+  18/27 PubSec_graphic__lanczos: fp32-64-whole 9.80s/6886MB fp16-64-whole 58.9dB/6.17s/3635MB fp16r-64-whole 58.9dB/7.41s/3539MB
+  19/27 RBC_photo__bicubic: fp32-64-whole 8.75s/6838MB fp16-64-whole 60.5dB/5.43s/3587MB fp16r-64-whole 60.6dB/4.83s/3635MB
+  20/27 RBC_photo__jpeg: fp32-64-whole 6.27s/6934MB fp16-64-whole 60.6dB/4.69s/3539MB fp16r-64-whole 60.7dB/4.29s/3587MB
+  21/27 RBC_photo__lanczos: fp32-64-whole 6.05s/6886MB fp16-64-whole 60.7dB/3.87s/3635MB fp16r-64-whole 60.7dB/3.98s/3539MB
+  22/27 SNS_graphic__bicubic: fp32-64-whole 5.99s/6838MB fp16-64-whole 59.0dB/3.87s/3587MB fp16r-64-whole 59.0dB/4.14s/3635MB
+  23/27 SNS_graphic__jpeg: fp32-64-whole 5.97s/6934MB fp16-64-whole 58.2dB/3.90s/3539MB fp16r-64-whole 58.3dB/4.10s/3587MB
+  24/27 SNS_graphic__lanczos: fp32-64-whole 6.18s/6886MB fp16-64-whole 59.2dB/4.03s/3635MB fp16r-64-whole 59.2dB/4.12s/3539MB
+  25/27 Unilever_photo__bicubic: fp32-64-whole 5.71s/6838MB fp16-64-whole 60.9dB/3.86s/3587MB fp16r-64-whole 61.0dB/3.93s/3635MB
+  26/27 Unilever_photo__jpeg: fp32-64-whole 5.49s/6934MB fp16-64-whole 60.2dB/3.73s/3539MB fp16r-64-whole 60.4dB/3.85s/3587MB
+  27/27 Unilever_photo__lanczos: fp32-64-whole 5.54s/6886MB fp16-64-whole 61.0dB/3.65s/3635MB fp16r-64-whole 61.0dB/3.92s/3539MB
+── per arm over 27 cells (8-bit PNGs; dB = PSNR vs the fp32-64-whole arm) ──
+  fp32-64-whole median 4.27 s  peak 6886 MB
+  fp16-64-whole median 2.62 s  peak 3587 MB  vs fp32-64-whole: median 59.4 dB  min 58.1  max 61.0
+  fp16r-64-whole median 2.67 s  peak 3587 MB  vs fp32-64-whole: median 59.4 dB  min 58.2  max 61.0
+GPU util before 0 % after 98 %. Score with: vosrgate score /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/fp16r <out.csv> (SSIMULACRA2 vs __reference.png)

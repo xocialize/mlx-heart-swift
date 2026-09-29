@@ -1,0 +1,10 @@
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 64) in 0.01 s
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 64) in 0.01 s
+perf: GPU utilization before 99 % (sample the counter for ~10 s before starting; must be idle)
+── LR 256² → 1024² (1.05 Mpx out), median of 5, arms interleaved ──
+  fp16-64     436.6 ms      416.4 ms/Mpx-out   (all: 449, 434, 436, 437, 440)
+  fp16r-64     456.3 ms      435.2 ms/Mpx-out   (all: 469, 455, 456, 456, 460)
+── LR 512² → 2048² (4.19 Mpx out), median of 5, arms interleaved ──
+  fp16-64    1869.3 ms      445.7 ms/Mpx-out   (all: 1836, 1906, 1847, 1869, 1932)
+  fp16r-64    1949.5 ms      464.8 ms/Mpx-out   (all: 1919, 1972, 1922, 1962, 1950)
+perf: GPU utilization after 99 %; RealPLKSR anchor 111 ms/Mpx (AB-R-0365), P0 bar 540–590 ms/Mpx at head 64 (AB-R-0370)

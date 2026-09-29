@@ -245,7 +245,8 @@ func gateTaps(model m: HEART, goldens g: [String: MLXArray], size: String, r: in
     r.check(compare("conv_first", f, g["conv_first"]!), rel: PRIM)
     r.check(compare("patch_embed", t, g["patch_embed"]!), rel: PRIM)
     let blk0 = m.layers[0].residualGroup.blocks[0]
-    let (xn, std1) = blk0.norm1(t)
+    let (xnF, std1) = blk0.norm1(t)
+    let xn = xnF.asType(m.computeDtype)
     r.check(compare("g0b0.norm1.x", xn, g["g0b0.norm1.x"]!), rel: DEEP)
     r.check(compare("g0b0.norm1.std", std1.reshaped([-1]), g["g0b0.norm1.std"]!), rel: DEEP)
     r.check(compare("g0b0.cab_pre_ca", blk0.convBlock.preAttention(xn), g["g0b0.cab_pre_ca"]!), rel: DEEP)
@@ -254,7 +255,8 @@ func gateTaps(model m: HEART, goldens g: [String: MLXArray], size: String, r: in
     let att = blk0.attn!(xn)
     r.check(compare("g0b0.attn", att, g["g0b0.attn"]!), rel: DEEP)
     var y = t + std1 * (cab * blk0.convScale + att)
-    let (xn2, std2) = blk0.norm2(y)
+    let (xn2F, std2) = blk0.norm2(y)
+    let xn2 = xn2F.asType(m.computeDtype)
     r.check(compare("g0b0.norm2.x", xn2, g["g0b0.norm2.x"]!), rel: DEEP)
     r.check(compare("g0b0.norm2.std", std2.reshaped([-1]), g["g0b0.norm2.std"]!), rel: DEEP)
     let mlp = blk0.mlp(xn2)
@@ -266,7 +268,8 @@ func gateTaps(model m: HEART, goldens g: [String: MLXArray], size: String, r: in
     let y1 = m.layers[0].residualGroup.blocks[1](y0)
     r.check(compare("g0b1.out", y1, g["g0b1.out"]!), rel: DEEP)
     let blk2 = m.layers[0].residualGroup.blocks[2]
-    let (xn21, _) = blk2.norm1(y1)
+    let (xn21F, _) = blk2.norm1(y1)
+    let xn21 = xn21F.asType(m.computeDtype)
     // the reflect-shift tensor at tolerance 0: re-pad the ORACLE's own attention input (the golden's centre crop),
     // so the check isolates the pad op from the fp32 rounding of the normalised input feeding it
     let sp = g["g0b2.shiftpad"]!, s16 = m.config.windowSize / 2
@@ -284,13 +287,13 @@ func gateTaps(model m: HEART, goldens g: [String: MLXArray], size: String, r: in
     let z5in = z
     let blocks5 = m.layers[5].residualGroup.blocks
     for bi in 0 ..< 4 { z = blocks5[bi](z) }
-    let (xn54, _) = blocks5[4].norm1(z)
-    r.check(compare("g5b4.attn (chained)", blocks5[4].attn!(xn54), g["g5b4.attn"]!), rel: CHAIN)
+    let (xn54F, _) = blocks5[4].norm1(z)
+    r.check(compare("g5b4.attn (chained)", blocks5[4].attn!(xn54F.asType(m.computeDtype)), g["g5b4.attn"]!), rel: CHAIN)
     for bi in 4 ..< 6 { z = blocks5[bi](z) }
     z = m.layers[5].conv(z) + z5in                                   // RHAG 5 closes with conv + residual
     let feats = m.norm(z)
     r.check(compare("features (chained)", feats, g["features"]!), rel: CHAIN)
-    let cab2 = m.convAfterBody(feats)
+    let cab2 = m.convAfterBody(feats.asType(m.computeDtype))
     r.check(compare("conv_after_body", cab2, g["conv_after_body"]!), rel: CHAIN)
     let res = cab2 + f
     r.check(compare("after_body_residual", res, g["after_body_residual"]!), rel: CHAIN)
@@ -461,29 +464,35 @@ func runPerf(_ args: [String]) throws {
     let armNames = (opt(args, "--arms") ?? "fp32-64,fp32-40,fp16-64,fp16-40").split(separator: ",").map(String.init)
     let gBefore = gpuUtilization()
     print("perf: GPU utilization before \(gBefore) % (sample the counter for ~10 s before starting; must be idle)")
-    var arms: [(String, HEART)] = []
+    // arm = <lane>[r]-<headPad>[-seams]: `r` = residual stream fp32; `seams` = the forward with the per-group
+    // cancellation checkpoints (one eval per RHAG) instead of one uninterrupted graph
+    var arms: [(String, HEART, Bool)] = []
     for a in armNames {
-        let parts = a.split(separator: "-"); let lane = HEART_Playback.Precision(rawValue: String(parts[0]))!
+        let parts = a.split(separator: "-").map(String.init)
+        let residual = parts[0].hasSuffix("r")
+        let lane = HEART_Playback.Precision(rawValue: String(parts[0].prefix(4)))!
         let head = Int(parts[1])!
-        arms.append((a, try makeModel(weightsDir: args[0], variant: .fidelity, precision: lane, headPad: head)))
+        let seams = parts.count > 2 && parts[2] == "seams"
+        arms.append((a, try makeModel(weightsDir: args[0], variant: .fidelity, precision: lane, headPad: head, residualFP32: residual), seams))
     }
+    func fwd(_ m: HEART, _ seams: Bool, _ x: MLXArray) -> MLXArray { seams ? try! m.forward(x, checkpoint: {}) : m(x) }
     var report: [String: Any] = ["gpu_before": gBefore, "rounds": rounds, "sizes": [String: Any]()]
     var sizesReport: [String: Any] = [:]
     for side in sizes {
         let x = MLXRandom.uniform(0 ..< 1, [1, side, side, 3]); eval(x)
-        for (_, m) in arms { for _ in 0 ..< 2 { let y = m(x); eval(y) } }      // warm (compile + allocator)
+        for (_, m, seams) in arms { for _ in 0 ..< 2 { let y = fwd(m, seams, x); eval(y) } }      // warm (compile + allocator)
         var t: [String: [Double]] = [:]
         for r in 0 ..< rounds {
             let order = Array(arms[(r % arms.count)...]) + Array(arms[..<(r % arms.count)])
-            for (name, m) in order {
-                let t0 = now(); let y = m(x); eval(y); let dt = (now() - t0) * 1000
+            for (name, m, seams) in order {
+                let t0 = now(); let y = fwd(m, seams, x); eval(y); let dt = (now() - t0) * 1000
                 t[name, default: []].append(dt)
             }
         }
         let mpx = Double(side * 4 * side * 4) / 1e6
         print(String(format: "── LR %d² → %d² (%.2f Mpx out), median of %d, arms interleaved ──", side, side * 4, mpx, rounds))
         var sr: [String: Any] = [:]
-        for (name, _) in arms {
+        for (name, _, _) in arms {
             let s = t[name]!.sorted(); let med = s[s.count / 2]
             print(String(format: "  %-10@ %9.1f ms   %8.1f ms/Mpx-out   (all: %@)", name as NSString, med, med / mpx,
                          t[name]!.map { String(format: "%.0f", $0) }.joined(separator: ", ")))

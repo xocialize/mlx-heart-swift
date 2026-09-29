@@ -1,0 +1,7 @@
+OK engine fidelity fp16 ×4 → 1024x1024 png | reg 0.00 s run 0.89 s | MLX peak 1630 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 2048x2048 png | reg 0.00 s run 4.05 s | MLX peak 2860 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 3840x2160 png | reg 0.00 s run 15.95 s | MLX peak 3183 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 4096x4096 png | reg 0.00 s run 35.52 s | MLX peak 3183 MB floor 61 MB
+OK engine fidelity fp16 ×4 → 7680x4320 png | reg 0.00 s run 46.86 s | MLX peak 3183 MB floor 61 MB
+OK engine fidelity fp32 ×4 → 2048x2048 png | reg 0.00 s run 5.17 s | MLX peak 5298 MB floor 114 MB
+OK engine fidelity fp32 ×4 → 7680x4320 png | reg 0.00 s run 58.99 s | MLX peak 5167 MB floor 114 MB

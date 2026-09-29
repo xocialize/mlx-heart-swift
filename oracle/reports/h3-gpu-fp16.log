@@ -1,0 +1,16 @@
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 64) in 0.04 s
+loaded heart_4x_otf_gan_fp16.safetensors (fp16, head 64) in 0.04 s
+loaded heart_4x_pretrain_fp16.safetensors (fp16, head 64) in 0.04 s
+loaded heart_2x_fp16.safetensors (fp16, head 64) in 0.04 s
+FAILED: GATE FAILED: fidelity 128² vs torch, fidelity 512² vs torch, sharp 128² vs torch, sharp 512² vs torch, clean 128² vs torch, clean 512² vs torch, clean2x 128² vs torch, clean2x 512² vs torch
+gate: device GPU, lane fp16, head pad 64, MLX_ENABLE_TF32=unset
+── e2e vs torch (CPU fp32) and the author's ONNX (ORT CPU) ──
+  FAIL fidelity 128² vs torch max|Δ| 5.033e-03  mean|Δ| 3.217e-04  |ref|max 0.7964  rel 6.32e-03  cos 0.99999970  n≠ 786391  PSNR vs torch 67.6 dB · vs ONNX 67.7 dB (torch-vs-ONNX 90.2 dB) · 2.4 s
+  FAIL fidelity 512² vs torch max|Δ| 3.682e-03  mean|Δ| 2.849e-04  |ref|max 0.7558  rel 4.87e-03  cos 0.99999994  n≠ 12582151  PSNR vs torch 68.7 dB · vs ONNX 54.8 dB (torch-vs-ONNX 54.5 dB) · 1.7 s
+  FAIL sharp 128² vs torch max|Δ| 5.642e-03  mean|Δ| 5.220e-04  |ref|max 0.9294  rel 6.07e-03  cos 0.99999928  n≠ 786403  PSNR vs torch 63.3 dB · vs ONNX 63.3 dB (torch-vs-ONNX 84.9 dB) · 0.1 s
+  FAIL sharp 512² vs torch max|Δ| 5.884e-03  mean|Δ| 4.639e-04  |ref|max 0.9484  rel 6.20e-03  cos 0.99999952  n≠ 12582426  PSNR vs torch 64.3 dB · vs ONNX 48.8 dB (torch-vs-ONNX 48.9 dB) · 1.7 s
+  FAIL clean 128² vs torch max|Δ| 1.891e-02  mean|Δ| 1.371e-03  |ref|max 1.823  rel 1.04e-02  cos 0.99999571  n≠ 786419  PSNR vs torch 54.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 0.1 s
+  FAIL clean 512² vs torch max|Δ| 2.321e-02  mean|Δ| 1.373e-03  |ref|max 1.841  rel 1.26e-02  cos 0.99999595  n≠ 12582757  PSNR vs torch 54.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 1.7 s
+  FAIL clean2x 128² vs torch max|Δ| 1.165e-02  mean|Δ| 9.606e-04  |ref|max 1.637  rel 7.11e-03  cos 0.99999785  n≠ 196605  PSNR vs torch 57.6 dB · vs ONNX 57.6 dB (torch-vs-ONNX 95.8 dB) · 0.1 s
+  FAIL clean2x 512² vs torch max|Δ| 1.532e-02  mean|Δ| 9.689e-04  |ref|max 1.767  rel 8.67e-03  cos 0.99999785  n≠ 3145674  PSNR vs torch 57.5 dB · vs ONNX 55.4 dB (torch-vs-ONNX 59.8 dB) · 1.8 s
+gate summary: 0 passed, 8 failed

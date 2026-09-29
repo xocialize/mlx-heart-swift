@@ -1,0 +1,144 @@
+Building for production...
+[Computing dependencies]
+[1 / 41]
+[6 / 41] MLXToolKit
+[8 / 42] RealModule
+[15 / 47] ComplexModule
+[27 / 55] MLX
+[28 / 56] MLXToolKit
+[38 / 65] MLXHubMetadata
+[43 / 67] MLXServeConformance
+[45 / 66] MLX
+[56 / 79] MLXFast
+[65 / 84] MLXProfiling
+[70 / 86] MLXNN
+[79 / 95] MLXServeConformanceNN
+[82 / 97] MLXServeConformanceNN
+[84 / 96] RealESRGANMLX
+[92 / 102] MLXServeCore
+[98 / 105] HEARTMLX
+[108 / 114] HEARTMLXTests-product
+[109 / 115] MLXHEART
+[119 / 127] MLXHEARTTests-product
+[120 / 128] HEARTMLXTests-product
+[122 / 128] HEARTMLXTests-product
+[122 / 128] MLXHEARTTests-product
+[126 / 129] MLXHEARTTests-product
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Sources/Smoke/main.swift:429:37: [1;33mwarning: [1;39m'setDefault(device:)' is deprecated: use withDefaultDevice() -- this only works before any mlx resources are created[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration\DeprecatedDeclaration]8;;\]
+[0;36m427 |[0;0m                                  inputTileSize: opt(args, "--tile").map { Int($0)! },
+[0;36m428 |[0;0m                                  weightsDirectory: URL(fileURLWithPath: args[2]))
+[0;36m429 |[0;0m     if flag(args, "--cpu") { Device.setDefault(device: Device(.cpu)) }      // the whole engine run on the CPU stream
+    [0;36m|[0;0m                                     `- [1;33mwarning: [1;39m'setDefault(device:)' is deprecated: use withDefaultDevice() -- this only works before any mlx resources are created[0;0m [#]8;;https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration\DeprecatedDeclaration]8;;\]
+[0;36m430 |[0;0m     let engine = MLXServeEngine()
+[0;36m431 |[0;0m     await engine.useModelStore(ModelStore(root: nil))
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>
+[129 / 131] heart-smoke-product
+[131 / 131] heart-smoke-product
+[131 / 131] MLXHEARTTests-product
+[134 / 134] HEARTMLXTests-product
+[135 / 135] heart-smoke-product
+Build complete! (25.39 sec)
+Test Suite 'All tests' started at 2026-09-28 18:09:01.598.
+Test Suite 'MLXHEARTTests.xctest' started at 2026-09-28 18:09:01.599.
+Test Suite 'CancellationTests' started at 2026-09-28 18:09:01.599.
+Test Case '-[MLXHEARTTests.CancellationTests testCANCadenceDeclaration]' started.
+Test Case '-[MLXHEARTTests.CancellationTests testCANCadenceDeclaration]' passed (0.001 seconds).
+Test Case '-[MLXHEARTTests.CancellationTests testCANGatePreCancelledRun]' started.
+Test Case '-[MLXHEARTTests.CancellationTests testCANGatePreCancelledRun]' passed (0.000 seconds).
+Test Suite 'CancellationTests' passed at 2026-09-28 18:09:01.601.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'InferenceModeTests' started at 2026-09-28 18:09:01.601.
+Test Case '-[MLXHEARTTests.InferenceModeTests testINFGatePassesOnAConstructedGraphAndCanFail]' started.
+Test Case '-[MLXHEARTTests.InferenceModeTests testINFGatePassesOnAConstructedGraphAndCanFail]' passed (0.045 seconds).
+Test Case '-[MLXHEARTTests.InferenceModeTests testPackageExposesTheGraphByRole]' started.
+Test Case '-[MLXHEARTTests.InferenceModeTests testPackageExposesTheGraphByRole]' passed (0.000 seconds).
+Test Suite 'InferenceModeTests' passed at 2026-09-28 18:09:01.646.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.045 (0.045) seconds
+Test Suite 'MaterializationTests' started at 2026-09-28 18:09:01.646.
+Test Case '-[MLXHEARTTests.MaterializationTests testEngineNeedsDownloadOnAFreshRegistration]' started.
+Test Case '-[MLXHEARTTests.MaterializationTests testEngineNeedsDownloadOnAFreshRegistration]' passed (0.031 seconds).
+Test Case '-[MLXHEARTTests.MaterializationTests testFullMATGatePassesPerVariantAndLane]' started.
+Test Case '-[MLXHEARTTests.MaterializationTests testFullMATGatePassesPerVariantAndLane]' passed (0.004 seconds).
+Test Case '-[MLXHEARTTests.MaterializationTests testStoreFlatLayoutSatisfiesOnlyTheVariantsOwnFile]' started.
+Test Case '-[MLXHEARTTests.MaterializationTests testStoreFlatLayoutSatisfiesOnlyTheVariantsOwnFile]' passed (0.001 seconds).
+Test Suite 'MaterializationTests' passed at 2026-09-28 18:09:01.683.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.037 (0.037) seconds
+Test Suite 'MLXHEARTTests.xctest' passed at 2026-09-28 18:09:01.683.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.083 (0.084) seconds
+Test Suite 'All tests' passed at 2026-09-28 18:09:01.683.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.083 (0.085) seconds
+Test Suite 'All tests' started at 2026-09-28 18:09:01.901.
+Test Suite 'HEARTMLXTests.xctest' started at 2026-09-28 18:09:01.902.
+Test Suite 'HEARTCoreTests' started at 2026-09-28 18:09:01.902.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testBlockScheduleIsFixedAtConstruction]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testBlockScheduleIsFixedAtConstruction]' passed (0.027 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testChannelAttentionPoolDoesNotOverflowInHalf]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testChannelAttentionPoolDoesNotOverflowInHalf]' passed (0.005 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testExpectedKeysAreTheUpstreamStateDictKeys]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testExpectedKeysAreTheUpstreamStateDictKeys]' passed (0.028 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testForwardShapesIncludingWindowPadding]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testForwardShapesIncludingWindowPadding]' passed (0.738 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testHeadPad64EqualsHeadPad40]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testHeadPad64EqualsHeadPad40]' passed (0.101 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testInferenceMode]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testInferenceMode]' passed (0.002 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testPixelShuffleMatchesTorchAndTheWrongOrderingFailsLoudly]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testPixelShuffleMatchesTorchAndTheWrongOrderingFailsLoudly]' passed (0.000 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testQKVOrderProbeDiscriminates]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testQKVOrderProbeDiscriminates]' passed (0.017 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testReflectAndReplicatePadMatchTorchSemantics]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testReflectAndReplicatePadMatchTorchSemantics]' passed (0.000 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testRIBCoordinateTable]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testRIBCoordinateTable]' passed (0.000 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testS0KeyContractOnConvertedWeights]' started.
+/Volumes/Satechi/Development/mlxengine-image/.claude/worktrees/jovial-ishizaka-bce984/WIP/mlx-heart-swift/Tests/HEARTMLXTests/HEARTCoreTests.swift:285: -[HEARTMLXTests.HEARTCoreTests testS0KeyContractOnConvertedWeights] : Test skipped - set HEART_WEIGHTS to run the S0 key contract on real files
+Test Case '-[HEARTMLXTests.HEARTCoreTests testS0KeyContractOnConvertedWeights]' skipped (0.003 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testScaleIsDerivedFromTheUpsampleConvs]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testScaleIsDerivedFromTheUpsampleConvs]' passed (0.000 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testShiftedAttentionPadsAndCropsToTheInputSize]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testShiftedAttentionPadsAndCropsToTheInputSize]' passed (0.089 seconds).
+Test Case '-[HEARTMLXTests.HEARTCoreTests testTensorAndParameterCountsMatchTheCheckpointInventory]' started.
+Test Case '-[HEARTMLXTests.HEARTCoreTests testTensorAndParameterCountsMatchTheCheckpointInventory]' passed (0.033 seconds).
+Test Suite 'HEARTCoreTests' passed at 2026-09-28 18:09:02.947.
+	 Executed 14 tests, with 1 test skipped and 0 failures (0 unexpected) in 1.044 (1.045) seconds
+Test Suite 'HEARTMLXTests.xctest' passed at 2026-09-28 18:09:02.947.
+	 Executed 14 tests, with 1 test skipped and 0 failures (0 unexpected) in 1.044 (1.045) seconds
+Test Suite 'All tests' passed at 2026-09-28 18:09:02.947.
+	 Executed 14 tests, with 1 test skipped and 0 failures (0 unexpected) in 1.044 (1.046) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite HEARTUpscaleTests started.
+◇ Test pngRoundTripsThroughPixelBuffer() started.
+◇ Test manifestRequirements() started.
+◇ Test weightSourcesFollowTheVariantAndLane() started.
+◇ Test configurationCodableRoundTrips() started.
+◇ Test rawBGRA8RoundTripsBitIdentical() started.
+◇ Test surfaceIsTheCanonicalUpscaleDescriptor() started.
+◇ Test registrationConstructs() started.
+◇ Test provenancePointsAtANamespaceWeControl() started.
+◇ Test resizePixelBufferProducesRequestedDimensions() started.
+◇ Test manifestIsImageUpscaleAndPermissiveOnBothLayers() started.
+◇ Test rawBGRA8MissingDimensionsThrows() started.
+◇ Test splitFootprintsDeclaredPerLane() started.
+◇ Test quantConfiguredAndBudgetAware() started.
+✔ Test weightSourcesFollowTheVariantAndLane() passed after 0.001 seconds.
+✔ Test provenancePointsAtANamespaceWeControl() passed after 0.001 seconds.
+✔ Test surfaceIsTheCanonicalUpscaleDescriptor() passed after 0.001 seconds.
+✔ Test splitFootprintsDeclaredPerLane() passed after 0.001 seconds.
+✔ Test manifestRequirements() passed after 0.001 seconds.
+✔ Test registrationConstructs() passed after 0.001 seconds.
+✔ Test manifestIsImageUpscaleAndPermissiveOnBothLayers() passed after 0.001 seconds.
+✔ Test quantConfiguredAndBudgetAware() passed after 0.001 seconds.
+✔ Test configurationCodableRoundTrips() passed after 0.001 seconds.
+✔ Test rawBGRA8MissingDimensionsThrows() passed after 0.001 seconds.
+✔ Test rawBGRA8RoundTripsBitIdentical() passed after 0.004 seconds.
+✔ Test pngRoundTripsThroughPixelBuffer() passed after 0.046 seconds.
+✔ Test resizePixelBufferProducesRequestedDimensions() passed after 0.046 seconds.
+✔ Suite HEARTUpscaleTests passed after 0.046 seconds.
+✔ Test run with 13 tests in 1 suite passed after 0.046 seconds.
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.

@@ -1,0 +1,8 @@
+  fp16-64-whole 512x512 → 2048x2048: first 1.76 s, second 1.70 s, MLX peak 3543 MB
+  fp16-64-whole 960x540 → 3840x2160: first 3.48 s, second 3.50 s, MLX peak 6675 MB
+  fp16-64-whole 1280x720 → 5120x2880: first 6.73 s, second 6.66 s, MLX peak 11666 MB
+  fp16-64-whole 1920x1080 → 7680x4320: first 15.60 s, second 15.47 s, MLX peak 25755 MB
+  fp32-64-whole 512x512 → 2048x2048: first 2.57 s, second 2.43 s, MLX peak 7076 MB
+  fp32-64-whole 960x540 → 3840x2160: first 5.25 s, second 4.93 s, MLX peak 13335 MB
+  fp32-64-whole 1280x720 → 5120x2880: first 9.78 s, second 9.24 s, MLX peak 23312 MB
+  fp32-64-whole 1920x1080 → 7680x4320: first 28.43 s, second 47.82 s, MLX peak 49662 MB

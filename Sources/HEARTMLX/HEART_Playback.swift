@@ -7,9 +7,9 @@
 //
 //  ⚠️ Unlike its conv-only siblings, HEART is NOT tile-invariant: i-LN normalises each block's input over the
 //  whole tensor it sees, so a tile is normalised by the tile's statistics and the tiled result differs from the
-//  whole-frame result (bit-for-bit it cannot match). PORTING-SPEC H5 measures the tile geometry against
-//  whole-frame output on the bench (SSIMULACRA2 change ≤ 0.1) and sets the defaults here from that — they are not
-//  the siblings' defaults carried over.
+//  whole-frame result (bit-for-bit it cannot match). PORTING-SPEC H5 measured the tile geometry against
+//  whole-frame output on the bench (SSIMULACRA2 vs the reference, PSNR tiled-vs-whole, seam concentration) and
+//  the defaults below come from that — they are not the siblings' defaults carried over.
 //
 
 import CoreVideo
@@ -113,8 +113,17 @@ public final class HEART_Playback: PlaybackTier, @unchecked Sendable {
         self.tileProcessor = MLXTileProcessor(tileSize: inputTileSize, overlap: tileOverlap, scale: variant.scale)
     }
 
-    /// Geometry defaults — PROVISIONAL until PORTING-SPEC H5 stamps them from the bench (tile size by the
-    /// ≤ 0.1 SSIMULACRA2 rule, whole-frame ceiling from the memory curve).
+    /// Geometry defaults — MEASURED (PORTING-SPEC H5, 2026-09-28, the 27 Forge bench cells at 512² input):
+    ///   • whole-frame up to 512² of input — the validated envelope (the bench's whole-frame 512² is what won every
+    ///     damaged cell; larger whole frames are untested for quality and cost 6.7 / 11.7 / 25.8 GB fp16 at
+    ///     960×540 / 1280×720 / 1920×1080). Hosts with the memory may raise it: a 540p whole frame runs 3.5 s
+    ///     against 16 s tiled, because the shared driver's CPU compositing dominates the tiled path at ×4.
+    ///   • 512² tiles above it: at the bench size one tile IS the whole frame (100.6 dB, i.e. 8-bit identical),
+    ///     and no smaller tile keeps every cell within the ≤ 0.1 SSIMULACRA2 rule (384²: +0.20 mean but two
+    ///     cells lose up to 0.47; 256²: seven cells lose, worst −2.02). The tiled path bounds fp16 memory at
+    ///     3.2 GB through 1920×1080 → 7680×4320.
+    ///   • overlap 32: 64 measured identical (±0.1 dB). ⚠️ Overlap is absolute (it covers the blend band, not a
+    ///     receptive field — i-LN makes every tile's output depend on the whole tile anyway).
     public static let defaultWholeFrameMaxPixels = 512 * 512
     public static let defaultInputTileSize = 512
     public static let defaultTileOverlap = 32

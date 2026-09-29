@@ -134,7 +134,10 @@ public final class ILN: Module, @unchecked Sendable {
         self._bias.wrappedValue = MLXArray.zeros([dim])
     }
 
-    /// NHWC in → (normalised NHWC in the input dtype, std as (B, 1, 1, 1) float32).
+    /// NHWC in → (normalised NHWC in **float32**, std as (B, 1, 1, 1) float32). Callers cast the normalised tensor
+    /// to the weights' dtype at the entry of every conv / attention / MLP, so a float32 residual stream never
+    /// promotes the heavy ops to float32 (which on M5 would mean TF32-class GEMMs, worse than fp16 with fp32
+    /// accumulation — measured 63 dB against 67.6 for the plain fp16 lane before this cast existed).
     public func callAsFunction(_ x: MLXArray) -> (MLXArray, MLXArray) {
         let b = x.dim(0)
         let xf = x.asType(.float32)
@@ -146,7 +149,7 @@ public final class ILN: Module, @unchecked Sendable {
         let variance = chunkedMean(lastAxisOf: (centered * centered).reshaped([b, -1])).reshaped([b, 1, 1, 1])   // unbiased=False
         let std = MLX.sqrt(variance + eps)
         let xn = centered / std
-        return ((weight * xn + bias).asType(x.dtype), std)
+        return (weight * xn + bias, std)
     }
 }
 
@@ -449,15 +452,20 @@ public final class HAB_RIB: Module, UnaryLayer, @unchecked Sendable {
         self._mlp.wrappedValue = Mlp(inFeatures: c.embedDim, hiddenFeatures: Int(Float(c.embedDim) * c.mlpRatio))
     }
 
+    /// The dtype the heavy ops run in — the loaded weights' dtype.
+    var computeDtype: DType { mlp.fc1.weight.dtype }
+
     public func callAsFunction(_ x: MLXArray) -> MLXArray {
-        let streamDtype: DType = residualStreamFloat32 ? .float32 : x.dtype
+        let cd = computeDtype
+        let streamDtype: DType = residualStreamFloat32 ? .float32 : cd
         let shortcut = x.asType(streamDtype)
-        let (xn, std1) = norm1(x)
+        let (xnF, std1) = norm1(x)
+        let xn = xnF.asType(cd)
         var residual = convBlock(xn) * convScale
         if let attn { residual = residual + attn(xn) }
         var y = shortcut + std1.asType(streamDtype) * residual.asType(streamDtype)
-        let (xn2, std2) = norm2(y)
-        y = y + std2.asType(streamDtype) * mlp(xn2).asType(streamDtype)
+        let (xn2F, std2) = norm2(y)
+        y = y + std2.asType(streamDtype) * mlp(xn2F.asType(cd)).asType(streamDtype)
         return y
     }
 }
@@ -498,7 +506,8 @@ public final class RHAG_RIB: Module, UnaryLayer, @unchecked Sendable {
     }
 
     public func callAsFunction(_ x: MLXArray) -> MLXArray {
-        conv(residualGroup(x)) + x
+        let y = residualGroup(x)
+        return conv(y.asType(conv.weight.dtype)).asType(x.dtype) + x
     }
 }
 
@@ -568,7 +577,7 @@ public final class HEART: Module, @unchecked Sendable {
 
     /// `norm` → `conv_after_body` + stem residual → `conv_before_upsample` → upsample → `conv_last`.
     public func tail(_ y: MLXArray, stemFeatures f: MLXArray) -> MLXArray {
-        var z = convAfterBody(norm(y)) + f
+        var z = convAfterBody(norm(y).asType(computeDtype)) + f
         z = leakyRelu((convBeforeUpsample[0] as! Conv2d)(z), negativeSlope: 0.01)
         for stage in 0 ..< config.upsampleStages {
             z = pixelShuffleNHWC((upsample[2 * stage] as! Conv2d)(z), 2)

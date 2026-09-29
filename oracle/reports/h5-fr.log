@@ -1,0 +1,22 @@
+SSIMULACRA2 vs the 2048² reference, 27 cells (9 images × bicubic/lanczos/jpeg); Δ = per-cell change vs the fp32 whole-frame arm
+arm                     mean  median     min |   meanΔ    medΔ  worstΔ  cells |Δ|>0.1
+HEART-fp16-64-t256o32   21.16   22.58  -45.73 |  +0.006  +0.050  -2.020   19/27
+HEART-fp16-64-t256o64   21.22   22.68  -45.71 |  +0.060  +0.150  -1.890   21/27
+HEART-fp16-64-t384o32   21.36   22.89  -45.60 |  +0.200  +0.170  +0.970   18/27
+HEART-fp16-64-t384o64   21.36   22.90  -45.60 |  +0.204  +0.180  +1.030   19/27
+HEART-fp16-64-t512o32   21.15   22.53  -45.64 |  -0.010  -0.010  -0.050    0/27
+HEART-fp16-64-t512o64   21.15   22.53  -45.64 |  -0.010  -0.010  -0.050    0/27
+HEART-fp16-64-whole    21.15   22.53  -45.64 |  -0.010  -0.010  -0.050    0/27
+HEART-fp16r-64-whole   21.16   22.54  -45.64 |  +0.000  +0.000  +0.020    0/27
+HEART-fp32-64-whole    21.16   22.53  -45.64 |  +0.000  +0.000  +0.000    0/27
+── regime bicubic: mean FR per arm
+   fp16-64-t256o32=19.64  fp16-64-t256o64=19.69  fp16-64-t384o32=19.63  fp16-64-t384o64=19.64  fp16-64-t512o32=19.34  fp16-64-t512o64=19.34  fp16-64-whole=19.34  fp16r-64-whole=19.34  fp32-64-whole=19.34
+── regime lanczos: mean FR per arm
+   fp16-64-t256o32=45.55  fp16-64-t256o64=45.64  fp16-64-t384o32=46.01  fp16-64-t384o64=46.01  fp16-64-t512o32=45.78  fp16-64-t512o64=45.78  fp16-64-whole=45.78  fp16r-64-whole=45.80  fp32-64-whole=45.80
+── regime jpeg: mean FR per arm
+   fp16-64-t256o32=-1.71  fp16-64-t256o64=-1.68  fp16-64-t384o32=-1.57  fp16-64-t384o64=-1.57  fp16-64-t512o32=-1.69  fp16-64-t512o64=-1.69  fp16-64-whole=-1.69  fp16r-64-whole=-1.67  fp32-64-whole=-1.67
+other methods in the csv: ['REFERENCE']
+── per-cell ΔFR vs fp32 whole: most negative / most positive / count of losses > 0.1 / gains > 0.1
+  HEART-fp16-64-whole    min Δ -0.050 (('CustSpotlight_graphic', 'jpeg'))  max Δ +0.020  losses>0.1: 0  gains>0.1: 0
+  HEART-fp16-64-t384o32  min Δ -0.470 (('RBC_photo', 'lanczos'))  max Δ +0.970  losses>0.1: 2  gains>0.1: 16
+  HEART-fp16-64-t256o32  min Δ -2.020 (('RBC_photo', 'lanczos'))  max Δ +0.900  losses>0.1: 7  gains>0.1: 12

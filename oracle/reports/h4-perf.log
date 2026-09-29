@@ -1,0 +1,22 @@
+loaded heart_4x_otf_v2_fp32.safetensors (fp32, head 64) in 0.02 s
+loaded heart_4x_otf_v2_fp32.safetensors (fp32, head 40) in 0.01 s
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 64) in 0.01 s
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 40) in 0.01 s
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 64) in 0.01 s
+loaded heart_4x_otf_v2_fp16.safetensors (fp16, head 64) in 0.01 s
+perf: GPU utilization before 0 % (sample the counter for ~10 s before starting; must be idle)
+── LR 256² → 1024² (1.05 Mpx out), median of 5, arms interleaved ──
+  fp32-64     585.1 ms      558.0 ms/Mpx-out   (all: 528, 572, 585, 593, 600)
+  fp32-40     790.8 ms      754.2 ms/Mpx-out   (all: 738, 763, 791, 800, 807)
+  fp16-64     472.3 ms      450.4 ms/Mpx-out   (all: 439, 458, 472, 496, 498)
+  fp16-40     568.8 ms      542.4 ms/Mpx-out   (all: 537, 559, 569, 651, 615)
+  fp16r-64     575.3 ms      548.7 ms/Mpx-out   (all: 545, 563, 575, 586, 601)
+  fp16-64-seams     481.1 ms      458.8 ms/Mpx-out   (all: 450, 464, 481, 491, 494)
+── LR 512² → 2048² (4.19 Mpx out), median of 5, arms interleaved ──
+  fp32-64    3224.4 ms      768.8 ms/Mpx-out   (all: 2571, 3017, 3224, 3857, 4490)
+  fp32-40    4511.3 ms     1075.6 ms/Mpx-out   (all: 3462, 3592, 4511, 5450, 6972)
+  fp16-64    2586.1 ms      616.6 ms/Mpx-out   (all: 2356, 2499, 2586, 3458, 4239)
+  fp16-40    3049.5 ms      727.1 ms/Mpx-out   (all: 2641, 2779, 3050, 3638, 5534)
+  fp16r-64    3177.3 ms      757.5 ms/Mpx-out   (all: 2742, 2880, 3177, 3573, 3988)
+  fp16-64-seams    2596.2 ms      619.0 ms/Mpx-out   (all: 2319, 2490, 2596, 3184, 3515)
+perf: GPU utilization after 99 %; RealPLKSR anchor 111 ms/Mpx (AB-R-0365), P0 bar 540–590 ms/Mpx at head 64 (AB-R-0370)

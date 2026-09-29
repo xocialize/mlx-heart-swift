@@ -1,0 +1,30 @@
+GPU util before: 0 %
+── e2e fp16 residual-fp32 (fixed) vs the torch fp32 oracle
+  FAIL fidelity 128² vs torch max|Δ| 4.025e-03  mean|Δ| 3.121e-04  |ref|max 0.7964  rel 5.05e-03  cos 0.99999970  n≠ 786389  PSNR vs torch 67.8 dB · vs ONNX 67.9 dB (torch-vs-ONNX 90.2 dB) · 0.
+  FAIL fidelity 512² vs torch max|Δ| 3.950e-03  mean|Δ| 2.864e-04  |ref|max 0.7558  rel 5.23e-03  cos 1.00000000  n≠ 12582153  PSNR vs torch 68.7 dB · vs ONNX 54.8 dB (torch-vs-ONNX 54.5 dB) · 
+  FAIL sharp 128² vs torch max|Δ| 6.285e-03  mean|Δ| 4.938e-04  |ref|max 0.9294  rel 6.76e-03  cos 0.99999934  n≠ 786395  PSNR vs torch 63.7 dB · vs ONNX 63.7 dB (torch-vs-ONNX 84.9 dB) · 0.1 s
+  FAIL sharp 512² vs torch max|Δ| 6.234e-03  mean|Δ| 4.383e-04  |ref|max 0.9484  rel 6.57e-03  cos 0.99999964  n≠ 12582430  PSNR vs torch 64.8 dB · vs ONNX 48.8 dB (torch-vs-ONNX 48.9 dB) · 1.8
+  FAIL clean 128² vs torch max|Δ| 2.097e-02  mean|Δ| 1.361e-03  |ref|max 1.823  rel 1.15e-02  cos 0.99999583  n≠ 786424  PSNR vs torch 54.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 0.1 s
+  FAIL clean 512² vs torch max|Δ| 2.261e-02  mean|Δ| 1.363e-03  |ref|max 1.841  rel 1.23e-02  cos 0.99999595  n≠ 12582752  PSNR vs torch 54.5 dB · vs ONNX 7.8 dB (torch-vs-ONNX 7.8 dB) · 1.8 s
+  FAIL clean2x 128² vs torch max|Δ| 1.350e-02  mean|Δ| 9.647e-04  |ref|max 1.637  rel 8.25e-03  cos 0.99999785  n≠ 196602  PSNR vs torch 57.5 dB · vs ONNX 57.5 dB (torch-vs-ONNX 95.8 dB) · 0.1 
+  FAIL clean2x 512² vs torch max|Δ| 1.357e-02  mean|Δ| 9.581e-04  |ref|max 1.767  rel 7.68e-03  cos 0.99999785  n≠ 3145670  PSNR vs torch 57.5 dB · vs ONNX 55.4 dB (torch-vs-ONNX 59.8 dB) · 1.8
+── perf: fp16-64 vs fp16r-64 (5 rounds, interleaved)
+perf: GPU utilization before 99 % (sample the counter for ~10 s before starting; must be idle)
+── LR 256² → 1024² (1.05 Mpx out), median of 5, arms interleaved ──
+  fp16-64     436.6 ms      416.4 ms/Mpx-out   (all: 449, 434, 436, 437, 440)
+  fp16r-64     456.3 ms      435.2 ms/Mpx-out   (all: 469, 455, 456, 456, 460)
+── LR 512² → 2048² (4.19 Mpx out), median of 5, arms interleaved ──
+  fp16-64    1869.3 ms      445.7 ms/Mpx-out   (all: 1836, 1906, 1847, 1869, 1932)
+  fp16r-64    1949.5 ms      464.8 ms/Mpx-out   (all: 1919, 1972, 1922, 1962, 1950)
+perf: GPU utilization after 99 %; RealPLKSR anchor 111 ms/Mpx (AB-R-0365), P0 bar 540–590 ms/Mpx at head 64 (AB-R-0370)
+── bench: whole-frame arms on the 27 cells
+  27/27 Unilever_photo__lanczos: fp32-64-whole 5.54s/6886MB fp16-64-whole 61.0dB/3.65s/3635MB fp16r-64-whole 61.0dB/3.92s/3539MB
+── per arm over 27 cells (8-bit PNGs; dB = PSNR vs the fp32-64-whole arm) ──
+  fp32-64-whole median 4.27 s  peak 6886 MB
+  fp16-64-whole median 2.62 s  peak 3587 MB  vs fp32-64-whole: median 59.4 dB  min 58.1  max 61.0
+  fp16r-64-whole median 2.67 s  peak 3587 MB  vs fp32-64-whole: median 59.4 dB  min 58.2  max 61.0
+GPU util before 0 % after 98 %. Score with: vosrgate score /private/tmp/claude-501/-Volumes-Satechi-Development-mlxengine-image--claude-worktrees-jovial-ishizaka-bce984/ac097025-d587-4e89-932f-b1f29f017c6b/scratchpad/gpu/fp16r <out.csv> (SSIMULACRA2 vs __reference.png)
+  Unilever_photo/jpeg/REFERENCE  FR 100.00  grad 3.382  sigma 97.8  DC psnr 32.3 ssim 0.9485 worst 0.8863  oct nan/nan/nan/nan
+GPU util after: 37 %
+done 18:07:56
+FP16R EXIT 0
