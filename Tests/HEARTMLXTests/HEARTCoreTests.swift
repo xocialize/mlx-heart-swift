@@ -138,6 +138,43 @@ final class HEARTCoreTests: XCTestCase {
         }
     }
 
+    /// The 16-bit boundary (AB-T-0229): on half weights, `keepingPrecision` runs the stem conv and the tail in float32 and
+    /// lands nearer an all-float32 forward of the same (half-rounded) weights than the half forward does; the tail's
+    /// strips agree with one strip; and on float32 weights the flag changes nothing.
+    func testKeepingPrecisionTail() throws {
+        try withCPU {
+            MLXRandom.seed(29)
+            let full = HEART(config: smallConfig())
+            let params = full.parameters().mapValues { (MLXRandom.normal($0.shape) * 0.05).asType(.float16).asType(.float32) }
+            func model(_ dtype: DType, strip: Int = 64 * 1024) -> HEART {
+                var c = smallConfig(); c.precisionTailStripPixels = strip
+                let m = HEART(config: c)
+                m.update(parameters: params.mapValues { $0.asType(dtype) })
+                for a in m.attentionBlocks { a.invalidate() }
+                return m
+            }
+            let x = MLXRandom.uniform(low: 0, high: 1, [1, 40, 48, 3])
+            let reference = try model(.float32).forward(x)
+            let half = model(.float16)
+            let plain = try half.forward(x), wide = try half.forward(x, keepingPrecision: true)
+            // 40 rows → padded to 64; 8-row strips (+ 2-row halo) cover it in eight
+            let striped = try model(.float16, strip: 8 * 64).forward(x, keepingPrecision: true)
+            eval(reference, plain, wide, striped)
+            XCTAssertEqual(plain.dtype, .float16)
+            XCTAssertEqual(wide.dtype, .float32)
+            XCTAssertEqual(wide.shape, [1, 160, 192, 3])
+            let scale = abs(reference).max().item(Float.self)
+            let errPlain = abs(plain.asType(.float32) - reference).mean().item(Float.self) / scale
+            let errWide = abs(wide - reference).mean().item(Float.self) / scale
+            XCTAssertLessThan(errWide, errPlain / 2, "wide \(errWide) vs half \(errPlain)")
+            let strips = abs(striped - wide).max().item(Float.self) / scale
+            XCTAssertLessThan(strips, 1e-5, "strips \(strips)")
+            // float32 weights: the flag is a no-op
+            let fp32 = model(.float32)
+            XCTAssertTrue(arrayEqual(try fp32.forward(x, keepingPrecision: true), try fp32.forward(x)).item(Bool.self))
+        }
+    }
+
     // MARK: ops
 
     func testReflectAndReplicatePadMatchTorchSemantics() {

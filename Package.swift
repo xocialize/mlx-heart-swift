@@ -26,8 +26,8 @@ let package = Package(
         .executable(name: "heart-smoke", targets: ["HEARTSmoke"]),   // CLI gate modes + drive the package
     ],
     dependencies: [
-        .package(url: "https://github.com/xocialize/mlx-engine-swift", from: "0.63.0"),
-        .package(url: "https://github.com/xocialize/mlx-realesrgan-swift", from: "0.7.0"),  // MLXTileProcessor + PlaybackTier
+        .package(url: "https://github.com/xocialize/mlx-engine-swift", from: "0.67.0"),  // contract 1.52.0: .rawRGBA16 + rawImageFormats
+        .package(url: "https://github.com/xocialize/mlx-realesrgan-swift", from: "0.8.1"),  // MLXTileProcessor (16-bit since 0.8.0; 0.8.1 fixes its Release build) + PlaybackTier
         .package(url: "https://github.com/ml-explore/mlx-swift", from: "0.30.0"),
     ],
     targets: [
@@ -47,6 +47,7 @@ let package = Package(
             dependencies: [
                 .product(name: "MLXToolKit", package: "mlx-engine-swift"),
                 "HEARTMLX",
+                .product(name: "RealESRGANMLX", package: "mlx-realesrgan-swift"),  // MLXTileProcessor.deepPixelFormat
                 .product(name: "MLX", package: "mlx-swift"),
             ],
             // The core's playback tier isn't Sendable-audited; the engine serializes lifecycle on
@@ -67,6 +68,7 @@ let package = Package(
                 "MLXHEART",
                 "HEARTMLX",
                 .product(name: "MLX", package: "mlx-swift"),
+                .product(name: "RealESRGANMLX", package: "mlx-realesrgan-swift"),  // DeepBoundaryTests: deepPixelFormat
                 .product(name: "MLXToolKit", package: "mlx-engine-swift"),
                 .product(name: "MLXServeCore", package: "mlx-engine-swift"),
                 .product(name: "MLXServeConformance", package: "mlx-engine-swift"),

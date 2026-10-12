@@ -139,3 +139,36 @@ absent from every default tier list) + `RegistrationIdentityTests` green; live: 
 `FORGE_FIDELITY_E2E_ARMS=upscaleHEART,upscaleFidelity` — the engine materialized the 34 MB file into the attached store
 and HEART ran RBC_photo 320×569 → 1280×2276 (load 3.4 s incl. the download, run 3.6 s, consistency 40.7 dB) and
 1080×1920 → 4320×7680 (28.4 s tiled, 857 ms/Mpx through the harness, consistency 42.3 dB) beside RealPLKSR (6.7 s, 43.0 dB).
+
+## H8 — the 16-bit boundary (2026-10-11, AB-T-0229, v0.2.0)
+
+The converter adopts `.rawRGBA16` (the mlx-realplksr-swift 0.2.0 pattern; the tile driver's 16-bit path is the same
+tiling as 8 bits). The fp16 lane then needed a precision change, because nothing float32 sits under HEART's output:
+`conv_last` writes the image in half precision.
+- **On the shipping lane as it was:** the 16-bit outputs had ~4,000 levels per channel. The G-6 direct gate failed on
+  3 of 5 images: smooth-area flat-neighbour share 0.079 / 0.025 / 0.040 against the 16-bit interpolation's
+  0.052 / 0.015 / 0.023 (Canon, Nikon, Sony).
+- **The study** (`.fidelity`, fp16 weights, whole-frame 768 px, distance from an all-float32 forward of the same
+  weights, in 8-bit steps):
+
+  | variant | mean | max | flat (Canon / Sony) | 512² MLX peak |
+  |---|---|---|---|---|
+  | fp16 (shipping) | 0.11–0.14 | 1.6–3.8 | 0.086 / 0.044 | 3.6 GB |
+  | float32 `conv_last` only | 0.11–0.14 | 1.7–3.7 | 0.020 / 0.016 | 4.7 GB |
+  | float32 tail | 0.035–0.056 | 1.4–3.8 | 0.019 / 0.015 | 7.1 GB |
+  | float32 stem + tail | 0.020–0.049 | 1.2–1.3 | 0.019 / 0.015 | 7.1 GB |
+  | the same, upsampler in 64 K-px strips (shipped) | 0.031 (Canon) | 1.27 | 0.018 / 0.015 (engine, tiled) | 3.2 GB |
+
+  A float32 `conv_last` alone only dithers the half grid; it adds no precision. Every variant runs at the fp16 forward's
+  speed (1.8 s per 512² tile, warm).
+- **Shipped:** `HEART.forward(_:keepingPrecision:)`, which `HEART_Playback` sets for a `deepPixelFormat` buffer. The stem
+  conv reads the float32 input, the tail runs in float32 (`tailFloat32`), and the 36 blocks stay fp16.
+  - The upsampler runs in strips of `HEARTConfig.precisionTailStripPixels` (64 K) input pixels with a 2-row halo. The
+    receptive radius is 1 + ½ + ¼ < 2 rows, so strips are exact up to kernel rounding: 0.035 vs 0.031 steps from all-fp32
+    within 4 px of a strip edge vs elsewhere.
+  - The fp32 lane and 8-bit inputs are unchanged.
+- **Gates:** 8-bit byte identity against v0.1.0 in Release on the GPU, 24/24. G-6 direct at best: flat-neighbour share
+  0.000–0.018 vs the interpolation's 0.015–0.165 on all five images. `testKeepingPrecisionTail` covers it on the CPU stream:
+  nearer an all-float32 forward than fp16, strips agree with one strip, a no-op on float32 weights.
+- **What 16 bits shows:** HEART's own ×4 mosaic in smooth areas (phase component 0.34–0.74 steps; RealPLKSR 0.17–0.28,
+  NERVE 0.19–0.40), the same at 8 and 16 bits. The fp16 output's rounding was hiding a little of it.

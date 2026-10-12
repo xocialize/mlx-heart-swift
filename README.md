@@ -47,6 +47,34 @@ tile is normalised by its own statistics). The default geometry is measured, not
 Cancellation: the entry checkpoint, one per tile, and one per residual group (six per forward), with `RunProgress` at
 the same seams.
 
+## 16 bits end to end (0.2.0)
+
+The surface declares `ToolDescriptor.rawImageFormats = [.rawBGRA8, .rawRGBA16]` (MLXToolKit contract 1.52.0, AB-T-0229),
+the mlx-realplksr-swift 0.2.0 boundary.
+- A `.rawRGBA16` image comes back `.rawRGBA16`, and a PNG or TIFF deeper than 8 bits comes back as a 16-bit PNG.
+- Both run through the shared tile driver's 16-bit path (mlx-realesrgan-swift ≥ 0.8.1), with the same tiling as 8 bits.
+  The sub-native resample runs at 16 bits too.
+- 8-bit inputs take the 8-bit path unchanged.
+
+⚠️ **The fp16 lane needed more than a converter.** HEART has no float32 base under its output: `conv_last` writes
+the image directly, in half precision. A 16-bit run on the shipping lane came back with only ~4,000 levels per
+channel, and it failed the G-6 gate on 3 of 5 images (smooth-area flat-neighbour share 0.079 / 0.025 / 0.040 against
+the interpolation's 0.052 / 0.015 / 0.023): the Float16 staircase AB-A-0158 predicted for a half boundary.
+- So a 16-bit buffer runs `HEART.forward(_:keepingPrecision: true)`: the stem conv reads the float32 input, and the
+  tail (`conv_after_body` → `conv_last`) runs in float32. The 36 residual blocks stay fp16.
+- Distance from an all-float32 forward on the G-6 set: 0.11–0.14 of an 8-bit step mean on fp16, 0.02–0.05 with the
+  float32 stem and tail.
+- The tail's upsampler runs in 64 K-pixel row strips with a 2-row halo, which is exact by receptive field. Un-stripped,
+  float32 at the output scale took a 512² tile's MLX peak from 3.6 to 7.1 GB. Stripped, it is 3.2 GB at the fp16
+  forward's speed (1.8 s).
+
+Gates (2026-10-11, M5 Max):
+- **8-bit byte identity:** Release builds on the GPU, against v0.1.0, 4 images × {whole-frame, tiled} × {png ×4,
+  png ×2, rawBGRA8 ×4}: 24/24 outputs byte-identical.
+- **G-6 direct gate** (best, the AB-R-0489 set, through the Image Engine): the 16-bit output's smooth-area
+  flat-neighbour share is 0.000–0.018, at or below the 16-bit interpolation's 0.015–0.165 on every image (the 8-bit
+  model: 0.26–0.48). Its 56–65 k levels sit 0.20 of a step mean from the 8-bit output.
+
 ## Port
 
 An isomorphic translation of `heart_arch.py` and the traiNNer-redux helpers it imports (same classes, same forward

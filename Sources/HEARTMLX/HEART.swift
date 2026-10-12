@@ -82,6 +82,8 @@ public struct HEARTConfig: Sendable, Equatable {
     /// AMP-style posture the model was trained under. Measured in PORTING-SPEC H3; the convs, attention and MLP
     /// still run in the weights' dtype.
     public var residualStreamFloat32: Bool = false
+    /// Input pixels per strip of the float32 tail on a 16-bit boundary (`HEART.tailFloat32`, AB-T-0229).
+    public var precisionTailStripPixels: Int = 64 * 1024
 
     public init() {}
     public init(scale: Int) { self.scale = scale }
@@ -575,6 +577,13 @@ public final class HEART: Module, @unchecked Sendable {
         return (f, patchEmbed(f))
     }
 
+    /// `stem` with `conv_first` in float32 on a float32 input: the stem features keep the input's precision for the
+    /// tail's residual (`tailFloat32`); the tokens go to the residual groups in the weights' dtype.
+    func stemFloat32(_ x: MLXArray) -> (f: MLXArray, y: MLXArray) {
+        let f = conv32(convFirst, x)
+        return (f, patchEmbed(f.asType(computeDtype)))
+    }
+
     /// `norm` → `conv_after_body` + stem residual → `conv_before_upsample` → upsample → `conv_last`.
     public func tail(_ y: MLXArray, stemFeatures f: MLXArray) -> MLXArray {
         var z = convAfterBody(norm(y).asType(computeDtype)) + f
@@ -585,6 +594,56 @@ public final class HEART: Module, @unchecked Sendable {
         return convLast(z)
     }
 
+    // MARK: 16-bit precision (AB-T-0229)
+
+    /// Rows of `tailFloat32`'s upsampler halo, in input pixels. Its receptive radius from `conv_before_upsample`'s
+    /// output is 1 + ½ + ¼ + … < 2 input rows (a 3×3 conv per stage at 1×, 2×, … and `conv_last` at the output scale),
+    /// so a strip with 2 real rows above and below gives its kept rows the full-frame result (up to float32 rounding:
+    /// the conv kernels vary with shape; on the G-6 Canon, 0.035 vs 0.031 steps mean from an all-fp32 forward within
+    /// 4 px of a strip edge vs elsewhere).
+    static let tailHalo = 2
+
+    /// `conv` in float32: the half weights widened (exactly) and the input cast up.
+    private func conv32(_ conv: Conv2d, _ x: MLXArray) -> MLXArray {
+        conv2d(x.asType(.float32), conv.weight.asType(.float32), padding: 1) + conv.bias!.asType(.float32)
+    }
+
+    /// `tail` in float32, for a 16-bit boundary on half weights. The shipping fp16 lane writes `conv_last` in half
+    /// precision, so a ×4 output carried ~11 bits (2048 levels per octave near white — the Float16 staircase
+    /// AB-A-0158 measured), and the fp16 tail convs added their rounding on top: 0.11–0.14 8-bit steps mean from an
+    /// all-fp32 forward on the G-6 set. With the stem conv (`forward(_:keepingPrecision:)`) and this tail in float32
+    /// it is 0.02–0.05 steps, and the smooth-area flat-neighbour share falls to the 16-bit interpolation's.
+    ///
+    /// The ×2/×4 upsampler runs in horizontal strips of `precisionTailStripPixels / width` input rows plus `tailHalo`
+    /// rows each side, evaluated one at a time. Un-stripped, its float32 activations at the output scale took a 512²
+    /// tile's MLX peak from 3.6 GB (the fp16 forward) to 7.1 GB; in 64 K-pixel strips it is 3.2 GB at the fp16
+    /// forward's speed (1.8 s, M5 Max). Strip edges inside the frame see real rows; at the frame's top and bottom the
+    /// conv's zero padding falls on the image edge, as in the full-frame forward.
+    @inline(never)
+    func tailFloat32(_ y: MLXArray, stemFeatures f: MLXArray) -> MLXArray {
+        let stripPixels = config.precisionTailStripPixels
+        var z = conv32(convAfterBody, norm(y.asType(.float32))) + f.asType(.float32)
+        z = leakyRelu(conv32(convBeforeUpsample[0] as! Conv2d, z), negativeSlope: 0.01)
+        eval(z)
+        let h = z.dim(1), s = config.scale
+        let rows = max(8, stripPixels / max(z.dim(2), 1))
+        var strips: [MLXArray] = []
+        var r0 = 0
+        while r0 < h {
+            let r1 = min(h, r0 + rows)
+            let a = max(0, r0 - Self.tailHalo), b = min(h, r1 + Self.tailHalo)
+            var u = z[0..., a ..< b, 0..., 0...]
+            for stage in 0 ..< config.upsampleStages {
+                u = pixelShuffleNHWC(conv32(upsample[2 * stage] as! Conv2d, u), 2)
+            }
+            let strip = conv32(convLast, u)[0..., ((r0 - a) * s) ..< ((r1 - a) * s), 0..., 0...]
+            eval(strip)
+            strips.append(strip)
+            r0 = r1
+        }
+        return strips.count == 1 ? strips[0] : concatenated(strips, axis: 1)
+    }
+
     /// The whole forward, uninterrupted.
     public func callAsFunction(_ x: MLXArray) -> MLXArray {
         try! forward(x)
@@ -593,12 +652,18 @@ public final class HEART: Module, @unchecked Sendable {
     /// The forward with a cooperative seam after every residual group: `checkpoint` (CAN — rethrown unchanged) and
     /// `onGroup(done, total)` (`RunProgress`). When either is supplied the group output is evaluated first, so a
     /// cancel lands within one group's work (~1/6 of the forward) instead of after the whole frame.
+    ///
+    /// `keepingPrecision` (a 16-bit boundary, AB-T-0229): on half weights, the stem conv reads the float32 input and
+    /// the tail runs in float32 (`tailFloat32`), so the output carries the precision of a float32 forward instead of
+    /// half's. The residual groups stay in the weights' dtype. `false` is the forward byte for byte as before.
     public func forward(_ input: MLXArray,
+                        keepingPrecision: Bool = false,
                         checkpoint: (() throws -> Void)? = nil,
                         onGroup: ((Int, Int) -> Void)? = nil) throws -> MLXArray {
         let h = input.dim(1), w = input.dim(2)
-        let x = checkImageSize(input.asType(computeDtype), window: config.windowSize)
-        let (f, tokens) = stem(x)
+        let wide = keepingPrecision && computeDtype != .float32
+        let x = checkImageSize(wide ? input.asType(.float32) : input.asType(computeDtype), window: config.windowSize)
+        let (f, tokens) = wide ? stemFloat32(x) : stem(x)
         var y = tokens
         let seam = checkpoint != nil || onGroup != nil
         for (i, layer) in layers.enumerated() {
@@ -609,7 +674,7 @@ public final class HEART: Module, @unchecked Sendable {
                 onGroup?(i + 1, layers.count)
             }
         }
-        let out = tail(y, stemFeatures: f)
+        let out = wide ? tailFloat32(y, stemFeatures: f) : tail(y, stemFeatures: f)
         return out[0..., 0 ..< (h * config.scale), 0 ..< (w * config.scale), 0...]
     }
 

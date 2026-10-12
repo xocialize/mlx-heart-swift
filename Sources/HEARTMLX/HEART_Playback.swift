@@ -132,12 +132,15 @@ public final class HEART_Playback: PlaybackTier, @unchecked Sendable {
 
     public func upscale(_ buffer: CVPixelBuffer) async throws -> CVPixelBuffer {
         let width = CVPixelBufferGetWidth(buffer), height = CVPixelBufferGetHeight(buffer)
+        // A 16-bit buffer (`MLXTileProcessor.deepPixelFormat`) keeps its precision through the fp16 lane: float32 stem
+        // and tail (`HEART.forward(_:keepingPrecision:)`). An 8-bit one runs the forward exactly as before.
+        let deep = MLXTileProcessor.isDeep(buffer)
         let tilesTotal = wholeFrameMaxPixels > 0 && width * height <= wholeFrameMaxPixels
             ? 1 : tileCount(width: width, height: height)
         var tilesDone = 0
         do {
             return try tileProcessor.processAdaptive(buffer, wholeFrameMaxPixels: wholeFrameMaxPixels) { tile in
-                let y = try model.forward(tile, checkpoint: checkpoint) { g, gTotal in
+                let y = try model.forward(tile, keepingPrecision: deep, checkpoint: checkpoint) { g, gTotal in
                     self.onProgress?(tilesDone, tilesTotal, g, gTotal)
                 }
                 MLX.eval(y)
