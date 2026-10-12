@@ -1,4 +1,5 @@
 import Foundation
+import Accelerate
 import CoreGraphics
 import CoreImage
 import CoreVideo
@@ -287,41 +288,49 @@ public final class HEARTUpscalePackage: ModelPackage {
         return buffer
     }
 
-    /// High-quality downsample of a 32BGRA `CVPixelBuffer` to `w`×`h` (a new 32BGRA buffer). A `deepPixelFormat` buffer
-    /// is resampled at 16 bits into a new one.
+    /// Lanczos downsample of a `CVPixelBuffer` to `w`×`h`: a new buffer in the source's format, 32BGRA or the 16-bit
+    /// `deepPixelFormat` (vImage, AB-T-0225). The CoreGraphics `.high` draw this replaces sampled on a corner-aligned
+    /// grid, so a ×2 reduction drifted ±0.26 px from the centre to the edges. That cost 2.8 dB mean PSNR at ×2 (up to
+    /// 6.3 dB on line art) against a Lanczos reduction of the same ×4 frame (AB-R-0486). vImage's Lanczos matches PIL's
+    /// to 0.02 dB.
     public nonisolated static func resizePixelBuffer(_ src: CVPixelBuffer, toWidth w: Int, height h: Int) throws -> CVPixelBuffer {
         guard w > 0, h > 0 else { throw HEARTPackageError.imageEncodeFailed }
-        if MLXTileProcessor.isDeep(src) {
-            guard let cg = deepCGImage(src) else { throw HEARTPackageError.imageEncodeFailed }
-            return try deepPixelBuffer(drawing: cg, width: w, height: h, interpolation: .high)
+        let deep = MLXTileProcessor.isDeep(src)
+        let buffer: CVPixelBuffer
+        if deep {
+            buffer = try makeDeepPixelBuffer(w, h)
+        } else {
+            var pb: CVPixelBuffer?
+            let attrs: [String: Any] = [
+                kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
+                kCVPixelBufferWidthKey as String: w,
+                kCVPixelBufferHeightKey as String: h,
+                kCVPixelBufferIOSurfacePropertiesKey as String: [:],
+            ]
+            guard CVPixelBufferCreate(nil, w, h, kCVPixelFormatType_32BGRA, attrs as CFDictionary, &pb) == kCVReturnSuccess,
+                  let made = pb else {
+                throw HEARTPackageError.imageEncodeFailed
+            }
+            buffer = made
         }
-        let ci = CIImage(cvPixelBuffer: src)
-        let ctx = CIContext(options: [.cacheIntermediates: false])
-        guard let cg = ctx.createCGImage(ci, from: ci.extent) else { throw HEARTPackageError.imageEncodeFailed }
-        var pb: CVPixelBuffer?
-        let attrs: [String: Any] = [
-            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
-            kCVPixelBufferWidthKey as String: w,
-            kCVPixelBufferHeightKey as String: h,
-            kCVPixelBufferIOSurfacePropertiesKey as String: [:],
-        ]
-        guard CVPixelBufferCreate(nil, w, h, kCVPixelFormatType_32BGRA, attrs as CFDictionary, &pb) == kCVReturnSuccess,
-              let buffer = pb else {
-            throw HEARTPackageError.imageEncodeFailed
-        }
+        CVPixelBufferLockBaseAddress(src, .readOnly)
         CVPixelBufferLockBaseAddress(buffer, [])
-        defer { CVPixelBufferUnlockBaseAddress(buffer, []) }
-        guard let base = CVPixelBufferGetBaseAddress(buffer),
-              let outCtx = CGContext(
-                data: base, width: w, height: h, bitsPerComponent: 8,
-                bytesPerRow: CVPixelBufferGetBytesPerRow(buffer),
-                space: CGColorSpace(name: CGColorSpace.sRGB)!,
-                bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue
-                    | CGBitmapInfo.byteOrder32Little.rawValue) else {
+        defer {
+            CVPixelBufferUnlockBaseAddress(buffer, [])
+            CVPixelBufferUnlockBaseAddress(src, .readOnly)
+        }
+        guard let srcBase = CVPixelBufferGetBaseAddress(src), let dstBase = CVPixelBufferGetBaseAddress(buffer) else {
             throw HEARTPackageError.imageEncodeFailed
         }
-        outCtx.interpolationQuality = .high
-        outCtx.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+        var s = vImage_Buffer(data: srcBase, height: vImagePixelCount(CVPixelBufferGetHeight(src)),
+                              width: vImagePixelCount(CVPixelBufferGetWidth(src)), rowBytes: CVPixelBufferGetBytesPerRow(src))
+        var d = vImage_Buffer(data: dstBase, height: vImagePixelCount(h), width: vImagePixelCount(w),
+                              rowBytes: CVPixelBufferGetBytesPerRow(buffer))
+        // Four interleaved channels either way, each filtered alike, so BGRA and RGBA order both hold; premultiplied
+        // alpha resamples correctly as is.
+        let err = deep ? vImageScale_ARGB16U(&s, &d, nil, vImage_Flags(kvImageNoFlags))
+                       : vImageScale_ARGB8888(&s, &d, nil, vImage_Flags(kvImageNoFlags))
+        guard err == kvImageNoError else { throw HEARTPackageError.imageEncodeFailed }
         return buffer
     }
 

@@ -75,6 +75,19 @@ Gates (2026-10-11, M5 Max):
   flat-neighbour share is 0.000–0.018, at or below the 16-bit interpolation's 0.015–0.165 on every image (the 8-bit
   model: 0.26–0.48). Its 56–65 k levels sit 0.20 of a step mean from the 8-bit output.
 
+## Sub-native scale is a Lanczos reduction (0.2.1)
+
+A `scale` below the native factor (×2 from the ×4 network) is now a vImage Lanczos reduction of the native frame,
+at 8 or 16 bits (AB-T-0225).
+- **The defect:** the CoreGraphics `.high` draw it replaces sampled on a corner-aligned grid. Content drifted
+  ±0.26 px from the centre toward the edges.
+- **What it cost:** on the G-4 drawn ladder (AB-R-0486), HEART `.fidelity`'s shipped ×2 lost 2.8 dB mean PSNR against a
+  Lanczos reduction of the same ×4 frame, up to 6.3 dB on line art. Photos lost less.
+- **Now:** the shipped ×2 matches PIL's Lanczos to 0.02 dB.
+- **Test:** `resizeStaysRegisteredAcrossTheFrame` places blocks near both corners and the centre. It failed on 0.2.0
+  (4.26 for 4.00, 247.74 for 248) and passes here at 8 and at 16 bits.
+- **Unchanged:** ×4 and other native-scale outputs are untouched.
+
 ## Port
 
 An isomorphic translation of `heart_arch.py` and the traiNNer-redux helpers it imports (same classes, same forward
