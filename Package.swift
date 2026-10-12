@@ -29,6 +29,9 @@ let package = Package(
         .package(url: "https://github.com/xocialize/mlx-engine-swift", from: "0.67.0"),  // contract 1.52.0: .rawRGBA16 + rawImageFormats
         .package(url: "https://github.com/xocialize/mlx-realesrgan-swift", from: "0.8.1"),  // MLXTileProcessor (16-bit since 0.8.0; 0.8.1 fixes its Release build) + PlaybackTier
         .package(url: "https://github.com/ml-explore/mlx-swift", from: "0.30.0"),
+        // ≥ 0.1.1: conv_before_upsample never reaches mlx 0.32.2's channel-pad helper, which frees a buffer the GPU
+        // still reads (AB-T-0214).
+        .package(url: "https://github.com/xocialize/mlx-exact-conv-swift", from: "0.1.1"),
     ],
     targets: [
         // Engine-agnostic core — NO MLXToolKit dep. Reuses the shipped tile driver rather than forking it.
@@ -38,6 +41,7 @@ let package = Package(
                 .product(name: "MLX", package: "mlx-swift"),
                 .product(name: "MLXNN", package: "mlx-swift"),
                 .product(name: "MLXFast", package: "mlx-swift"),
+                .product(name: "MLXExactConv", package: "mlx-exact-conv-swift"),
                 .product(name: "RealESRGANMLX", package: "mlx-realesrgan-swift"),
             ]
         ),
@@ -60,6 +64,7 @@ let package = Package(
                 "HEARTMLX",
                 .product(name: "MLX", package: "mlx-swift"),
                 .product(name: "MLXNN", package: "mlx-swift"),
+                .product(name: "MLXExactConv", package: "mlx-exact-conv-swift"),
             ]
         ),
         .testTarget(

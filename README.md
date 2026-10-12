@@ -88,6 +88,19 @@ at 8 or 16 bits (AB-T-0225).
   (4.26 for 4.00, 247.74 for 248) and passes here at 8 and at 16 bits.
 - **Unchanged:** ×4 and other native-scale outputs are untouched.
 
+## Off mlx's channel-pad helper (0.2.2)
+
+`conv_before_upsample` (180 → 64 channels, 3×3) is a `RoutedConv2d` now (AB-T-0214).
+- **The defect:** mlx 0.32.2 serves a stride-1 conv2d with 5+ input channels that aren't a multiple of 16 through
+  `pad_in_channels_conv_2D_gpu`. That helper frees its zero fill value while the GPU still reads it. Under a capped
+  buffer cache (the Image Engine's 2 GiB) the process can die with `Invalid Resource`. Every HEART forward took it
+  once, in the 8-bit tail and in the 16-bit float32 tail.
+- **Now:** ExactConv pads the channels in the graph: 180 → 192, or 208 where 192 + 64 channels would land in mlx's
+  lossy Winograd window, so the conv stays on implicit GEMM as before. `conv32` keeps a routed conv's route.
+- **Same output:** a Release Image Engine build gave byte-identical ×4, ×2, 16-bit ×2 and drawn-content outputs
+  against 0.2.1. The conv alone is bit-identical in fp16 and fp32.
+- **Test:** `testConvBeforeUpsampleIsRoutedOffThePadHelper` (GPU against a CPU conv).
+
 ## Port
 
 An isomorphic translation of `heart_arch.py` and the traiNNer-redux helpers it imports (same classes, same forward

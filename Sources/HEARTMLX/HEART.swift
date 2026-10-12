@@ -28,6 +28,7 @@
 
 import Foundation
 import MLX
+import MLXExactConv
 import MLXFast
 import MLXNN
 
@@ -544,8 +545,13 @@ public final class HEART: Module, @unchecked Sendable {
         self._layers.wrappedValue = (0 ..< c.depths.count).map { RHAG_RIB(config: c, group: $0) }
         self._norm.wrappedValue = AffineTransform(c.embedDim)
         self._convAfterBody.wrappedValue = Conv2d(inputChannels: c.embedDim, outputChannels: c.embedDim, kernelSize: 3, padding: 1)
+        // Routed (AB-T-0214): embedDim → numFeat (180 → 64) is a stride-1 3×3 conv whose input channels aren't a
+        // multiple of 16, which mlx 0.32.2 serves with `pad_in_channels_conv_2D_gpu`; that helper frees its zero fill
+        // value while the GPU still reads it, and under a capped buffer cache (the Image Engine's 2 GiB) the process
+        // dies with "Invalid Resource". ExactConv pads the channels in the graph instead; `.exact` pads 180 → 208,
+        // not 192, so the conv stays on implicit GEMM (192 + 64 channels would land in mlx's lossy Winograd window).
         self._convBeforeUpsample.wrappedValue = [
-            Conv2d(inputChannels: c.embedDim, outputChannels: c.numFeat, kernelSize: 3, padding: 1),
+            RoutedConv2d(inputChannels: c.embedDim, outputChannels: c.numFeat, kernelSize: 3, padding: 1, route: .exact),
         ]
         var up: [Module] = []
         for stage in 0 ..< c.upsampleStages {
@@ -603,9 +609,12 @@ public final class HEART: Module, @unchecked Sendable {
     /// 4 px of a strip edge vs elsewhere).
     static let tailHalo = 2
 
-    /// `conv` in float32: the half weights widened (exactly) and the input cast up.
+    /// `conv` in float32: the half weights widened (exactly) and the input cast up. A `RoutedConv2d` keeps its route
+    /// (`conv_before_upsample`, AB-T-0214); every other conv runs plain `conv2d`, as before.
     private func conv32(_ conv: Conv2d, _ x: MLXArray) -> MLXArray {
-        conv2d(x.asType(.float32), conv.weight.asType(.float32), padding: 1) + conv.bias!.asType(.float32)
+        ExactConv.conv2d(
+            x.asType(.float32), weight: conv.weight.asType(.float32), bias: conv.bias!.asType(.float32),
+            padding: (1, 1), route: (conv as? RoutedConv2d)?.route ?? .winograd)
     }
 
     /// `tail` in float32, for a 16-bit boundary on half weights. The shipping fp16 lane writes `conv_last` in half
